@@ -13,7 +13,6 @@ export function Hero() {
           <span>
             {" "}
             <Typed
-              align="justify"
               strings={["FACIL", "GUIADA", "EFECTIVA"]}
               typeSpeed={120}
               backSpeed={140}
