@@ -1,5 +1,4 @@
-import React from "react";
-import hero_background from "../../../src/assets/video/background.mp4";
+import hero_background from "../../../public/video/2.mp4"
 import "../hero/hero.css";
 import Typed from "react-typed";
 
@@ -8,7 +7,7 @@ export function Hero() {
     <section className="hero">
       <video src={hero_background} autoPlay muted loop />
 
-      <div className="content active">
+        <div className="content active">
         <h1>
           Aprendamos a programar de manera{" "}
           <span>
