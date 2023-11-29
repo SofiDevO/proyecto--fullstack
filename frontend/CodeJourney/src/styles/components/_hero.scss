@@ -1,0 +1,128 @@
+@use "../base";
+@mixin fontRoboto($roboto: "Roboto Flex") {
+  font-family: $roboto;
+}
+section {
+  padding: 20px 80px;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  transition: 1s ease;
+}
+
+/* opacidad al video */
+.hero::before {
+  z-index: 777;
+  content: "";
+  position: absolute;
+  background: linear-gradient(
+    18deg,
+    rgba(1, 1, 1, 0.76) 15%,
+    rgba(0, 0, 0, 0.616) 66%
+  );
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.Hero-botton .btn-content {
+  padding: 15px 30px;
+  font-weight: 700;
+  font-family: base.$font-variant;
+  background-color: #00ffff00;
+  backdrop-filter: blur(12px);
+  border-color: #fff;
+  border-width: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: base.$box-shadow-green;
+  font-size: large;
+  color: base.$primary-color;
+}
+
+.Hero-botton .btn-content:hover {
+  background-color: #ffffff00;
+  border-color: base.$primary-color-hover;
+  box-shadow: 3px 6px 16px -5px #0cffab;
+  transition: ease-in 0.2s;
+}
+
+video {
+  z-index: 000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.hero .content {
+  color: #fff;
+  z-index: 888;
+  width: 70%;
+  /* Aumente el width, porque en 50% se desborda cada que aparecen letras */
+  margin-top: 180px;
+  display: none;
+}
+
+.hero .content.active {
+  display: block;
+}
+/* here */
+.hero .content span {
+  color: #0cffab;
+  font-size: 1em;
+  width: 72px;
+  font-weight: bold;
+  @include fontRoboto;
+}
+
+/* here */
+.hero .content h1 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.hero .content p {
+  margin-bottom: 40px;
+  font-weight: 500;
+  font-size: large;
+  @include fontRoboto;
+}
+
+h1 {
+  font-size: 52px;
+
+  @include fontRoboto;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .hero .content {
+    width: 100%;
+  }
+
+  /* here */
+  .hero .content span {
+    color: #04bd7d;
+    font-size: 1em;
+    @include fontRoboto;
+  }
+
+  /* here */
+  .hero .content h1 {
+    font-size: 1.8em;
+    font-weight: 900;
+    text-transform: uppercase;
+    @include fontRoboto;
+  }
+}
