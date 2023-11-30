@@ -1,11 +1,13 @@
-import { Hero } from "./components/hero/Hero"
-
-
+import { Header } from "./assets/components/Header/Header"
+import { Hamburger } from "./assets/components/Header/HamburgerBtn/Hamburgerbtn"
 function App() {
   return (
     <>
-      <h1>Hola Mundo</h1>
-      <Hero/>
+    <Header/>
+    <Hamburger/>
+    <main>
+
+    </main>
     </>
   )
 }
