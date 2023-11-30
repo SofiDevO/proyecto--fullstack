@@ -1,14 +1,6 @@
-:root {
-  --background-color: #0b1519;
-  --background-header: #0b15197e;
-  --primary-color: #04bd7d;
-  --primary-color-hover: #0cffab;
-  --font-ligth: #fff;
-}
-
 body {
-  background-color: var(--background-color);
-  color: var(--font-ligth);
+  background-color: var(--background);
+  color: var(--text-color);
 }
 
 .form-container {
@@ -37,10 +29,10 @@ body {
   width: 100%;
   outline: none;
   border: none;
-  background-color: var(--background-color);
+  background-color: var(--background);
   margin: 10px;
   padding-bottom: 20px;
-  border-bottom: 3px solid var(--font-ligth);
+  border-bottom: 3px solid var(--text-color);
 }
 
 .info-container textarea {
@@ -48,8 +40,8 @@ body {
   height: 100px; /* Adjust the height according to your preference */
   margin-top: 5px;
   border-radius: 8px;
-  background-color: var(--background-color);
-  border: 3px solid var(--font-ligth);
+  background-color: var(--background);
+  border: 3px solid var(--text-color);
 }
 
 .contact-button {
@@ -60,7 +52,7 @@ body {
 }
 
 .contact-button button {
-  color: var(--font-ligth);
+  color: var(--text-color);
   background-color: var(--primary-color);
   width: 100%;
   height: 50px;
