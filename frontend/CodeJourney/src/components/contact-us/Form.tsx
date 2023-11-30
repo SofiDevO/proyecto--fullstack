@@ -1,3 +1,4 @@
+import "../../styles/global.css"
 import "./Form.css";
 export const Form = () => {
   return (
