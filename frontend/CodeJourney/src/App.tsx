@@ -1,11 +1,12 @@
-import { Hero } from "./components/hero/Hero"
-
+import { Header } from "./assets/components/Header/Header"
 
 function App() {
   return (
     <>
-      <h1>Hola Mundo</h1>
-      <Hero/>
+    <Header/>
+    <main>
+
+    </main>
     </>
   )
 }
