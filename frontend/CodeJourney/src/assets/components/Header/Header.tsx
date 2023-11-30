@@ -2,6 +2,7 @@ import { Hamburger } from "./HamburgerBtn/Hamburgerbtn";
 import "./Header.css";
 export const Header = () => {
   return (
+    <>
     <header className="header">
       <a className="header__logo" href="#">
         <span className="header__logo--span">CodersJourney</span>
@@ -30,5 +31,6 @@ export const Header = () => {
       </nav>
       <Hamburger />
     </header>
+    </>
   );
 };
