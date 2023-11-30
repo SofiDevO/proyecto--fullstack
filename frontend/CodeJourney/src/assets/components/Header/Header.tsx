@@ -1,4 +1,4 @@
-
+import { Hamburger } from "./HamburgerBtn/Hamburgerbtn";
 import "./Header.css";
 export const Header = () => {
   return (
@@ -7,7 +7,7 @@ export const Header = () => {
         <span className="header__logo--span">CodersJourney</span>
       </a>
       <nav className="menu panel">
-        <ul className="header__lists">
+        <ul className="header__list">
           <li className="header__item">
             <a href="#">Nuestro servicio</a>
           </li>
@@ -28,6 +28,7 @@ export const Header = () => {
           </a>
         </ul>
       </nav>
+      <Hamburger />
     </header>
   );
 };
