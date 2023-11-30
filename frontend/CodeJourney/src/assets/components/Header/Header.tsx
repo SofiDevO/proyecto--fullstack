@@ -6,7 +6,7 @@ export const Header = () => {
       <a className="header__logo" href="#">
         <span className="header__logo--span">CodersJourney</span>
       </a>
-      <nav className="menu panel">
+      <nav className="menu  panel is-active">
         <ul className="header__list">
           <li className="header__item">
             <a href="#">Nuestro servicio</a>
