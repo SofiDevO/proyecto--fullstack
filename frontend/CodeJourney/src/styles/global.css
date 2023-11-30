@@ -1,0 +1,52 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,600;8..144,700&display=swap");
+
+/* Variables */
+:root {
+  /* Color pallete*/
+  --background: #0B1519;
+  --background-header: #0b15197e;
+  --primary-color: #04BD7D;
+  --primary-color-hover: #0CFFAB;
+  --text-color:#FFF;
+  --link-color: #11c4b5;
+
+  /* text Styles */
+  --main-font: "Roboto Flex", sans-serif;
+  --main-title:6.4rem;
+  --subtitle: 4rem;
+  --text-content: 1.8rem;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  /*Con este font-size, hacemos que 1rem sea igual  a 10px */
+  font-size: 62.5%;
+}
+body {
+  font-family: var(--main-font);
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: var(--text-content);
+  line-height: normal;
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+h1 {
+  font-size:var(--main-title) ;
+}
+h2{
+  font-size: var(--subtitle);
+}
+a{
+  text-decoration: none;
+  color: var(--primary-color-hover) ;
+}
