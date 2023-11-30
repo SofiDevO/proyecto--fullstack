@@ -1,10 +1,12 @@
 body {
   background-color: var(--background);
-  color: var(--text-color);
+
 }
 
 .form-container {
   width: 100%;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 .contact-title {
@@ -25,24 +27,32 @@ body {
   justify-content: center;
 }
 
-.info-container input {
-  width: 100%;
+.info-container input,
+.info-container textarea {
+  width: calc(100% - 20px);
   outline: none;
   border: none;
+  color: var(--text-color);
   background-color: var(--background);
-  margin: 10px;
+  margin: 10px auto;
   padding-bottom: 20px;
+}
+
+.info-container input {
   border-bottom: 3px solid var(--text-color);
 }
 
 .info-container textarea {
-  width: calc(100% - 20px); /* Adjust the value based on your design */
-  height: 100px; /* Adjust the height according to your preference */
-  margin-top: 5px;
-  border-radius: 8px;
-  background-color: var(--background);
+  height: 80px;
   border: 3px solid var(--text-color);
+  border-radius: 8px;
+  display: block;
+  margin-top: 5px;
 }
+
+
+
+
 
 .contact-button {
   padding: 10px;
