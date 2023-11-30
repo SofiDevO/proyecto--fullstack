@@ -41,6 +41,9 @@ body {
   background-color: var(--background);
   color: var(--text-color);
 }
+main{
+  padding-top: 70px;
+}
 
 h1 {
   font-size:var(--main-title) ;

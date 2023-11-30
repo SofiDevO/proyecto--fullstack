@@ -5,9 +5,9 @@ export const Header = () => {
     <>
     <header className="header">
       <a className="header__logo" href="#">
-        <span className="header__logo--span">CodersJourney</span>
+        <span className="header__logo--span">DevsJourney</span>
       </a>
-      <nav className="menu  panel is-active">
+      <nav className="menu  panel">
         <ul className="header__list">
           <li className="header__item">
             <a href="#">Nuestro servicio</a>
@@ -21,11 +21,12 @@ export const Header = () => {
           <li className="header__item">
             <a href="">Nuestro equipo</a>
           </li>
-          <a href="#" className="header__btn header__btn--login">
-            Registrarse
-          </a>
           <a href="#" className="header__btn header__btn--register">
-            Iniciar Sesión
+          Iniciar Sesión
+          </a>
+          <a href="#" className="header__btn header__btn--login">
+            
+            Registrarse
           </a>
         </ul>
       </nav>
