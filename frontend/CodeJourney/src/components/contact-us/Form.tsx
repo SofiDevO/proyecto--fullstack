@@ -18,9 +18,9 @@ export const Form = () => {
     if ([nombre, correo, asunto, mensaje].includes("")) {
       console.log("Hay algun campo vacio");
       setError(true);
-    } else {
-      console.log("Enviando Formulario");
+      return;
     }
+    setError(false)
   };
 
   return (
