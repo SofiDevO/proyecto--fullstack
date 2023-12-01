@@ -20,7 +20,7 @@ export const Form = () => {
       setError(true);
       return;
     }
-    setError(false)
+    setError(false);
   };
 
   return (
