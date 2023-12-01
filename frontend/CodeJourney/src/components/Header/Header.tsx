@@ -1,6 +1,28 @@
+import { useEffect } from 'react';
 import { Hamburger } from "./HamburgerBtn/Hamburgerbtn";
 import "./Header.css";
+
 export const Header = () => {
+  
+  useEffect(() => {
+    const d = document;
+    function hamburgerMenu(panelBtn, panel, menuLink) {
+      d.addEventListener("click", (e) => {
+        if (e.target.matches(panelBtn) || e.target.matches(`${panelBtn} *`)) {
+          d.querySelector(panel).classList.toggle("is-active");
+          d.querySelector(panelBtn).classList.toggle("is-active");
+        };
+
+        if (e.target.matches(menuLink)) {
+          d.querySelector(panel).classList.remove("is-active");
+          d.querySelector(panelBtn).classList.remove("is-active");
+        };
+      })
+    }
+
+    hamburgerMenu(".panel-btn ", ".panel", ".header__menu-link");
+  }, []);
+
   return (
     <>
       <header className="header">
@@ -31,7 +53,11 @@ export const Header = () => {
             </div>
           </ul>
         </nav>
-        <Hamburger />
+        <button className="hamburger hamburger--arrow panel-btn" type="button">
+      <span className="hamburger-box">
+        <span className="hamburger-inner"></span>
+      </span>
+    </button>
       </header>
     </>
   );
