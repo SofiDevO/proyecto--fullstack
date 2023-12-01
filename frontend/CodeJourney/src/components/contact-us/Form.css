@@ -11,7 +11,7 @@ body {
 
 .error-camp{
   margin-top: 4rem;
-  background-color: rgb(165, 26, 26) ;
+  background-color: var(--error-color);
   display: flex;
   justify-content: center;
   align-items: center;
