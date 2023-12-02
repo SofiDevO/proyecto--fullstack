@@ -20,14 +20,13 @@ flex-direction: column;
 align-items: flex-end;
 display: grid;
 grid-template-columns: 50% 50%;
-align-items: flex-end;
 }
 
 
 .sepadaror {
 
-padding: 1em;
-
+padding: 1em ;
+padding-bottom: 5rem;
 }
 
 
@@ -43,7 +42,7 @@ text-transform: uppercase;
 .content_servicios p{
     padding: 1em;
     color: #fff;
-    font-size: 1.3em;
+    font-size: 2rem;
     font-family:var(--text-font);
     }
     
@@ -60,7 +59,17 @@ display: flex;
     }
 
 
-    @media screen and (max-width: 900px){
+    @media screen and (max-width: 939px){
+
+
+
+        .nuestro_servicio{
+
+
+            padding: 50px 30px;
+            
+            }
+
 
         .content_servicios {
             background-color: #009B65;
