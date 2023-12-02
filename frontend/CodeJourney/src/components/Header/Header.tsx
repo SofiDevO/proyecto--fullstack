@@ -1,12 +1,10 @@
-import { Hamburger } from "./HamburgerBtn/Hamburgerbtn";
+import { Logo } from "../Logo/Logo";
 import "./Header.css";
 export const Header = () => {
   return (
     <>
       <header className="header">
-        <a className="header__logo" href="#">
-          <span className="header__logo--span">DevsJourney</span>
-        </a>
+       <Logo/>
         <nav className="menu  panel ">
           <ul className="header__list">
             <li className="header__item">
@@ -31,7 +29,11 @@ export const Header = () => {
             </div>
           </ul>
         </nav>
-        <Hamburger />
+        <button className="hamburger hamburger--arrow panel-btn" type="button">
+      <span className="hamburger-box">
+        <span className="hamburger-inner"></span>
+      </span>
+    </button>
       </header>
     </>
   );
