@@ -12,9 +12,9 @@ function App() {
 
 {/* <SectionPageError/>  */}
       <Header />
+      <main>
       <Hero/>
       <NuestroServicio/>
-      <main>
         <Form />
       </main>
       <Footer/>
