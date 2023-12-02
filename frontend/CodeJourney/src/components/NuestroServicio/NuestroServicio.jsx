@@ -5,7 +5,7 @@ import "./NuestroServicio.css";
 
 export const NuestroServicio = () => {
   return (
-    <section className="nuestro_servicio">
+    <section className="nuestro_servicio" id="servicio">
 
       <div className="content_servicios">
 

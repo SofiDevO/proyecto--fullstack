@@ -1,8 +1,11 @@
-export const Boton = ({ text, className, href }) => {
+import { NavLink as Link } from "react-router-dom";
+
+
+export const Boton = ({ text, className, link }) => {
     return (
-      <a href={href} className={`header__btn ${className} header__menu-link`}>
+      <Link to={link} className={`header__btn ${className} header__menu-link`}>
         {text}
-      </a>
+      </Link>
     );
   };
   
