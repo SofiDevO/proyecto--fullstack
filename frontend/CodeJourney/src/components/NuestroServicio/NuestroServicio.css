@@ -44,7 +44,7 @@ text-transform: uppercase;
     padding: 1em;
     color: #fff;
     font-size: 1.3em;
-    font-family: 'Roboto Flex', sans-serif;
+    font-family:var(--text-font);
     }
     
     .content_servicios span {

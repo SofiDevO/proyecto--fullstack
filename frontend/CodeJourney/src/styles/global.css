@@ -1,7 +1,7 @@
 @import "./reset.css";
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,127.2,1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 /* Variables */
 :root {
   /* Color pallete*/
@@ -15,7 +15,7 @@
 
   /* text Styles */
   --main-font: "Oswald", sans-serif;
-  --text-font: "Roboto Flex", sans-serif;
+  --text-font: 'Montserrat', sans-serif;
   --main-title: 6.4rem;
   --subtitle: 4rem;
   --text-content: 1.8rem;
