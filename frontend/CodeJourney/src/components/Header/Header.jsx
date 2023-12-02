@@ -5,7 +5,7 @@ import "./Header.css";
 import { Logo } from "../Logo/Logo";
 
 
-export const Header = ({ menuItems }) => {
+export const Header = () => {
   useEffect(() => {
     const d = document;
     function handleClick(e) {
@@ -30,27 +30,32 @@ export const Header = ({ menuItems }) => {
 
   return (
     <>
-      <header className='header'>
+     <header className='header'>
         <Logo />
         <nav className='menu  panel '>
           <ul className='header__list'>
-            {menuItems.map((item, index) => (
-              <li key={index} className='header__item'>
-                <a className='header__menu-link' href={item.href}>
-                  {item.text}
-                </a>
-              </li>
-            ))}
+          <li className="header__item">
+              <a href="#servicio">Nuestro servicio</a>
+            </li>
+            <li className="header__item">
+              <a href="#feature">Caracterisiticas</a>
+            </li>
+            <li className="header__item">
+              <a href="#contacto">Contactos</a>
+            </li>
+            <li className="header__item">
+              <a href="#equipo">Nuestro equipo</a>
+            </li>
             <div className='btn__container'>
               <Boton
                 text='Iniciar Sesión'
                 className='header__btn--register'
-                href='#'
+                href='/login'
               />
               <Boton
                 text='Registrarse'
                 className='header__btn--login'
-                href='#'
+                href='/registro'
               />
             </div>
           </ul>
