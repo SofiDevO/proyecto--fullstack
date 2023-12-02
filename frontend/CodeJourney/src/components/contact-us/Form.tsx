@@ -21,6 +21,12 @@ export const Form = () => {
       return;
     }
     setError(false);
+
+    //clean forms
+    setNombre('');
+    setCorreo('');
+    setAsunto('');
+    setMensaje('');
   };
 
   return (

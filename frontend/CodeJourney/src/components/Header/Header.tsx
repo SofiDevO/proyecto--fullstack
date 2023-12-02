@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { Hamburger } from "./HamburgerBtn/Hamburgerbtn";
+
 import "./Header.css";
 
 export const Header = () => {
@@ -26,9 +25,7 @@ export const Header = () => {
   return (
     <>
       <header className="header">
-        <a className="header__logo" href="#">
-          <span className="header__logo--span">DevsJourney</span>
-        </a>
+       <Logo/>
         <nav className="menu  panel ">
           <ul className="header__list">
             <li className="header__item">

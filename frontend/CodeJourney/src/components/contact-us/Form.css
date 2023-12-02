@@ -1,15 +1,20 @@
+.topMenu a {
+  display: block;
+  padding: 0.3125rem 0.25rem;
+}
 body {
   background-color: var(--background);
-
 }
 
 .form-container {
+  padding-top: 50px;
   width: 100%;
+  height: 100vh;
   padding-left: 10vw;
   padding-right: 10vw;
 }
 
-.error-camp{
+.error-camp {
   margin-top: 4rem;
   background-color: var(--error-color);
   display: flex;
@@ -19,6 +24,8 @@ body {
 }
 
 .contact-title {
+  padding-top: 1em;
+  padding-bottom: 1em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +33,7 @@ body {
 }
 
 .contact-title p {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -59,10 +66,6 @@ body {
   margin-top: 5px;
 }
 
-
-
-
-
 .contact-button {
   padding: 10px;
   display: flex;
@@ -77,20 +80,23 @@ body {
   height: 50px;
   font-size: 12px;
   font-weight: bold;
+  border-radius: 10px;
   cursor: pointer;
+}
+
+textarea {
+  resize: none;
 }
 
 .contact-button button:hover {
   background-color: var(--primary-color-hover);
 }
 
-/* Media Query for screens with a maximum width of 768 pixels */
 @media screen and (max-width: 768px) {
   .info-container input,
   .info-container textarea {
-    width: calc(100% - 20px); /* Adjust the value based on your design */
+    width: calc(100% - 20px);
     margin-left: 10px;
     margin-right: 10px;
   }
 }
-
