@@ -3,9 +3,10 @@ import { useEffect } from "react";
 import { Boton } from "../Boton/Boton";
 import "./Header.css";
 import { Logo } from "../Logo/Logo";
+import { NavLink as Link} from "react-router-dom";
+import { NavLinkHome } from "./Navs/NavLinkHome/NavLinkHome";
 
-
-export const Header = () => {
+export const Header = (props) => {
   useEffect(() => {
     const d = document;
     function handleClick(e) {
@@ -34,28 +35,17 @@ export const Header = () => {
         <Logo />
         <nav className='menu  panel '>
           <ul className='header__list'>
-          <li className="header__item">
-              <a className="header__menu-link" href="#servicio">Nuestro servicio</a>
-            </li>
-            <li className="header__item">
-              <a href="#feature">Caracterisiticas</a>
-            </li>
-            <li className="header__item">
-              <a className="header__menu-link" href="#contacto">Contactos</a>
-            </li>
-            <li className="header__item">
-              <a  className="header__menu-link" href="#equipo">Nuestro equipo</a>
-            </li>
+            {props.navlink}
             <div className='btn__container'>
               <Boton
                 text='Iniciar Sesión'
                 className='header__btn--register'
-                href='/login'
+                link='/login'
               />
               <Boton
                 text='Registrarse'
                 className='header__btn--login'
-                href='/registro'
+                link='/registro'
               />
             </div>
           </ul>

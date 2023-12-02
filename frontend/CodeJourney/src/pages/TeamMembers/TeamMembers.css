@@ -1,0 +1,14 @@
+.container__pollitos{
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pollitos{
+    width: 100px;
+}
+
+.pollitos p{
+    font-size: 5rem;
+}

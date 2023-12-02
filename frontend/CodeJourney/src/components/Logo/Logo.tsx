@@ -1,7 +1,8 @@
+import { NavLink as Link } from "react-router-dom"
 export const Logo = ()=>{
     return(
-        <a className="header__logo" href="#">
+        <Link to="/" className="header__logo" >
         <span className="header__logo--span">CodeJourney</span>
-      </a>
+      </Link>
     )
 }
