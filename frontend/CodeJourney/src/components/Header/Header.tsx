@@ -1,23 +1,12 @@
-import React, { useEffect, MouseEvent } from "react";
+import { useEffect } from "react";
 import { Boton } from "../Boton/Boton";
 import "./Header.css";
 import { Logo } from "../Logo/Logo";
 
-// Tipos para las props del componente Header
-interface MenuItem {
-  text: string;
-  href: string;
-}
-
-interface HeaderProps {
-  menuItems: MenuItem[];
-}
-
-export const Header = ({ menuItems }: HeaderProps) => {
+export const Header = ({ menuItems }) => {
   useEffect(() => {
     const d = document;
-
-    function handleClick(e: MouseEvent) {
+    function handleClick(e) {
       if (e.target.matches(".panel-btn") || e.target.matches(".panel-btn *")) {
         d.querySelector(".panel").classList.toggle("is-active");
         d.querySelector(".panel-btn").classList.toggle("is-active");
@@ -31,6 +20,7 @@ export const Header = ({ menuItems }: HeaderProps) => {
 
     d.addEventListener("click", handleClick);
 
+    // Devuelve una función de limpieza que se ejecuta cuando el componente se desmonta
     return () => {
       d.removeEventListener("click", handleClick);
     };
