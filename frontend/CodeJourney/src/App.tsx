@@ -10,7 +10,7 @@ function App() {
   return (
     <>
 
-/* <SectionPageError/> */
+{/* <SectionPageError/>  */}
       <Header />
       <Hero/>
       <NuestroServicio/>
