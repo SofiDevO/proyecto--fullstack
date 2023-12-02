@@ -4,7 +4,12 @@
 .nuestro_servicio {
   padding-top: 50px;
 }
-
+.servicio__titulo{
+  text-align: center;
+}
+.text__content{
+  text-align: justify;
+}
 .content_servicios {
   background-color: #009b65;
   border-radius: 15px;
