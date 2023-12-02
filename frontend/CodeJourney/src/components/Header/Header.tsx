@@ -1,16 +1,17 @@
-import  { useEffect } from 'react';
-import { Boton } from '../Boton/Boton';
-import './Header.css';
-import { Logo } from '../Logo/Logo';
+
+import { useEffect } from "react";
+import { Boton } from "../Boton/Boton";
+import "./Header.css";
+import { Logo } from "../Logo/Logo";
+
 
 export const Header = ({ menuItems }) => {
   useEffect(() => {
     const d = document;
-
     function handleClick(e) {
-      if (e.target.matches('.panel-btn') || e.target.matches('.panel-btn *')) {
-        d.querySelector('.panel').classList.toggle('is-active');
-        d.querySelector('.panel-btn').classList.toggle('is-active');
+      if (e.target.matches(".panel-btn") || e.target.matches(".panel-btn *")) {
+        d.querySelector(".panel").classList.toggle("is-active");
+        d.querySelector(".panel-btn").classList.toggle("is-active");
       }
 
       if (e.target.matches('.header__menu-link')) {
