@@ -8,7 +8,14 @@ import { NuestroServicio } from "./components/NuestroServicio/NuestroServicio";
 function App() {
   return (
     <>
-      <Header />
+      <Header menuItems={[
+  { text: 'Nuestro servicio', href: '#' },
+  { text: 'Caracterisiticas', href: '#' },
+  { text: 'Contactos', href: '#' },
+  { text: 'Nuestro equipo', href: '#' }
+]} />
+
+
       <Hero/>
       <NuestroServicio/>
       <main>
