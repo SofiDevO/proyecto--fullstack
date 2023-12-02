@@ -35,16 +35,16 @@ export const Header = () => {
         <nav className='menu  panel '>
           <ul className='header__list'>
           <li className="header__item">
-              <a href="#servicio">Nuestro servicio</a>
+              <a className="header__menu-link" href="#servicio">Nuestro servicio</a>
             </li>
             <li className="header__item">
               <a href="#feature">Caracterisiticas</a>
             </li>
             <li className="header__item">
-              <a href="#contacto">Contactos</a>
+              <a className="header__menu-link" href="#contacto">Contactos</a>
             </li>
             <li className="header__item">
-              <a href="#equipo">Nuestro equipo</a>
+              <a  className="header__menu-link" href="#equipo">Nuestro equipo</a>
             </li>
             <div className='btn__container'>
               <Boton
