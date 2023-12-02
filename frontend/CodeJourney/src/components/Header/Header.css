@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
-  height: 8dvh;
+  height: 11dvh;
   background-color: rgba(0, 0, 0, 0.605);
   backdrop-filter: blur(13px);
   position: fixed;
@@ -51,7 +51,6 @@
 }
 
 .header__btn {
-  color: white;
   display: inline-flex;
   padding: 9px 15px;
   align-items: center;
@@ -63,8 +62,10 @@
   text-align: center;
   justify-content: center;
 }
+
 .header__btn--login {
   background-color: var(--primary-color);
+  color: white;
 }
 .header__btn--register {
   background-color: var(--background);
@@ -96,7 +97,7 @@
     z-index: 51;
   }
   .hamburger-box {
-    filter: invert(1);
+    filter: var(--filter-green);
   }
   .panel  {
     position: fixed;
@@ -106,6 +107,7 @@
     z-index: 50;
     top: 0;
     right: 0;
+    padding-top: 121px;
     background: rgb(0, 0, 0);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(10px);

@@ -1,154 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,127.2,1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,127.2,1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
 
-
-
-
-
-.nuestro_servicio{
-
-padding-top: 50px;
-
+.nuestro_servicio {
+  padding-top: 50px;
 }
-
-
-
+.servicio__titulo{
+  text-align: center;
+}
+.text__content{
+  text-align: justify;
+}
 .content_servicios {
-    background-color: #009B65;
-    border-radius: 15px;
-flex-direction: column;
-align-items: flex-end;
-display: grid;
-grid-template-columns: 50% 50%;
+  background-color: #009b65;
+  border-radius: 15px;
+  flex-direction: column;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
-
 
 .sepadaror {
-
-padding: 1em ;
-padding-bottom: 5rem;
+  padding: 1em;
+  padding-bottom: 5rem;
 }
 
-
-.content_servicios h1{
-color: #fff;
-font-size: 35px;
-font-weight: bolder;
-text-transform: uppercase;
+.content_servicios h1 {
+  color: #fff;
+  font-size: 35px;
+  font-weight: bolder;
+  text-transform: uppercase;
 }
 
+.content_servicios p {
+  padding: 1em;
+  color: #fff;
+  font-size: 2rem;
+  font-family: var(--text-font);
+}
 
+.content_servicios span {
+  font-weight: 600;
+}
 
-.content_servicios p{
-    padding: 1em;
-    color: #fff;
-    font-size: 2rem;
-    font-family:var(--text-font);
-    }
-    
-    .content_servicios span {
-font-weight: 600;
+.content_servicios img {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
 
-    }
+@media screen and (max-width: 939px) {
+  .nuestro_servicio {
+    padding: 50px 30px;
+  }
 
+  .content_servicios {
+    background-color: #009b65;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 100%;
+  }
 
-    .content_servicios img{
-width: 100%;
-position: relative;
-display: flex;
-    }
-
-
-    @media screen and (max-width: 939px){
-
-
-
-        .nuestro_servicio{
-
-
-            padding: 50px 30px;
-            
-            }
-
-
-        .content_servicios {
-            background-color: #009B65;
-            border-radius: 15px;
-        flex-direction: column;
-        align-items: center;
-        display: grid;
-        grid-template-columns: 100%;
-        }
-
-        .content_servicios img{
-        width: 80%;
-            position: relative;
-            display: flex;
-
-                }
-
-    }
-
+  .content_servicios img {
+    width: 80%;
+    position: relative;
+    display: flex;
+  }
+}
 
 @media screen and (max-width: 768px) {
+  section {
+    width: 100%;
+  }
+  .sepadaror {
+    padding: 7px 0px;
+  }
+  .nuestro_servicio {
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+  }
 
+  .content_servicios {
+    background-color: #009b65;
+    border-radius: 15px;
+    columns: 1;
+  }
 
+  .content_servicios h1 {
+    color: #fff;
+    font-size: 25px;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
 
-    section {
-width: 100%;
+  .content_servicios p {
+    padding: 0.6em;
+    color: #fff;
+    font-size: 1em;
+  }
 
+  .content_servicios span {
+    font-weight: 600;
+  }
 
-    }
-
-
-        .nuestro_servicio{
-
-            justify-content: center;
-            align-items: center;
-        padding-top: 40px;
-
-        }
-        
-        
-        
-        .content_servicios {
-            background-color: #009B65;
-            border-radius: 15px;
-        columns: 1;
-    
-        
-        }
-        
-     
-        
-        .content_servicios h1{
-        color: #fff;
-        font-size: 25px;
-        font-weight: bolder;
-        text-transform: uppercase;
-        }
-        
-        
-        
-        .content_servicios p{
-            padding: 0.6em;
-            color: #fff;
-            font-size: 1em;
-            font-family: 'Roboto Flex', sans-serif;
-            }
-            
-            .content_servicios span {
-        font-weight: 600;
-        
-            }
-        
-        
-            .content_servicios img{
-        width: 90%;
-        display: flex;
-            }
-
-
-
-
+  .content_servicios img {
+    width: 90%;
+    display: flex;
+  }
 }

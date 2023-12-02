@@ -9,7 +9,8 @@ import { NuestroServicio } from "./components/NuestroServicio/NuestroServicio";
 function App() {
   return (
     <>
-{/* <SectionPageError/> */}
+
+/* <SectionPageError/> */
       <Header />
       <Hero/>
       <NuestroServicio/>
