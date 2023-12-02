@@ -1,13 +1,12 @@
 
 import "../../styles/global.css";
+import { Logo } from "../Logo/Logo";
 import "../footer/Footer.css"
 
 export const Footer = () => {
   return (
    <footer className="container">
-      <a className="header__logo" href="#">
-          <span className="header__logo--span">DevsJourney</span>
-        </a>
+      <Logo/>
         <div className="link-container">
             <a href="#" className="link">home</a>
             <a href="#" className="link">nuestro servicio</a>

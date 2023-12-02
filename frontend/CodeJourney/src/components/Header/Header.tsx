@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { Boton } from "../Boton/Boton";
 import "./Header.css";
+import { Logo } from "../Logo/Logo";
 
 export const Header = ({ menuItems }) => {
   useEffect(() => {
     const d = document;
-
     function handleClick(e) {
       if (e.target.matches(".panel-btn") || e.target.matches(".panel-btn *")) {
         d.querySelector(".panel").classList.toggle("is-active");
@@ -29,9 +29,7 @@ export const Header = ({ menuItems }) => {
   return (
     <>
       <header className="header">
-        <a className="header__logo" href="#">
-          <span className="header__logo--span">DevsJourney</span>
-        </a>
+       <Logo/>
         <nav className="menu  panel ">
           <ul className="header__list">
             {menuItems.map((item, index) => (
