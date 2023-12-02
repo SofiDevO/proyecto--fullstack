@@ -73,7 +73,9 @@
   section {
     width: 100%;
   }
-
+  .sepadaror {
+    padding: 7px 0px;
+  }
   .nuestro_servicio {
     justify-content: center;
     align-items: center;
@@ -97,7 +99,6 @@
     padding: 0.6em;
     color: #fff;
     font-size: 1em;
-    font-family: "Roboto Flex", sans-serif;
   }
 
   .content_servicios span {
