@@ -1,9 +1,5 @@
 {
-    "routes": [
-      { "handle": "filesystem" },
-      { "src": "/(.*)", "status": 404, "dest": "/SectionPageError" }
-    ],
-    "rewrites":[
-        { "source": "/(.*)", "destination": "/" }
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/" }
     ]
   }
