@@ -1,6 +1,6 @@
 import "../../styles/global.css";
 import "./Form.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const Form = () => {
   const [nombre, setNombre] = useState("");
@@ -30,7 +30,7 @@ export const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} action="" className="form-container">
+    <form onSubmit={handleSubmit} action="" className="form-container" id="contacto">
       <div className="contact-title">
         <h2>CONTACTA CON NOSOTROS</h2>
         <p className="contact-subtitle">

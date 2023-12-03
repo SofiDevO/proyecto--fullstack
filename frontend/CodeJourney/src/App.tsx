@@ -1,25 +1,24 @@
-
-import { Header } from "./components/Header/Header";
-import { Form } from "./components/contact-us/Form";
-import { Footer } from './components/footer/Footer';
-import { Hero } from "./components/Hero/Hero";
-import { NuestroServicio } from "./components/NuestroServicio/NuestroServicio";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Footer } from "./components/footer/Footer";
+import { SectionPageError } from "./pages/SectionPageError/SectionPageError";
+import { Home } from "./pages/Home";
+import { Login } from "./pages/Login/Login";
+import { TeamMembers } from "./pages/TeamMembers/TeamMembers";
+import { Registro } from "./pages/Registro/Registro";
 
 function App() {
   return (
     <>
-      <Header menuItems={[
-  { text: 'Nuestro servicio', href: '#' },
-  { text: 'Caracterisiticas', href: '#' },
-  { text: 'Contactos', href: '#' },
-  { text: 'Nuestro equipo', href: '#' }
-]} />
-      <Hero/>
-      <NuestroServicio/>
-      <main>
-        <Form />
-      </main>
-      <Footer/>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/equipo" element={<TeamMembers/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/registro" element={<Registro/>} />
+          <Route path="/*" element={<SectionPageError />} />
+        </Routes>
+        <Footer />
+      </Router>
     </>
   );
 }

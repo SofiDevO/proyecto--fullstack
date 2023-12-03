@@ -3,9 +3,10 @@ import { useEffect } from "react";
 import { Boton } from "../Boton/Boton";
 import "./Header.css";
 import { Logo } from "../Logo/Logo";
+import { NavLink as Link} from "react-router-dom";
+import { NavLinkHome } from "./Navs/NavLinkHome/NavLinkHome";
 
-
-export const Header = ({ menuItems }) => {
+export const Header = (props) => {
   useEffect(() => {
     const d = document;
     function handleClick(e) {
@@ -30,27 +31,21 @@ export const Header = ({ menuItems }) => {
 
   return (
     <>
-      <header className='header'>
+     <header className='header'>
         <Logo />
         <nav className='menu  panel '>
           <ul className='header__list'>
-            {menuItems.map((item, index) => (
-              <li key={index} className='header__item'>
-                <a className='header__menu-link' href={item.href}>
-                  {item.text}
-                </a>
-              </li>
-            ))}
+            {props.navlink}
             <div className='btn__container'>
               <Boton
                 text='Iniciar Sesión'
                 className='header__btn--register'
-                href='#'
+                link='/login'
               />
               <Boton
                 text='Registrarse'
                 className='header__btn--login'
-                href='#'
+                link='/registro'
               />
             </div>
           </ul>
