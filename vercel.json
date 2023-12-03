@@ -1,0 +1,12 @@
+{
+    "rewrites":[
+        {"source": "/(.*)","destination":"/"}
+    ],
+
+
+
+    "routes": [
+      { "handle": "filesystem" },
+      { "src": "/(.*)", "status": 404, "dest": "/other-404.html" }
+    ]
+  }
