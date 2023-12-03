@@ -18,7 +18,6 @@ function App() {
           <Route path="/*" element={<SectionPageError />} />
         </Routes>
         <Footer />
-        {/*  */}
       </Router>
     </>
   );
