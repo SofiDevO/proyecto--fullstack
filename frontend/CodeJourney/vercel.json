@@ -1,9 +1,11 @@
 {
     "routes": [
       { "src": "/",
-       "destination": "/" },
+       "dest": "/" 
+      },
        {
-        "src": ""
+        "src": "/",
+        "dest": "/" 
        }
     ]
   }
