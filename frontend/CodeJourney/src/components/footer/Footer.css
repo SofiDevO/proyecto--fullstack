@@ -19,12 +19,31 @@
   color: var(--text-color);
 }
 
+.text-container-footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 13px;
+}
+.text-container-footer h2{
+font-size: var(--text-content);
+}
 
+.text-container-footer p{
+  font-size: 1rem;
+  }
 @media only screen and (max-width: 768px) {
   .container {
       flex-direction: column; 
       height: auto; 
   }
+
+  .text-container-footer{
+    flex-direction: column; 
+    height: auto; 
+}
+  
 
   .link-container {
       flex-direction: column; 
