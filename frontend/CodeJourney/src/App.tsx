@@ -14,8 +14,6 @@ function App() {
   { text: 'Contactos', href: '#' },
   { text: 'Nuestro equipo', href: '#' }
 ]} />
-
-
       <Hero/>
       <NuestroServicio/>
       <main>
