@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header/Header";
-
+import "../../styles/global.css";
 import "./Login.css";
 
 export const Login = () => {

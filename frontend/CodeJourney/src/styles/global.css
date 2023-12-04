@@ -11,6 +11,10 @@
   --primary-color-hover: #0cffab;
   --text-color: #fff;
   --link-color: #11c4b5;
+  --sm: 14px;
+  --md: 16px;
+  --Text-input-field: #f2f2f2;
+  --White: #ffffff;
   --error-color: rgb(165, 26, 26);
   --filter-green: invert(82%) sepia(45%) saturate(2338%) hue-rotate(94deg)
     brightness(110%) contrast(100%);
