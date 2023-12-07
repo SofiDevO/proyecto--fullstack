@@ -1,7 +1,56 @@
-.MuiPaper-root .MuiPaper-elevation .MuiPaper-rounded .MuiPaper-elevation1 .MuiAccordion-root .MuiAccordion-rounded .MuiAccordion-gutters .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
-    padding: 15px 30px;
-    border-width: 4px;
-    border-radius: 16px;
-    background-color: #ffffff00;
-    border-color: #0cffab;
+
+
+.faq-container{
+padding:5px 80px;
+
+}
+
+.title-faq{
+    padding:15px 80px;
+    font-size: 45px;
+    font-family: var(--main-font);
+}
+
+.ask-faq {
+color: #fff; 
+font-size: 23px;
+font-weight: bold;
+font-family: var(--main-font);
+}
+
+.text-faq {
+color: #fff; 
+font-size:18px;
+text-align: justify;
+font-family: var(--text-font);
+}
+
+
+
+
+@media screen and (max-width: 939px) {
+
+    .title-faq{
+        padding:15px 22px;
+    }
+
+    .faq-container{
+        padding:5px 20px;
+        }
+
+        .text-faq {
+            font-size: 16px;
+        }
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .ask-faq {
+        font-size: 20px;
+        }
+        
+        .text-faq {
+            font-size: 15px;
+        }
 }
