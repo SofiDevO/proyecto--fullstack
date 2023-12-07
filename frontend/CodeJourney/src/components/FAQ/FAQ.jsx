@@ -9,72 +9,143 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 export const FAQ = () => {
   return (
     <div>
-      <h1 className="title">FAQ</h1>
-
-      <Accordion>
-        <AccordionSummary
-          className="content"
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+      <h1 className="title-faq">FAQ</h1>
+      <div className="faq-container">
+        <Accordion
+          style={{
+            borderRadius: "16px",
+            backgroundColor: "#00ffff00",
+            border: "4px solid #04BD7D",
+            padding: "20px 40px",
+          }}
         >
-          <Typography className="faq-name">Accordion 1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+          <AccordionSummary
+            expandIcon={
+              <ExpandMoreIcon style={{ color: "#fff", fontSize: "25px" }} />
+            }
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>
+              <div className="ask-faq">
+                ¿Cómo puedo comenzar a tomar cursos en la plataforma?
+              </div>
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              <div className="text-faq">
+                Para empezar, simplemente crea una cuenta en nuestra plataforma.
+                Luego, explora nuestra amplia variedad de cursos que
+                recomendamos, luego elige el que más te interese. Una vez que
+                hayas seleccionado un curso, puedes inscribirte y comenzar tu
+                viaje educativo.
+              </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      </div>
 
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
+      <div className="faq-container">
+        <Accordion
+          style={{
+            borderRadius: "16px",
+            backgroundColor: "#00ffff00",
+            border: "4px solid #04BD7D",
+            padding: "20px 40px",
+          }}
         >
-          <Typography className="faq-name">Accordion 2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+          <AccordionSummary
+            expandIcon={
+              <ExpandMoreIcon style={{ color: "#fff", fontSize: "25px" }} />
+            }
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>
+              <div className="ask-faq">¿Ofrecen cursos gratuitos?</div>
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              <div className="text-faq">
+                Todos los cursos que ofrecemos son una selección de cursos
+                gratuitos para que puedas explorar y descubrir nuevos temas sin
+                costo. Estos cursos son una excelente manera de conocer nuestra
+                plataforma y experimentar la calidad de nuestro contenido.
+              </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      </div>
 
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+      <div className="faq-container">
+        <Accordion
+          style={{
+            borderRadius: "16px",
+            backgroundColor: "#00ffff00",
+            border: "4px solid #04BD7D",
+            padding: "20px 40px",
+          }}
         >
-          <Typography className="faq-name">Accordion 1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          <AccordionSummary
+            expandIcon={
+              <ExpandMoreIcon style={{ color: "#fff", fontSize: "25px" }} />
+            }
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>
+              <div className="ask-faq">
+                ¿Es posible pausar y reanudar el progreso en un curso?
+              </div>
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              <div className="text-faq">
+                Sí, entendemos que la vida puede ser ocupada. Puedes pausar tu
+                progreso en un curso y reanudarlo más tarde cuando te convenga.
+                Queremos que aprendas a tu propio ritmo.
+              </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      </div>
+      <div className="faq-container">
+        <Accordion
+          style={{
+            borderRadius: "16px",
+            backgroundColor: "#00ffff00",
+            border: "4px solid #04BD7D",
+            padding: "20px 40px",
+          }}
         >
-          <Typography className="faq-name">Accordion 1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+          <AccordionSummary
+            expandIcon={
+              <ExpandMoreIcon style={{ color: "#fff", fontSize: "25px" }} />
+            }
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>
+              <div className="ask-faq">
+                ¿Puedo ver el contenido de los cursos una vez completados?
+              </div>
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              <div className="text-faq">
+                Sí, una vez que hayas completado un curso, seguirás teniendo
+                acceso al contenido para que puedas repasar y aplicar tus
+                conocimientos en el futuro. Queremos que tu aprendizaje sea una
+                herramienta continua en tu desarrollo.
+              </div>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+      </div>
     </div>
   );
 };
