@@ -5,6 +5,7 @@ import { NavLinkHome } from "../components/Navs/NavLinkHome";
 import { Hero } from "../components/Hero/Hero";
 import { NuestroServicio } from "../components/NuestroServicio/NuestroServicio";
 import { Footer } from "../components/footer/Footer";
+import { Caracteristicas } from "../components/Caracteristicas/Caracteristicas";
 
 export const Home = () => {
   return (
@@ -13,6 +14,7 @@ export const Home = () => {
       <main>
         <Hero />
         <NuestroServicio />
+        <Caracteristicas/>
         <FAQ />
         <Form />
       </main>
