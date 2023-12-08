@@ -18,7 +18,6 @@ function App() {
           <Route path="/registro" element={<Registro/>} />
           <Route path="/*" element={<SectionPageError />} />
         </Routes>
-
       </Router>
     </>
   );

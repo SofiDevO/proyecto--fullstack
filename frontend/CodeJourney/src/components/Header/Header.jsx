@@ -4,7 +4,7 @@ import { Boton } from "../Boton/Boton";
 import "./Header.css";
 import { Logo } from "../Logo/Logo";
 import { NavLink as Link} from "react-router-dom";
-import { NavLinkHome } from "./Navs/NavLinkHome/NavLinkHome";
+import { NavLinkHome } from "./Navs/NavLinkHome";
 
 export const Header = (props) => {
   useEffect(() => {
