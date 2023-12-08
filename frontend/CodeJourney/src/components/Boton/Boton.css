@@ -1,0 +1,35 @@
+.header__btn {
+  display: inline-flex;
+  padding: 9px 15px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 11px;
+  font-size: 1.6rem;
+  max-width: 141px;
+  align-self: flex-start;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 120px;
+}
+.header__btn:hover {
+ background: var(--text-gradient);
+ color: black;
+ font-weight: 500;
+}
+.header__btn--login {
+  background-color: var(--primary-color);
+  color: white;
+}
+.header__btn--register {
+  background-color: var(--background);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .header__btn {
+    padding: 7px 9px;
+    font-size: 1.3rem;
+    max-width: 90px;
+    width: 85px;
+  }
+}

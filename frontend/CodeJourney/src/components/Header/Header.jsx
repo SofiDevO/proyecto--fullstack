@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import { Boton } from "../Boton/Boton";
 import "./Header.css";
 import { Logo } from "../Logo/Logo";
-import { NavLink as Link} from "react-router-dom";
-import { NavLinkHome } from "./Navs/NavLinkHome";
+
 
 export const Header = (props) => {
   useEffect(() => {
@@ -38,7 +37,7 @@ export const Header = (props) => {
             {props.navlink}
             <div className='btn__container'>
               <Boton
-                text='Iniciar Sesión'
+                text='Login'
                 className='header__btn--register'
                 link='/login'
               />

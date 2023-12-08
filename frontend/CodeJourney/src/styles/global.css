@@ -25,6 +25,12 @@
   --main-title: 6.4rem;
   --subtitle: 4rem;
   --text-content: 1.8rem;
+  --text-gradient: linear-gradient(
+    90deg,
+    rgba(65, 72, 255, 0.5) 0.96%,
+    #0cffab 54.77%,
+    #8000ff 102.59%
+  );
 }
 
 * {

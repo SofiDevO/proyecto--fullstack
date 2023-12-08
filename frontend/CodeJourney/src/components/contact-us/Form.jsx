@@ -32,9 +32,9 @@ export const Form = () => {
   return (
     <form onSubmit={handleSubmit} action="" className="form-container" id="contacto">
       <div className="contact-title">
-        <h2>CONTACTA CON NOSOTROS</h2>
+        <h2>CONTÁCTA CON NOSOTROS</h2>
         <p className="contact-subtitle">
-          Manten en contacto con nosotros y enviamos un correo
+          Queremos saber de tí
         </p>
       </div>
       <div className="info-container">
@@ -43,7 +43,7 @@ export const Form = () => {
             <p>Todos los campos son obligatorios</p>
           </div>
         )}
-        <div>
+        <div className="form__input--container" >
           <label htmlFor="nombre"></label>
           <input
             id="nombre"
@@ -53,7 +53,7 @@ export const Form = () => {
             onChange={(e) => setNombre(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form__input--container" >
           <label htmlFor="email"></label>
           <input
             id="email"
@@ -63,7 +63,7 @@ export const Form = () => {
             onChange={(e) => setCorreo(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form__input--container" >
           <label htmlFor="asunto"></label>
           <input
             id="asunto"
@@ -73,7 +73,7 @@ export const Form = () => {
             onChange={(e) => setAsunto(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form__input--container" >
           <label htmlFor="mensaje"></label>
           <textarea
             name=""

@@ -12,11 +12,8 @@ export const NuestroServicio = () => {
 <div className="sepadaror">
  <h1 className="servicio__titulo">nuestro servicio</h1>
 
-<p  className="text__content" >¡Bienvenido a <span>CodeJourney!</span> Aquí, la educación se adapta a ti. Imagina un espacio donde puedes explorar un mundo de conocimiento a tu propio ritmo, sin restricciones.
-Con una amplia variedad de cursos en diversas áreas del mundo IT, desde principiantes hasta niveles avanzados, encontrarás exactamente lo que necesitas para impulsar tu aprendizaje.
-¿Te preguntas por dónde empezar? Deja que nuestro exclusivo sistema de preferencias te guíe hacia el curso perfecto, adaptado a tus objetivos personales.
-Unete a una comunidad activa de aprendices como tú. Comparte experiencias, haz conexiones valiosas y crea tu red de conocimiento.</p>
-       
+<p  className="text__content" >¡Bienvenido a CodeJourney! Descubre una educación adaptada a ti con cursos en diversas áreas de IT para todos los niveles. </p>
+<p  className="text__content" >Nuestro exclusivo sistema de preferencias te guía hacia el curso perfecto según tus objetivos. Únete a una activa comunidad de aprendices para compartir experiencias y construir tu red de conocimiento. ¡Inicia tu viaje educativo con nosotros!</p>
 </div>
 <img src={servicioImg} />
 </div>

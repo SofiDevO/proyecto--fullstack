@@ -9,14 +9,14 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 export const FAQ = () => {
   return (
     <div>
-      <h1 className="title-faq">FAQ</h1>
+      <h2 className="title-faq">FAQ</h2>
       <div className="faq-container">
         <Accordion
           style={{
             borderRadius: "16px",
             backgroundColor: "#00ffff00",
             border: "4px solid #04BD7D",
-            padding: "20px 40px",
+            padding: "8px 6px",
           }}
         >
           <AccordionSummary
@@ -32,7 +32,7 @@ export const FAQ = () => {
               </div>
             </Typography>
           </AccordionSummary>
-          <AccordionDetails>
+          <AccordionDetails style={{padding:"0 12px"}}>
             <Typography>
               <div className="text-faq">
                 Para empezar, simplemente crea una cuenta en nuestra plataforma.
@@ -52,7 +52,7 @@ export const FAQ = () => {
             borderRadius: "16px",
             backgroundColor: "#00ffff00",
             border: "4px solid #04BD7D",
-            padding: "20px 40px",
+            padding: "8px 6px",
           }}
         >
           <AccordionSummary
@@ -66,8 +66,8 @@ export const FAQ = () => {
               <div className="ask-faq">¿Ofrecen cursos gratuitos?</div>
             </Typography>
           </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
+          <AccordionDetails style={{padding:"0 12px"}}>
+            <Typography >
               <div className="text-faq">
                 Todos los cursos que ofrecemos son una selección de cursos
                 gratuitos para que puedas explorar y descubrir nuevos temas sin
@@ -85,7 +85,7 @@ export const FAQ = () => {
             borderRadius: "16px",
             backgroundColor: "#00ffff00",
             border: "4px solid #04BD7D",
-            padding: "20px 40px",
+            padding: "8px 6px",
           }}
         >
           <AccordionSummary
@@ -101,7 +101,7 @@ export const FAQ = () => {
               </div>
             </Typography>
           </AccordionSummary>
-          <AccordionDetails>
+          <AccordionDetails style={{padding:"0 12px"}}>
             <Typography>
               <div className="text-faq">
                 Sí, entendemos que la vida puede ser ocupada. Puedes pausar tu
@@ -118,7 +118,7 @@ export const FAQ = () => {
             borderRadius: "16px",
             backgroundColor: "#00ffff00",
             border: "4px solid #04BD7D",
-            padding: "20px 40px",
+            padding: "8px 6px",
           }}
         >
           <AccordionSummary
@@ -134,7 +134,7 @@ export const FAQ = () => {
               </div>
             </Typography>
           </AccordionSummary>
-          <AccordionDetails>
+          <AccordionDetails style={{padding:"0 12px"}}>
             <Typography>
               <div className="text-faq">
                 Sí, una vez que hayas completado un curso, seguirás teniendo
