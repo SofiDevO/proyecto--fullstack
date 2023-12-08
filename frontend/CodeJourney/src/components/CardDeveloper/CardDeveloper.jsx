@@ -5,6 +5,7 @@ import "./CardDeveloper.css"
 
 export const Developer = (props)=>{
     const{img, nombre, decripcion, github,linkedin} = props.datos
+    const{colorPrimario} = props
     return <div className="colaborador">
         <div className="encabezado" style={{borderColor:colorPrimario}}>
             <img src={img} alt={nombre}/>
