@@ -5,12 +5,12 @@
   gap: 8px;
   border-radius: 11px;
   font-size: 1.6rem;
-  max-width: 141px;
+  max-width: 137px;
   align-self: flex-start;
   text-align: center;
   justify-content: center;
   width: 100%;
-  min-width: 120px;
+  min-width: 90px;
 }
 .header__btn:hover {
  background: var(--text-gradient);
