@@ -31,7 +31,7 @@ export const Hero = () => {
             <button className="botton">INICIAR A APRENDER</button>
           </a>
         </div>
-      </div>
+      </div>ww
     </section>
   );
 };

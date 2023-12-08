@@ -5,7 +5,7 @@
   padding: 10px 15px;
   background-color: rgba(0, 0, 0, 0.605);
   overflow-x: hidden;
-  height: 17vh;
+  height: 23dvh;
 }
 
 .link-container {
@@ -14,9 +14,18 @@
   align-items: center;
   gap: 30px;
 }
-
+.footer__item{
+  list-style: disc;
+}
 .link {
   color: var(--text-color);
+  font-size: 1.7rem;
+}
+.link:hover{
+  background: var(--text-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .text-container-footer{
@@ -38,15 +47,26 @@ font-size: var(--text-content);
       flex-direction: column; 
       height: auto; 
   }
-
+.link{
+  font-size: 1.6rem;
+}
   .text-container-footer{
     flex-direction: column; 
     height: auto; 
 }
-  
+  .text-container-footer p{
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  .text-container-footer h2{
+    text-align: center;
+    font-size: 1.6rem;
+    border-top: 1px solid;
+    padding: 1rem;
+  }
 
   .link-container {
       flex-direction: column; 
-      gap: 10px;
-  }
+      gap: 5px;
+    }
 }

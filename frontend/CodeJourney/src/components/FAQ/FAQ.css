@@ -1,28 +1,28 @@
 
 
 .faq-container{
-padding:5px 80px;
+padding:11px 80px;
 
 }
 
+
 .title-faq{
     padding:15px 80px;
-    font-size: 45px;
+    font-size: var(--subtitle);
     font-family: var(--main-font);
 }
 
 .ask-faq {
 color: #fff; 
-font-size: 23px;
+font-size: 20px;
 font-weight: bold;
 font-family: var(--main-font);
 }
 
 .text-faq {
-color: #fff; 
-font-size:18px;
-text-align: justify;
-font-family: var(--text-font);
+    color: #fff;
+    font-size: 19px;
+    font-weight: 500;
 }
 
 
@@ -31,7 +31,7 @@ font-family: var(--text-font);
 @media screen and (max-width: 939px) {
 
     .title-faq{
-        padding:15px 22px;
+        padding: 5px 20px;
     }
 
     .faq-container{
@@ -47,10 +47,12 @@ font-family: var(--text-font);
 @media screen and (max-width: 768px) {
 
     .ask-faq {
-        font-size: 20px;
+        font-size: 1.3rem;
+        font-family: 'Montserrat';
+        font-weight: 400;
         }
         
         .text-faq {
-            font-size: 15px;
+            font-size: 1.3rem;
         }
 }

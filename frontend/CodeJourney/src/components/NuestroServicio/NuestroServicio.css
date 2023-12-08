@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,127.2,1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
-
 .nuestro_servicio {
   padding-top: 50px;
+  display: flex;
+    justify-content: center;
 }
 .servicio__titulo{
   text-align: center;
@@ -13,10 +12,12 @@
 .content_servicios {
   background-color: #009b65;
   border-radius: 15px;
-  flex-direction: column;
   align-items: center;
   display: grid;
   grid-template-columns: 50% 50%;
+  width: 90%;
+  align-self: center;
+  max-width: 1158px;
 }
 
 .sepadaror {
@@ -34,7 +35,7 @@
 .content_servicios p {
   padding: 1em;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: var(--text-font);
 }
 
@@ -43,14 +44,14 @@
 }
 
 .content_servicios img {
-  width: 100%;
+  width: 90%;
   position: relative;
   display: flex;
 }
 
 @media screen and (max-width: 939px) {
   .nuestro_servicio {
-    padding: 50px 30px;
+    padding: 42px 0px;
   }
 
   .content_servicios {

@@ -12,12 +12,7 @@
 }
 
 .header__logo{
-  background: linear-gradient(
-    90deg,
-    rgba(65, 72, 255, 0.5) 0.96%,
-    #0cffab 54.77%,
-    #8000ff 102.59%
-  );
+  background: var(--text-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -50,25 +45,11 @@
   color: white;
 }
 
-.header__btn {
-  display: inline-flex;
-  padding: 9px 15px;
-  align-items: center;
-  gap: 8px;
-  border-radius: 11px;
-  font-size: 1.6rem;
-  max-width: 141px;
-  align-self: flex-start;
-  text-align: center;
-  justify-content: center;
-}
-
-.header__btn--login {
-  background-color: var(--primary-color);
-  color: white;
-}
-.header__btn--register {
-  background-color: var(--background);
+.header__item:hover{
+  background: var(--text-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .panel-btn {
   display: none;
@@ -82,11 +63,6 @@
   }
   .header__item a {
     font-size: 1.5rem;
-  }
-  .header__btn {
-    padding: 7px 9px;
-    font-size: 1.3rem;
-    max-width: 90px;
   }
 }
 @media screen and (max-width: 767px) {

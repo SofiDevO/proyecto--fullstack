@@ -1,5 +1,5 @@
 import { NavLink as Link } from "react-router-dom";
-
+import "./Boton.css"
 
 export const Boton = ({ text, className, link }) => {
     return (

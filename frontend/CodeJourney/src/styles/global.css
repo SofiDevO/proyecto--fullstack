@@ -25,6 +25,12 @@
   --main-title: 6.4rem;
   --subtitle: 4rem;
   --text-content: 1.8rem;
+  --text-gradient: linear-gradient(
+    90deg,
+    rgba(65, 72, 255, 0.5) 0.96%,
+    #0cffab 54.77%,
+    #8000ff 102.59%
+  );
 }
 
 * {
@@ -38,15 +44,15 @@ html {
   font-size: 62.5%;
 }
 body {
-  font-family: var(--main-font);
+  background-color: var(--background);
   margin: 0;
   padding: 0;
   text-align: left;
   word-wrap: break-word;
   overflow-wrap: break-word;
   font-size: var(--text-content);
+  font-family: var(--text-font);
   line-height: normal;
-  background-color: var(--background);
   color: var(--text-color);
 }
 main {
@@ -63,7 +69,10 @@ a {
   text-decoration: none;
   color: var(--primary-color-hover);
 }
+p{
+  font-family: var(--text-font);
 
+}
 /* scrollbar  */
 body::-webkit-scrollbar {
   width: 9px;
