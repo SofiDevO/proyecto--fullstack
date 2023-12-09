@@ -1,12 +1,12 @@
 .nuestro_servicio {
   padding-top: 50px;
   display: flex;
-    justify-content: center;
+  justify-content: center;
 }
-.servicio__titulo{
+.servicio__titulo {
   text-align: center;
 }
-.text__content{
+.text__content {
   text-align: justify;
 }
 .content_servicios {
@@ -37,6 +37,7 @@
   color: #fff;
   font-size: 1.8rem;
   font-family: var(--text-font);
+  width: 100%;
 }
 
 .content_servicios span {

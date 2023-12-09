@@ -1,58 +1,48 @@
-
-
-.faq-container{
-padding:11px 80px;
-
+.faq-container {
+  padding: 11px 80px;
 }
 
-
-.title-faq{
-    padding:15px 80px;
-    font-size: var(--subtitle);
-    font-family: var(--main-font);
+.title-faq {
+  padding: 15px 80px;
+  font-size: var(--subtitle);
+  font-family: var(--main-font);
 }
 
 .ask-faq {
-color: #fff; 
-font-size: 20px;
-font-weight: bold;
-font-family: var(--main-font);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: var(--main-font);
 }
 
 .text-faq {
-    color: #fff;
-    font-size: 19px;
-    font-weight: 500;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 500;
 }
-
-
-
 
 @media screen and (max-width: 939px) {
+  .title-faq {
+    padding: 5px 20px;
+  }
 
-    .title-faq{
-        padding: 5px 20px;
-    }
+  .faq-container {
+    padding: 5px 20px;
+  }
 
-    .faq-container{
-        padding:5px 20px;
-        }
-
-        .text-faq {
-            font-size: 16px;
-        }
+  .text-faq {
+    font-size: 16px;
+  }
 }
 
-
 @media screen and (max-width: 768px) {
+  .ask-faq {
+    font-size: 1.5rem;
+    font-family: "Montserrat";
+    font-weight: 400;
+  }
 
-    .ask-faq {
-        font-size: 1.3rem;
-        font-family: 'Montserrat';
-        font-weight: 400;
-        }
-        
-        .text-faq {
-            font-size: 1.3rem;
-        }
+  .text-faq {
+    font-size: 1.5rem;
+  }
 }
