@@ -9,7 +9,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 export const FAQ = () => {
   return (
     <div>
-      <h1 className="title-faq">FAQ</h1>
+      <h2 className="title-faq">FAQ</h2>
       <div className="faq-container">
         <Accordion
           style={{

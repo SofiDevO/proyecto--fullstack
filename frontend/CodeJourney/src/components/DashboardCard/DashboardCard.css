@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,127.2,1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+
+.dashboard-card-border{
+    padding: 20px 40px;
+
+}
+
+.dashboard-card {
+    padding: 20px;
+  background-color: #009b6560;
+  border-radius: 25px;
+  flex-direction: column;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 45% 55%;
+}
+
+
+.dashboard-card-img {
+  padding: 8px;
+
+}
+
+
+.dashboard-card img {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    display: flex;
+      object-fit: cover;
+    border-radius: 25px;
+  }
+
+
+
+  .dashboard-card-title{
+    text-align: center;
+  }
+
+
+.dashboard-card h1 {
+  color: #fff;
+  font-size: 55px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+/* delete { */
+
+.text__content {
+text-align: justify;
+}
+
+.dashboard-card p {
+  padding: 1em;
+  color: #fff;
+  font-size: 2rem;
+  font-family: var(--text-font);
+}
+
+/* } delete  */
+
+
+
+@media screen and (max-width: 939px) {
+
+  .dashboard-card-border {
+    padding: 10px 20px;
+  }
+
+  .dashboard-card {
+    border-radius: 25px;
+    flex-direction: column;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
+  .dashboard-card h1 {
+    font-size: 45px;
+    letter-spacing: 2px;
+  }
+
+}
+
