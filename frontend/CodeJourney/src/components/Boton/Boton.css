@@ -5,7 +5,7 @@
   gap: 8px;
   border-radius: 11px;
   font-size: 1.6rem;
-  max-width: 137px;
+  max-width: 130px;
   align-self: flex-start;
   text-align: center;
   justify-content: center;
@@ -13,9 +13,9 @@
   min-width: 90px;
 }
 .header__btn:hover {
- background: var(--text-gradient);
- color: black;
- font-weight: 500;
+  background: var(--text-gradient);
+  color: black;
+  font-weight: 500;
 }
 .header__btn--login {
   background-color: var(--primary-color);
