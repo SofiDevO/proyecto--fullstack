@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,127.2,1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+
+
+.card-opasity {
+    z-index: 11;
+    content: "";
+    position: absolute;
+    background: #16161669;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+
+}
+
+
+
+.User-card-border{
+    padding: 20px 40px;
+    display: flex;
+justify-content: center;
+}
+
+.User-card {
+    padding: 20px;
+    width: 450px;
+  background-color: #132925;
+  border-radius: 25px;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+
+.User-up {
+  display: flex;
+    justify-content: right;
+}
+
+
+
+
+
+.User-card img {
+    width: 150px;
+    padding: 8px;
+      object-fit: cover;
+    border-radius: 100px;
+    aspect-ratio: 1/1;
+
+    
+  }
+
+
+
+
+.User-card-saludo {
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bolder;
+padding: 15px 0 45px 0;
+}
+
+
+.User-card-container{
+  display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.User-card-botton-menu .User-botton {
+  width: 200px;
+    padding: 12px 10px;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: var(--main-font);
+      border-color: #fff;
+      border-width: 4px;
+      border-radius: 50px 15px 15px 50px;
+      backdrop-filter: blur(14px);
+      background-color: rgba(0, 0, 0, 0.44);
+    cursor: pointer;
+    box-shadow: 1px 3px 11px -5px rgba(102, 231, 200, 0.69);
+    color: #fff;
+  }
+  
+
+  .User-card-botton-close .User-botton {
+    width: 200px;
+    padding: 12px 10px;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: var(--main-font);
+      border-color: #fff;
+      border-width: 4px;
+      border-radius: 15px 50px 50px 15px;
+      backdrop-filter: blur(14px);
+      background-color: rgba(0, 0, 0, 0.44);
+    cursor: pointer;
+    box-shadow: 1px 3px 11px -5px rgba(102, 231, 200, 0.69);
+    color: #fff;
+  }
+
+
+
+
+  .User-card-botton-menu .User-botton:hover {
+    background-color: #ffffff00;
+    border-color: #0cffab;
+    box-shadow: 3px 6px 16px -5px #0cffab;
+    transition: ease-in 0.2s;
+  }
+
+  .User-card-botton-close .User-botton:hover {
+    background-color: #ffffff00;
+    border-color: #0cffab;
+    box-shadow: 3px 6px 16px -5px #0cffab;
+    transition: ease-in 0.2s;
+  }
+
+.text__content {
+padding: 20px 20px 20px 200px;
+font-family: var(--text-font);
+display: flex;
+justify-content: center;
+}
+
+
+
+
+.text__content span {
+font-weight: 600;
+}
+
+
+
+
+.Buttons-secction {
+
+  display: flex;
+    align-items: center;
+padding-left: 5px;
+
+}
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+  .User-card {
+    padding: 10px;
+  background-color: #00352c;
+  border-radius: 25px;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+  .text__content {
+    font-size: 17px;
+    padding: 10px;
+    }
+
+}
+
+
