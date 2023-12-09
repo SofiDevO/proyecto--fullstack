@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,127.2,1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+
+
+.card-opasity {
+    z-index: 11;
+    content: "";
+    position: absolute;
+    background: #16161669;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+
+}
+
+
+
+.dashboard-card-clicked-border{
+    padding: 20px 40px;
+    
+
+}
+
+.dashboard-card-clicked {
+    padding: 20px;
+  background-color: #00352c;
+  border-radius: 25px;
+  flex-direction: column;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 45% 55%;
+}
+
+
+.dashboard-card-clicked-img {
+  padding: 8px;
+
+}
+
+
+.dashboard-card-clicked img {
+    width: 80%;
+
+      object-fit: cover;
+    border-radius: 25px;
+    aspect-ratio: 1/1;
+
+    
+  }
+
+
+
+  .dashboard-card-clicked-title{
+    text-align: center;
+  }
+
+
+.dashboard-card-clicked h2 {
+  color: #fff;
+  font-size: 55px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+.dashboard-card-clicked-container{
+  display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.dashboard-card-clicked-botton .card-botton {
+    padding: 15px 60px;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      border-color: #fff;
+      border-width: 4px;
+      border-radius: 20px;
+      backdrop-filter: blur(14px);
+      background-color: rgba(0, 0, 0, 0.44);
+    cursor: pointer;
+    box-shadow: 1px 3px 11px -5px rgba(102, 231, 200, 0.69);
+    font-size: large;
+    color: #fff;
+  }
+  
+  .dashboard-card-clicked-botton .card-botton:hover {
+    background-color: #ffffff00;
+    border-color: #0cffab;
+    box-shadow: 3px 6px 16px -5px #0cffab;
+    transition: ease-in 0.2s;
+  }
+
+
+
+.text__content {
+text-align: justify;
+padding: 20px;
+font-family: var(--text-font);
+}
+
+
+.requerid{
+  text-align: center;
+font-size: 15px;
+  }
+
+
+
+.text__content span {
+font-weight: 600;
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+  .dashboard-card-clicked-border {
+    padding: 10px 20px;
+  }
+
+  .dashboard-card-clicked {
+    border-radius: 25px;
+    flex-direction: column;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
+  .dashboard-card-clicked h2 {
+    font-size: 40px;
+    letter-spacing: 2px;
+  }
+
+
+  .dashboard-card-clicked img {
+display: none;
+
+  }
+
+
+
+  .text__content {
+    font-size: 17px;
+    padding: 10px;
+    }
+    
+    
+    .requerid{
+    font-size: 14px;
+      }
+}
+
+
