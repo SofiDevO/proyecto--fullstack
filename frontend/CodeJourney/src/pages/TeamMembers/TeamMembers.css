@@ -1,22 +1,21 @@
 .team {
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100dvh;
+  height: 45dvh;
 }
 
 .team__card {
   display: flex;
   align-items: center;
   width: 80%;
-  height: 40dvh;
+  height: 29dvh;
   align-self: center;
   background: black;
   padding: 3rem 4rem;
   border-radius: 15px;
   justify-content: center;
   gap: 2rem;
+  max-width: 1203px;
 }
 
 .title__gradient {
@@ -36,11 +35,11 @@
 
 @media screen and (max-width: 768px) {
   .team__card {
-    width: 94%;
     padding: 4rem 1rem;
     gap: 4rem;
     flex-direction: column;
     height: auto;
+    width: 93%;
   }
   .team__title {
     font-size: 2.1rem;

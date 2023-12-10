@@ -1,10 +1,11 @@
 import { Header } from "../../components/Header/Header";
+import { NavLinkEquipo } from "../../components/Navs/NavLinkEquipo";
 import "./Registro.css";
 
 export const Registro = () => {
   return (
     <>
-      <Header />
+      <Header navlink={<NavLinkEquipo />} />
       <main>
         <div className="login">
           <div className="form-container-register">
@@ -64,7 +65,6 @@ export const Registro = () => {
                 type="submit"
                 value="Confirm"
                 className="primary-button login-button"
-               
               />
             </form>
           </div>
