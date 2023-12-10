@@ -37,7 +37,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.form__input--container{
+.form__input--container {
   margin-bottom: 10px;
 }
 
@@ -51,7 +51,6 @@
   margin: 10px auto;
   padding-bottom: 5px;
   font-size: 1.7rem;
-
 }
 
 .info-container input {
@@ -92,17 +91,17 @@ textarea {
 .contact-button button:hover {
   color: black;
   background: var(--text-gradient);
-  transition: .5s ease-in-out;
+  transition: 0.3s ease-in-out;
   border: 2px solid black;
 }
 
 @media screen and (max-width: 768px) {
-  .contact-title h2{
+  .contact-title h2 {
     font-size: 2.7rem;
     text-align: center;
     margin-bottom: 9px;
   }
-  .contact-title p{
+  .contact-title p {
     font-size: 1.8rem;
   }
   .info-container input,
@@ -114,5 +113,5 @@ textarea {
   }
   .form-container {
     height: auto;
-}
+  }
 }

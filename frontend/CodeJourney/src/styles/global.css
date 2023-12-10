@@ -69,9 +69,8 @@ a {
   text-decoration: none;
   color: var(--primary-color-hover);
 }
-p{
+p {
   font-family: var(--text-font);
-
 }
 /* scrollbar  */
 body::-webkit-scrollbar {
