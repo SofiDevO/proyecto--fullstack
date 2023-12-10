@@ -75,8 +75,8 @@
   justify-content: center;
   position: relative;
   height: auto;
-  padding: 3rem 0;
-  height: 48dvh;
+  padding: 0 0 10rem 0;
+  height: auto;
 }
 .card__container {
   width: 70%;
