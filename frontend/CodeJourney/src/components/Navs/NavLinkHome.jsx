@@ -12,7 +12,7 @@ export const NavLinkHome = () => {
       </li>
       <li className="header__item">
         <a className="header__menu-link" href="/#contacto">
-          Contactos
+          Contacto
         </a>
       </li>
       <li className="header__item">
