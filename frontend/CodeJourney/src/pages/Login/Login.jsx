@@ -1,11 +1,12 @@
 import { Header } from "../../components/Header/Header";
+import { NavLinkEquipo } from "../../components/Navs/NavLinkEquipo";
 import "../../styles/global.css";
 import "./Login.css";
 
 export const Login = () => {
   return (
     <>
-      <Header />
+      <Header navlink={<NavLinkEquipo />} />{" "}
       <main>
         <div className="login">
           <div className="form-container-login">

@@ -1,87 +1,93 @@
 .login {
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    place-items: center;
-  }
-  
-  .form-container-login {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    width: 300px;
-  }
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.form-container-login {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 300px;
+}
+.logo {
+  width: 150px;
+  margin-bottom: 48px;
+  justify-self: center;
+  display: none;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-login a {
+  color: var(--primary-color);
+  font-size: var(--sm);
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 1px; /*se añade para determinar el espacio entre login y sign up*/
+}
+
+.label {
+  font-size: var(--sm);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.input {
+  background-color: var(--Text-input-field);
+  border: none;
+  border-radius: 8px;
+  height: 30px;
+  font-size: var(--md);
+  padding: 6px;
+  margin-bottom: 12px;
+}
+
+.input-user {
+  margin-bottom: 22px;
+}
+
+.primary-button {
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  border: none;
+  color: var(--text-color);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+.login-button:hover,
+.secondary-button:hover {
+  color: black;
+  background: var(--text-gradient);
+  transition: 0.3s ease-in-out;
+  border: 2px solid black;
+}
+
+.secondary-button {
+  background-color: var(--White);
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 50px;
+}
+
+.login-button {
+  margin-top: 14px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 640px) {
   .logo {
-    width: 150px;
-    margin-bottom: 48px;
-    justify-self: center;
-    display: none;
+    display: block;
   }
-  
-  .form-login {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-login a {
-    color: var(--primary-color);
-    font-size: var(--sm);
-    text-align: center;
-    text-decoration: none;
-    margin-bottom: 1px;  /*se añade para determinar el espacio entre login y sign up*/
-  }
-  
-  .label {
-    font-size: var(--sm);
-    font-weight: bold;
-    margin-bottom: 4px;
-  }
-  
-  .input {
-    background-color: var(--Text-input-field);
-    border: none;
-    border-radius: 8px;
-    height: 30px;
-    font-size: var(--md);
-    padding: 6px;
-    margin-bottom: 12px;
-  }
-  
-  .input-user{
-      margin-bottom: 22px;
-  }
-  
-  .primary-button {
-    background-color: var(--primary-color);
-    border-radius: 8px;
-    border: none;
-    color: var(--text-color);
-    width: 100%;
-    cursor: pointer;
-    font-size: var(--md);
-    font-weight: bold;
-    height: 50px;
-  }
-  
-  .secondary-button {
-      background-color: var(--White);
-      border-radius: 8px;
-      border: 1px solid var(--primary-color);
-      color: var(--primary-color);
-      width: 100%;
-      cursor: pointer;
-      font-size: var(--md);
-      font-weight: bold;
-      height: 50px;
-    }
-  
-  .login-button {
-    margin-top: 14px;
-    margin-bottom: 30px;
-  }
-  
-  @media (max-width: 640px) {
-    .logo {
-      display: block;
-    }
-  }
-  
+}

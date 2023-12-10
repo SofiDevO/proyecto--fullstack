@@ -1,11 +1,11 @@
-export const equipo = [
+export const Equipo = [
   {
     img: "https://github.com/DiegoRivasDev.png",
     nombre: "Diego Rivas",
     decripcion: "Frontend Developer",
     github: "https://github.com/DiegoRivasDev",
     linkedin: "https://www.linkedin.com/in/diego-rivas-96215129a/",
-    equipo: "frontend"
+    equipo: "frontend",
   },
   {
     img: "https://github.com/SofiDevO.png",
@@ -13,15 +13,16 @@ export const equipo = [
     decripcion: "Frontend",
     github: "https://github.com/SofiDevO",
     linkedin: "https://www.linkedin.com/in/sofidev/",
-    equipo: "frontend"
+    equipo: "frontend",
   },
   {
     img: "https://github.com/cotamo1901.png",
     nombre: "John Alexander",
     decripcion: "Frontend Developer",
     github: "https://github.com/cotamo1901",
-    linkedin: "https://www.linkedin.com/in/john-alexander-cotamo-molina-463005144/",
-    equipo: "frontend"
+    linkedin:
+      "https://www.linkedin.com/in/john-alexander-cotamo-molina-463005144/",
+    equipo: "frontend",
   },
   {
     img: "https://github.com/sexga.png",
@@ -29,23 +30,24 @@ export const equipo = [
     decripcion: "Tester manual",
     github: "https://github.com/sexga",
     linkedin: "https://www.linkedin.com/in/sebastianxgabriel/",
-    equipo: "tester"
+    equipo: "tester",
   },
   {
     img: "https://github.com/JarlinFonseca.png",
     nombre: "Jarlin Andrés Fonseca",
     decripcion: "Backend Developer",
     github: "https://github.com/JarlinFonseca",
-    linkedin: "https://www.linkedin.com/in/jarlin-andres-fonseca-bermon-58341523b/",
-    equipo: "backend"
+    linkedin:
+      "https://www.linkedin.com/in/jarlin-andres-fonseca-bermon-58341523b/",
+    equipo: "backend",
   },
   {
-    img: "https://www.linkedin.com/in/angel-hincho-jove/.png",
+    img: "https://github.com/ahincho.png",
     nombre: "Angel Eduardo",
     decripcion: "Backend Developer",
-    github: "https://www.linkedin.com/in/angel-hincho-jove/",
-    linkedin: "https://github.com/ahincho",
-    equipo: "backend"
+    github: "https://github.com/ahincho",
+    linkedin: "https://www.linkedin.com/in/angel-hincho-jove/",
+    equipo: "backend",
   },
   {
     img: "https://github.com/CindyMendoza.png",
@@ -53,14 +55,22 @@ export const equipo = [
     decripcion: "Backend Developer",
     github: "https://github.com/CindyMendoza",
     linkedin: "https://www.linkedin.com/in/mendozacindy/",
-    equipo: "backend"
-  }  
+    equipo: "backend",
+  },
+  {
+    img: "https://github.com/Belentaborda.png",
+    nombre: "Maria Belen Taborda",
+    decripcion: "Backend Developer",
+    github: "https://github.com/Belentaborda",
+    linkedin: "https://www.linkedin.com/in/mbelen-taborda/",
+    equipo: "backend",
+  },
 ];
 
 export const colorPrimario = [
   {
-  frontend:"rgba(255, 230, 0, 0.87) ",
-  backend:"rgba(10, 131, 218, 0.87)",
-  tester:"#8000FF"
-  }
-]
+    frontend: "rgba(255, 230, 0, 0.87) ",
+    backend: "rgba(10, 131, 218, 0.87)",
+    tester: "#8000FF",
+  },
+];
