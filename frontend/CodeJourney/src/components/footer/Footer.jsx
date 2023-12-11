@@ -15,8 +15,8 @@ export const Footer = () => {
             
         </nav>
         <div className="text-container-footer">
-          <h2>Profecionales formando profecionales</h2>
-          <p>Hecho por programadores para los futuros prgramadores</p>
+          <h2>Profesionales formando profesionales</h2>
+          <p>Hecho por programadores para los futuros programadores</p>
         </div>
 
    </footer>
