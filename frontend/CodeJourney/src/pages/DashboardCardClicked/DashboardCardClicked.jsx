@@ -18,7 +18,6 @@ export const DashboardCardClicked = () => {
                 }}
               />
             </Link>
-
             <div className="center-img">
               {" "}
               <img src={dashboardcardimg} alt="" />

@@ -3,7 +3,6 @@ import dashboardcardimg from "../../../public/img/team/angel.jpg";
 import { IoClose } from "react-icons/io5";
 import { TbHomeMove } from "react-icons/tb";
 import { BiSolidLockOpen } from "react-icons/bi";
-
 export const UserCard = () => {
   return (
     <div className="card-opasity">
@@ -22,7 +21,6 @@ export const UserCard = () => {
               />
             </a>
           </div>
-
           <div className="User-card-container">
             <img src={dashboardcardimg} alt="" />
 
