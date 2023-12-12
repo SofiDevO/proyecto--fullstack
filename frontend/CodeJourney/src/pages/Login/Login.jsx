@@ -16,7 +16,7 @@ export const Login = () => {
               className="logo"
             />
             <h1 className="title">login</h1>
-            <form action="/" className="form-login">
+            <form action="/dashboard" className="form-login">
               <label htmlFor="" className="label">
                 E-MAIL
               </label>

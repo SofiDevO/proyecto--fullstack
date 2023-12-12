@@ -1,6 +1,7 @@
 import "./DashboardCardClicked.css";
-import dashboardcardimg from "../../../../public/img/main/caracterist2.webp";
+import dashboardcardimg from "../../../public/img/main/caracterist2.webp";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { NavLink as Link } from "react-router-dom";
 
 export const DashboardCardClicked = () => {
   return (
@@ -8,10 +9,7 @@ export const DashboardCardClicked = () => {
       <div className="dashboard-card-clicked-border">
         <div className="dashboard-card-clicked">
           <div className="dashboard-card-clicked-img">
-            <a
-              className="header__menu-link"
-              href="../../../pages/dashboard.jsx"
-            >
+            <Link className="header__menu-link" to="/dashboard">
               <IoMdArrowRoundBack
                 style={{
                   color: "#fff",
@@ -19,8 +17,7 @@ export const DashboardCardClicked = () => {
                   paddingBottom: "20px",
                 }}
               />
-            </a>
-
+            </Link>
             <div className="center-img">
               {" "}
               <img src={dashboardcardimg} alt="" />
