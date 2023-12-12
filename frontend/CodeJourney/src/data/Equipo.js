@@ -42,14 +42,6 @@ export const Equipo = [
     equipo: "backend",
   },
   {
-    img: "https://github.com/ahincho.png",
-    nombre: "Angel Eduardo",
-    decripcion: "Backend Developer",
-    github: "https://github.com/ahincho",
-    linkedin: "https://www.linkedin.com/in/angel-hincho-jove/",
-    equipo: "backend",
-  },
-  {
     img: "https://github.com/CindyMendoza.png",
     nombre: "Cindy Mendoza",
     decripcion: "Backend Developer",
