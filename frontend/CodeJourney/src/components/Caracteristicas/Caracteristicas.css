@@ -26,8 +26,14 @@
   text-align: justify;
   background-color: black;
   max-width: 386px;
+  cursor: pointer;
+
 }
 
+.caracteristica-item:hover{
+
+  box-shadow: 0 0 10px 0 rgba(95, 93, 93, 0.5);
+}
 .caracteristicas-subtitle {
   font-family: var(--text-font);
   font-size: 2rem;
