@@ -19,6 +19,7 @@ function App() {
           <Route path="/registro" element={<Registro />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/detalle" element={<DashboardCardClicked />} />
+
           <Route path="/*" element={<SectionPageError />} />
         </Routes>
       </Router>

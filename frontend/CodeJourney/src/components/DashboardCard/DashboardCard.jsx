@@ -1,7 +1,6 @@
 import "./DashboardCard.css";
 import dashboardcardimg from "../../../public/img/main/caracterist2.webp";
 import { NavLink as Link } from "react-router-dom";
-
 export const DashboardCard = () => {
   return (
     <>
