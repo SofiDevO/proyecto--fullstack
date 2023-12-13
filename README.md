@@ -63,11 +63,11 @@ npm install
 
 Agradecemos a los siguientes colaboradores que han contribuido al desarrollo de este proyecto:
 
-| Imagen                                   | Nombre            | Descripción           | GitHub                                     | LinkedIn                                              | Equipo    |
-| ---------------------------------------- | ------------------ | --------------------- | ------------------------------------------ | ------------------------------------------------------ | --------- |
-| ![Diego Rivas](https://github.com/DiegoRivasDev.png) | Diego Rivas        | Frontend Developer    | [GitHub](https://github.com/DiegoRivasDev) | [LinkedIn](https://www.linkedin.com/in/diego-rivas-96215129a/) | Frontend  |
-| ![Sofia Osorio](https://github.com/SofiDevO.png) | Sofia Osorio        | Frontend              | [GitHub](https://github.com/SofiDevO)     | [LinkedIn](https://www.linkedin.com/in/sofidev/)         | Frontend  |
-| ![John Alexander](https://github.com/cotamo1901.png) | John Alexander      | Frontend Developer    | [GitHub](https://github.com/cotamo1901)  | [LinkedIn](https://www.linkedin.com/in/john-alexander-cotamo-molina-463005144/) | Frontend  |
-| ![Sebastian Chavez](https://github.com/sexga.png) | Sebastian Chavez    | Tester manual         | [GitHub](https://github.com/sexga)       | [LinkedIn](https://www.linkedin.com/in/sebastianxgabriel/) | Tester    |
+| Imagen                                               | Nombre            | Descripción           | GitHub                                     | LinkedIn                                              | Equipo    |
+| ---------------------------------------------------- | ------------------ | --------------------- | ------------------------------------------ | ------------------------------------------------------ | --------- |
+| <img src="https://github.com/DiegoRivasDev.png" width="50" alt="Diego Rivas"> | Diego Rivas        | Frontend Developer    | [GitHub](https://github.com/DiegoRivasDev) | [LinkedIn](https://www.linkedin.com/in/diego-rivas-96215129a/) | Frontend  |
+| <img src="https://github.com/SofiDevO.png" width="50" alt="Sofia Osorio"> | Sofia Osorio        | Frontend              | [GitHub](https://github.com/SofiDevO)     | [LinkedIn](https://www.linkedin.com/in/sofidev/)         | Frontend  |
+| <img src="https://github.com/cotamo1901.png" width="50" alt="John Alexander"> | John Alexander      | Frontend Developer    | [GitHub](https://github.com/cotamo1901)  | [LinkedIn](https://www.linkedin.com/in/john-alexander-cotamo-molina-463005144/) | Frontend  |
+| <img src="https://github.com/sexga.png" width="50" alt="Sebastian Chavez"> | Sebastian Chavez    | Tester manual         | [GitHub](https://github.com/sexga)       | [LinkedIn](https://www.linkedin.com/in/sebastianxgabriel/) | Tester    |
 
 ¡Gracias por ser parte de Code Journey! 🚀
