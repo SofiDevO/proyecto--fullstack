@@ -47,14 +47,17 @@ npm install
 
 La tecnología utilizada en este proyecto incluye:
 
-- **Frontend**:
+### **Frontend**:
+  |                                               |                   |            |                                                                                            
+| ---------------------------------------------------- | ------------------------| --------------------- |
+  | <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> | <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://reactrouter.com/_brand/react-router-stacked-color-inverted.png" alt="materialUI" width="40" height="40"/> </a> | <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/material-ui-1.svg" alt="react routoer" width="40" height="40"/> </a> |
+  
   - [React](https://www.npmjs.com/package/react): ^18.2.0
   - [React Router](https://www.npmjs.com/package/react-router-dom): ^6.20.1
   - [Material-UI](https://www.npmjs.com/package/@mui/material): ^5.14.20
   - [Emotion](https://www.npmjs.com/package/@emotion/react): ^11.11.1
-  - [Styled Components](https://www.npmjs.com/package/styled-components): ^6.1.1
 
-- **Backend**:
+- **Backend**:![download]
   - [Spring Boot](https://spring.io/projects/spring-boot) 
 >[!WARNING]
 >(Inferido a partir del archivo .gitignore. El team de backend debe agregar la información completa)
