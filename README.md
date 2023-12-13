@@ -1,11 +1,15 @@
 # Code Journey
 
-
-Este repositorio es parte del proyecto Code Journey, un proyecto privado.
-
 ## Descripción del Proyecto
 
-Este proyecto es una aplicación frontend desarrollada con tecnologías modernas como React, TypeScript, Vite, y otras. Proporciona una interfaz de usuario atractiva y funcional para diversas funcionalidades.
+Este repositorio es parte del proyecto Code Journey, un proyecto privado. Se trata de una aplicación frontend desarrollada con tecnologías modernas como React, TypeScript, Vite, y otras. Proporciona una interfaz de usuario atractiva y funcional para diversas funcionalidades.
+
+## Contenido
+
+- [Instalación](#instalación)
+- [Scripts Disponibles](#scripts-disponibles)
+- [Dependencias Principales](#dependencias-principales)
+- [Desarrolladores](#desarrolladores)
 
 ## Instalación
 
@@ -59,32 +63,11 @@ npm install
 
 Agradecemos a los siguientes colaboradores que han contribuido al desarrollo de este proyecto:
 
-1. **Diego Rivas**
-   - ![Diego Rivas](https://github.com/DiegoRivasDev.png)
-   - [GitHub](https://github.com/DiegoRivasDev)
-   - [LinkedIn](https://www.linkedin.com/in/diego-rivas-96215129a/)
-   - Descripción: Frontend Developer
-   - Equipo: Frontend
-
-2. **Sofia Osorio**
-   - ![Sofia Osorio](https://github.com/SofiDevO.png)
-   - [GitHub](https://github.com/SofiDevO)
-   - [LinkedIn](https://www.linkedin.com/in/sofidev/)
-   - Descripción: Frontend
-   - Equipo: Frontend
-
-3. **John Alexander**
-   - ![John Alexander](https://github.com/cotamo1901.png)
-   - [GitHub](https://github.com/cotamo1901)
-   - [LinkedIn](https://www.linkedin.com/in/john-alexander-cotamo-molina-463005144/)
-   - Descripción: Frontend Developer
-   - Equipo: Frontend
-
-4. **Sebastian Chavez**
-   - ![Sebastian Chavez](https://github.com/sexga.png)
-   - [GitHub](https://github.com/sexga)
-   - [LinkedIn](https://www.linkedin.com/in/sebastianxgabriel/)
-   - Descripción: Tester manual
-   - Equipo: Tester
+| Imagen                                   | Nombre            | Descripción           | GitHub                                     | LinkedIn                                              | Equipo    |
+| ---------------------------------------- | ------------------ | --------------------- | ------------------------------------------ | ------------------------------------------------------ | --------- |
+| ![Diego Rivas](https://github.com/DiegoRivasDev.png) | Diego Rivas        | Frontend Developer    | [GitHub](https://github.com/DiegoRivasDev) | [LinkedIn](https://www.linkedin.com/in/diego-rivas-96215129a/) | Frontend  |
+| ![Sofia Osorio](https://github.com/SofiDevO.png) | Sofia Osorio        | Frontend              | [GitHub](https://github.com/SofiDevO)     | [LinkedIn](https://www.linkedin.com/in/sofidev/)         | Frontend  |
+| ![John Alexander](https://github.com/cotamo1901.png) | John Alexander      | Frontend Developer    | [GitHub](https://github.com/cotamo1901)  | [LinkedIn](https://www.linkedin.com/in/john-alexander-cotamo-molina-463005144/) | Frontend  |
+| ![Sebastian Chavez](https://github.com/sexga.png) | Sebastian Chavez    | Tester manual         | [GitHub](https://github.com/sexga)       | [LinkedIn](https://www.linkedin.com/in/sebastianxgabriel/) | Tester    |
 
 ¡Gracias por ser parte de Code Journey! 🚀
