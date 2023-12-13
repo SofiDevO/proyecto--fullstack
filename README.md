@@ -57,7 +57,7 @@ La tecnología utilizada en este proyecto incluye:
   - [Material-UI](https://www.npmjs.com/package/@mui/material): ^5.14.20
   - [Emotion](https://www.npmjs.com/package/@emotion/react): ^11.11.1
 
-- **Backend**:![download]
+- **Backend**
   - [Spring Boot](https://spring.io/projects/spring-boot) 
 >[!WARNING]
 >(Inferido a partir del archivo .gitignore. El team de backend debe agregar la información completa)
