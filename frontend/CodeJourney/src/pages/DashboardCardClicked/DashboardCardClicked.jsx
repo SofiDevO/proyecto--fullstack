@@ -38,11 +38,11 @@ export const DashboardCardClicked = () => {
             </p>
 
             <div className="dashboard-card-clicked-botton">
-              <a href="#">
+              <Link to="/ruta/">
                 <button className="card-botton">
                   Empezar ruta de aprendizaje
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,0 +1,102 @@
+.ruta-container {
+  padding: 11px 18px;
+  
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 80px;
+}
+.title-container img {
+  width: 100%;
+  height: 48px;
+  object-fit: cover;
+}
+
+.title-ruta {
+  margin-bottom: 20px;
+  font-size: var(--subtitle);
+  font-family: var(--main-font);
+  text-transform: uppercase;
+  
+}
+
+.ask-ruta {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: var(--main-font);
+}
+
+.text-ruta {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 500;
+}
+.container-info {
+  display: flex;
+  gap: 20%;
+}
+
+
+.level-list,
+.level-recommended {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.subtitle-ruta {
+  font-size: var(--subtitle);
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px;
+}
+.check-ruta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  width: 200px;
+  margin: 0 auto;
+  font-family: var(--main-font);
+}
+
+.check-ruta input {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+@media screen and (max-width: 939px) {
+  .title-ruta {
+    padding: 5px 20px;
+  }
+
+  .ruta-container {
+    padding: 5px 20px;
+  }
+
+  .text-ruta {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ask-ruta {
+    font-size: 1.5rem;
+    font-family: "Montserrat";
+    font-weight: 400;
+  }
+
+  .text-ruta {
+    font-size: 1.5rem;
+  }
+}
