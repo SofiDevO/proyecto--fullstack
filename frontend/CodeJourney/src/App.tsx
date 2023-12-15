@@ -5,7 +5,7 @@ import { Home } from "./pages/Home";
 import { Login } from "./pages/Login/Login";
 import { Registro } from "./pages/Registro/Registro";
 import { TeamMembers } from "./pages/TeamMembers/TeamMembers";
-import { Dashboard } from "./pages/Dashboard";
+import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { DashboardCardClicked } from "./pages/DashboardCardClicked/DashboardCardClicked";
 
 function App() {
