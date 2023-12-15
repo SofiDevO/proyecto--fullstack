@@ -14,7 +14,7 @@ export const Home = () => {
       <main>
         <Hero />
         <NuestroServicio />
-        <Caracteristicas/>
+        <Caracteristicas />
         <FAQ />
         <Form />
       </main>
