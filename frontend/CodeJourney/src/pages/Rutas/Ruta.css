@@ -1,0 +1,93 @@
+.ruta-container {
+  padding: 11px 63px;
+  margin: 20px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 80px;
+}
+.title-container img {
+  width: 100%;
+  height: 48px;
+  object-fit: cover;
+}
+
+.title-ruta {
+  margin-bottom: 20px;
+  font-size: var(--subtitle);
+  font-family: var(--main-font);
+  text-transform: uppercase;
+  
+}
+
+
+.ruta-accordion{
+   border-radius: 16px !important;
+  background-color: #00ffff00;
+  border: 4px solid #04BD7D;
+  padding: 8px 6px;
+
+
+}
+.ruta-accordion {
+  background-color: #00ffff00 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+  
+}
+
+.ruta-spanicon{
+  color: #fff;
+  font-size: 25px;
+}
+
+.ask-ruta {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: var(--main-font);
+  display: flex;
+  justify-content: center;
+}
+
+.text-ruta {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.container-info {
+  display: flex;
+  gap: 20%;
+}
+.level-list,
+.level-recommended {
+flex: 1;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.ruta-accordion-details{
+  padding: 0 12px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .ask-ruta {
+    font-size: 1.5rem;
+    font-family: "Montserrat";
+    font-weight: 400;
+  }
+
+  .text-ruta {
+    font-size: 1.5rem;
+  }
+}

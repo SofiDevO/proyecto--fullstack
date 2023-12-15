@@ -7,6 +7,7 @@ import { Registro } from "./pages/Registro/Registro";
 import { TeamMembers } from "./pages/TeamMembers/TeamMembers";
 import { Dashboard } from "./pages/Dashboard";
 import { DashboardCardClicked } from "./pages/DashboardCardClicked/DashboardCardClicked";
+import { Ruta } from "./pages/Rutas/Ruta";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Route path="/registro" element={<Registro />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/detalle" element={<DashboardCardClicked />} />
-
+          <Route path="/ruta" element={<Ruta />} />
           <Route path="/*" element={<SectionPageError />} />
         </Routes>
       </Router>
