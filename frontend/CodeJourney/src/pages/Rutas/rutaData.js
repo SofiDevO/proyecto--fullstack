@@ -50,19 +50,7 @@ const rutaData = [
       "IBM: Containers",
     ],
   },
-  {
-    title: "Conocdddddddimientos adicionales",
-    content: [
-      "Conocimiento de los tipos primitivos",
-      "Declaración de variables, considerando los diferentes tipos",
-      "Espacio para  Conocimientos adicionales",
-    ],
-    recommendedContent: [
-      "W3Schools: PHP Variables",
-      "(The only proper) PDO tutorial",
-      "IBM: Containers",
-    ],
-  },
+  
   
 ];
 
