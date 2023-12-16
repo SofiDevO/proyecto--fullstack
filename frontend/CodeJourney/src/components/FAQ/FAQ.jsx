@@ -8,7 +8,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export const FAQ = () => {
   return (
-    <div>
+    <>
       <h2 className="title-faq">FAQ</h2>
       <div className="faq-container">
         <Accordion
@@ -32,7 +32,7 @@ export const FAQ = () => {
               </div>
             </Typography>
           </AccordionSummary>
-          <AccordionDetails style={{padding:"0 12px"}}>
+          <AccordionDetails style={{ padding: "0 12px" }}>
             <Typography>
               <div className="text-faq">
                 Para empezar, simplemente crea una cuenta en nuestra plataforma.
@@ -66,8 +66,8 @@ export const FAQ = () => {
               <div className="ask-faq">¿Ofrecen cursos gratuitos?</div>
             </Typography>
           </AccordionSummary>
-          <AccordionDetails style={{padding:"0 12px"}}>
-            <Typography >
+          <AccordionDetails style={{ padding: "0 12px" }}>
+            <Typography>
               <div className="text-faq">
                 Todos los cursos que ofrecemos son una selección de cursos
                 gratuitos para que puedas explorar y descubrir nuevos temas sin
@@ -101,7 +101,7 @@ export const FAQ = () => {
               </div>
             </Typography>
           </AccordionSummary>
-          <AccordionDetails style={{padding:"0 12px"}}>
+          <AccordionDetails style={{ padding: "0 12px" }}>
             <Typography>
               <div className="text-faq">
                 Sí, entendemos que la vida puede ser ocupada. Puedes pausar tu
@@ -134,7 +134,7 @@ export const FAQ = () => {
               </div>
             </Typography>
           </AccordionSummary>
-          <AccordionDetails style={{padding:"0 12px"}}>
+          <AccordionDetails style={{ padding: "0 12px" }}>
             <Typography>
               <div className="text-faq">
                 Sí, una vez que hayas completado un curso, seguirás teniendo
@@ -146,6 +146,6 @@ export const FAQ = () => {
           </AccordionDetails>
         </Accordion>
       </div>
-    </div>
+    </>
   );
 };
