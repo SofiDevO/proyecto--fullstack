@@ -48,6 +48,21 @@
 
 .input-user {
   margin-bottom: 22px;
+  padding: 1rem 0;
+}
+
+.helper__text {
+  display: block;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-top: -10px;
+  font-weight: bold;
+}
+.helper__text--warning {
+  color: rgb(255, 10, 10);
+}
+.helper__text--alert {
+  color: yellow;
 }
 
 .primary-button {
@@ -79,6 +94,10 @@
   font-size: var(--md);
   font-weight: bold;
   height: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-button {
