@@ -2,6 +2,7 @@ import { Header } from "../../components/Header/Header";
 import { NavLinkEquipo } from "../../components/Navs/NavLinkEquipo";
 import "./Registro.css";
 import { useForm } from "react-hook-form";
+import { redirect } from "react-router-dom";
 
 export const Registro = () => {
   const {
@@ -31,7 +32,11 @@ export const Registro = () => {
             <h1 className="title">REGISTER</h1>
             {/* <p className="subtitle">CREATE ACCOUNT</p> */}
 
-            <form  onSubmit={handleSubmit(onSubmit)} action="/" className="form-register">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              action="/"
+              className="form-register"
+            >
               <label htmlFor="" className="label">
                 NAME
               </label>
@@ -40,9 +45,7 @@ export const Registro = () => {
                 id="name"
                 placeholder="Enter you name"
                 className="input input-password"
-              {
-                ...register("name", {
-
+                {...register("name", {
                   required: {
                     value: true,
                     message: "El nombre es requerido",
@@ -51,17 +54,11 @@ export const Registro = () => {
                     value: /^[A-Za-z]+$/i,
                     message: "Nombre inválido",
                   },
-                })
-              }
-  
+                })}
               />
-              {
-                errors.name && 
-                <span  className="helper__text helper__text--warning">
-                  {errors.name.message}
-                </span>
-              }
-          
+              {errors.name && (
+                <span className="helper__text">{errors.name.message}</span>
+              )}
 
               <label htmlFor="" className="label">
                 LAST NAME
@@ -71,27 +68,23 @@ export const Registro = () => {
                 id="lastname"
                 placeholder="Enter you lastname"
                 className="input input-password"
-                {
-                  ...register("lastname", {
-
-                    required: {
-                      value: true,
-                      message: "El apellido es requerido",
-                    },
-                    pattern: {
-                      value: /^[A-Za-z]+$/i,
-                      message: "Apellido inválido",
-                    },
-                  })
-                }
+                {...register("lastname", {
+                  required: {
+                    value: true,
+                    message: "El apellido es requerido",
+                  },
+                  pattern: {
+                    value: /^[A-Za-z]+$/i,
+                    message: "Apellido inválido",
+                  },
+                })}
               />
-              {
-                errors.lastname && 
-                <span  className="helper__text helper__text--warning">
+              {errors.lastname && (
+                <span className="helper__text helper__text--warning">
                   {errors.lastname.message}
                 </span>
-              }
-              <label htmlFor="" className="label">
+              )}
+              <label for="email" className="label">
                 E-MAIL
               </label>
               <input
@@ -99,62 +92,55 @@ export const Registro = () => {
                 id="email"
                 placeholder="@"
                 className="input input-password"
-                {
-                  ...register("email", {
-
-                    required: {
-                      value: true,
-                      message: "El correo es requerido",
-                    },
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: "Correo inválido",
-                    },
-                  })
-                }
+                {...register("email", {
+                  required: {
+                    value: true,
+                    message: "El correo es requerido",
+                  },
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Correo inválido",
+                  },
+                })}
               />
-              {
-                errors.email && 
-                <span  className="helper__text helper__text--warning">
+              {errors.email && (
+                <span className="helper__text helper__text--warning">
                   {errors.email.message}
                 </span>
-              }
-              <label htmlFor="" className="label">
+              )}
+              <label for="password" className="label">
                 Password
               </label>
               <input
-                type="text"
+                type="password"
                 id="password "
                 placeholder="*******"
                 className="input input-password"
-                {
-                  ...register("password", {
-
-                    required: {
-                      value: true,
-                      message: "El password es requerido",
-                    },
-                    minLength: {
-                      value: 8,
-                      message: "Mínimo de 8 carácteres",
-                    },
-                    maxLength: {
-                      value: 26,
-                      message: "Máximo de 26 carácteres",
-                    },
-                    pattern: {
-                      value: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/i,
-                      message: "Password inválido",
-                    },
-                  })
-                }
+                {...register("password", {
+                  required: {
+                    value: true,
+                    message: "El password es requerido",
+                  },
+                  minLength: {
+                    value: 8,
+                    message: "Mínimo de 8 carácteres",
+                  },
+                  maxLength: {
+                    value: 26,
+                    message: "Máximo de 26 carácteres",
+                  },
+                  pattern: {
+                    value:
+                      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/i,
+                    message: "Password inválido",
+                  },
+                })}
               />
-              {
-                errors.password && 
-                <span  className="helper__text helper__text--warning">
+              {errors.password && (
+                <span className="helper__text helper__text--warning">
                   {errors.password.message}
                 </span>
-              }
+              )}
 
               <input
                 type="submit"
