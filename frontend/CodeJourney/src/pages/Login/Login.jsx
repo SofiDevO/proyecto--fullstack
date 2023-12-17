@@ -39,42 +39,61 @@ export const Login = () => {
                 placeholder="@"
                 className="input input-user"
                 {...register("email", {
-                  required: true,
-                  pattern:
-                    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/i,
-                })}
+                  required:{
+                    value: true,
+                    message: "El correo es requerido",
+                  
+                  },
+                  pattern:{
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Correo inválido",
+                  },
+                  }
+                   )}
               />
-              {errors.email?.type === "required" && (
-                <span className="helper__text helper__text--warning">
-                  El correo es requerido
+              {errors.email && 
+                <span  className="helper__text helper__text--warning">
+                  {errors.email.message}
                 </span>
-              )}
+              }
               <label htmlFor="password" className="label">
                 PASSWORD
               </label>
               <input
                 type="password"
                 {...register("password", {
-                  required: true,
-                  minLength: 8,
-                  min: 26,
-                  pattern:
-                    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/i,
-                })}
+                  required: {
+                    
+                    value: true,
+                    message: "El password es requerido",
+                  },
+                  minLength: {
+                    value: 8,
+                    message: "Mínimo de 8 carácteres",
+                  },
+                 maxLength:{
+                    value: 26,
+                    message: "Máximo de 26 carácteres",
+                 },
+
+          
+                  pattern:{
+                    value: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/i,
+                    message: "Password inválido",
+                  },
+                  })}
                 id="password"
                 placeholder="***********"
                 className="input input-password"
               />
-              {errors.password?.type === "required" && (
+              {errors.password && (
                 <span className="helper__text helper__text--warning">
-                  El password es requerido
+                 {
+                    errors.password.message
+                 }
                 </span>
               )}
-              {errors.password?.type === "minLength" && (
-                <span className="helper__text helper__text--alert">
-                  Mínimo de 8 carácteres
-                </span>
-              )}
+             
               <input
                 type="submit"
                 value="Login"
