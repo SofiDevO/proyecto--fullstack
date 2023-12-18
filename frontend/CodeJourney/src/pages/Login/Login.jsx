@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "../../components/Header/Header";
 import { NavLinkEquipo } from "../../components/Navs/NavLinkEquipo";
 import "../../styles/global.css";
@@ -17,6 +17,7 @@ export const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const [errorMessage, setErrorMessage] = useState(""); // Nuevo estado para el mensaje de error
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -32,6 +33,17 @@ export const Login = () => {
       navigate("/dashboard");
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
+      // Verifica si el error es debido a una contraseña incorrecta
+      if (
+        (error.response && error.response.status === 403) ||
+        error.response.status === 401
+      ) {
+        setErrorMessage(
+          "Contraseña incorrecta. Por favor, inténtalo de nuevo."
+        );
+      } else {
+        setErrorMessage("");
+      }
     }
   };
 
@@ -90,15 +102,6 @@ export const Login = () => {
                     value: true,
                     message: "El password es requerido",
                   },
-                  /*  minLength: {
-                    value: 8,
-                    message: "Mínimo de 8 carácteres",
-                  }, */
-                  /*  pattern: {
-                    value:
-                      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/i,
-                    message: "Password inválido",
-                  }, */
                 })}
                 id="password"
                 placeholder="***********"
@@ -107,6 +110,12 @@ export const Login = () => {
               {errors.password && (
                 <span className="helper__text helper__text--warning">
                   {errors.password.message}
+                </span>
+              )}
+
+              {errorMessage && (
+                <span className="helper__text helper__text--warning">
+                  {errorMessage}
                 </span>
               )}
 
