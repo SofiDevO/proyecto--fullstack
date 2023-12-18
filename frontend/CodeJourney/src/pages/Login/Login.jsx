@@ -102,6 +102,14 @@ export const Login = () => {
                     value: true,
                     message: "El password es requerido",
                   },
+                  maxLength: {
+                    value: 26,
+                    message: "Máximo de 26 carácteres",
+                  },
+                  minLength: {
+                    value: 8,
+                    message: "Mínimo de 8 carácteres",
+                  },
                 })}
                 id="password"
                 placeholder="***********"
