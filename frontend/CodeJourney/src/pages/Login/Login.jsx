@@ -1,9 +1,14 @@
+import React from "react";
 import { Header } from "../../components/Header/Header";
 import { NavLinkEquipo } from "../../components/Navs/NavLinkEquipo";
 import "../../styles/global.css";
 import "./Login.css";
-import { redirect, NavLink as Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { NavLink as Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
+// Importa la URL de la API desde apiConfig.js
+import apiUrl from "../../components/services/apiConfig";
 
 export const Login = () => {
   const {
@@ -12,10 +17,31 @@ export const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    console.log(errors);
-    redirect("/dashboard");
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    try {
+      // Utiliza la URL de la API junto con la ruta específica
+      const response = await axios.post(`${apiUrl}/login`, data);
+
+      const token = response.data.token;
+      console.log("Token JWT:", token);
+
+      setTokenInCookie(token);
+
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Error en la solicitud:", error.message);
+    }
+  };
+
+  const setTokenInCookie = (token) => {
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + 7); // Caduca en 7 días
+
+    const cookieValue = `token=${token}; expires=${expirationDate.toUTCString()}; path=/`;
+
+    document.cookie = cookieValue;
   };
 
   return (
@@ -39,23 +65,21 @@ export const Login = () => {
                 placeholder="@"
                 className="input input-user"
                 {...register("email", {
-                  required:{
+                  required: {
                     value: true,
                     message: "El correo es requerido",
-                  
                   },
-                  pattern:{
+                  pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                     message: "Correo inválido",
                   },
-                  }
-                   )}
+                })}
               />
-              {errors.email && 
-                <span  className="helper__text helper__text--warning">
+              {errors.email && (
+                <span className="helper__text helper__text--warning">
                   {errors.email.message}
                 </span>
-              }
+              )}
               <label htmlFor="password" className="label">
                 PASSWORD
               </label>
@@ -63,37 +87,29 @@ export const Login = () => {
                 type="password"
                 {...register("password", {
                   required: {
-                    
                     value: true,
                     message: "El password es requerido",
                   },
-                  minLength: {
+                  /*  minLength: {
                     value: 8,
                     message: "Mínimo de 8 carácteres",
-                  },
-                 maxLength:{
-                    value: 26,
-                    message: "Máximo de 26 carácteres",
-                 },
-
-          
-                  pattern:{
-                    value: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/i,
+                  }, */
+                  /*  pattern: {
+                    value:
+                      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/i,
                     message: "Password inválido",
-                  },
-                  })}
+                  }, */
+                })}
                 id="password"
                 placeholder="***********"
                 className="input input-password"
               />
               {errors.password && (
                 <span className="helper__text helper__text--warning">
-                 {
-                    errors.password.message
-                 }
+                  {errors.password.message}
                 </span>
               )}
-             
+
               <input
                 type="submit"
                 value="Login"
