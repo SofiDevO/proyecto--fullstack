@@ -1,20 +1,49 @@
+import React, { useState } from "react";
 import { Header } from "../../components/Header/Header";
 import { NavLinkEquipo } from "../../components/Navs/NavLinkEquipo";
 import "./Registro.css";
 import { useForm } from "react-hook-form";
-import { redirect } from "react-router-dom";
+import { NavLink as Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
+// Importa la URL de la API desde apiConfig.js
+import apiUrl from "../../components/services/apiConfig";
 
 export const Registro = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty },
+    getValues,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    console.log(errors);
-    redirect("/dashboard");
+  const [errorMessage, setErrorMessage] = useState(""); // Nuevo estado para el mensaje de error
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    try {
+      // Verifica si las contraseñas coinciden
+      if (data.clave !== data.confirmarClave) {
+        setErrorMessage("Las contraseñas no coinciden.");
+        return;
+      }
+
+      // Utiliza la URL de la API junto con la ruta específica
+      console.log("Datos del formulario:", data);
+      const response = await axios.post(
+        `${apiUrl}/api/v1/usuario/registrar`,
+        data
+      );
+      console.log("Respuesta del servidor:", response.data);
+      if (response.status === 201) {
+        navigate("/ruta");
+      } else {
+        setErrorMessage("Error en el registro. Por favor, inténtalo de nuevo.");
+      }
+    } catch (error) {
+      console.error("Error en la solicitud:", error.message);
+      setErrorMessage("Error en la solicitud. Por favor, inténtalo de nuevo.");
+    }
   };
 
   return (
@@ -23,29 +52,22 @@ export const Registro = () => {
       <main>
         <div className="login">
           <div className="form-container-register">
-            <img
-              src="../../../public/img/login/image-logo.png"
-              alt="login"
-              className="logo"
-            />
-
             <h1 className="title">REGISTER</h1>
-            {/* <p className="subtitle">CREATE ACCOUNT</p> */}
 
             <form
               onSubmit={handleSubmit(onSubmit)}
               action="/"
               className="form-register"
             >
-              <label htmlFor="" className="label">
+              <label htmlFor="nombre" className="label">
                 NAME
               </label>
               <input
                 type="text"
-                id="name"
-                placeholder="Enter you name"
+                id="nombre"
+                placeholder="Enter your name"
                 className="input input-password"
-                {...register("name", {
+                {...register("nombre", {
                   required: {
                     value: true,
                     message: "El nombre es requerido",
@@ -56,19 +78,21 @@ export const Registro = () => {
                   },
                 })}
               />
-              {errors.name && (
-                <span className="helper__text">{errors.name.message}</span>
+              {errors.nombre && (
+                <span className="helper__text helper__text--warning">
+                  {errors.nombre.message}
+                </span>
               )}
 
-              <label htmlFor="" className="label">
+              <label htmlFor="apellido" className="label">
                 LAST NAME
               </label>
               <input
                 type="text"
-                id="lastname"
-                placeholder="Enter you lastname"
+                id="apellido"
+                placeholder="Enter your lastname"
                 className="input input-password"
-                {...register("lastname", {
+                {...register("apellido", {
                   required: {
                     value: true,
                     message: "El apellido es requerido",
@@ -79,20 +103,21 @@ export const Registro = () => {
                   },
                 })}
               />
-              {errors.lastname && (
+              {errors.apellido && (
                 <span className="helper__text helper__text--warning">
-                  {errors.lastname.message}
+                  {errors.apellido.message}
                 </span>
               )}
-              <label for="email" className="label">
+
+              <label htmlFor="correo" className="label">
                 E-MAIL
               </label>
               <input
                 type="email"
-                id="email"
+                id="correo"
                 placeholder="@"
                 className="input input-password"
-                {...register("email", {
+                {...register("correo", {
                   required: {
                     value: true,
                     message: "El correo es requerido",
@@ -103,31 +128,32 @@ export const Registro = () => {
                   },
                 })}
               />
-              {errors.email && (
+              {errors.correo && (
                 <span className="helper__text helper__text--warning">
-                  {errors.email.message}
+                  {errors.correo.message}
                 </span>
               )}
-              <label for="password" className="label">
+
+              <label htmlFor="clave" className="label">
                 Password
               </label>
               <input
                 type="password"
-                id="password "
+                id="clave "
                 placeholder="*******"
                 className="input input-password"
-                {...register("password", {
+                {...register("clave", {
                   required: {
                     value: true,
                     message: "El password es requerido",
                   },
                   minLength: {
                     value: 8,
-                    message: "Mínimo de 8 carácteres",
+                    message: "Mínimo de 8 caracteres",
                   },
                   maxLength: {
                     value: 26,
-                    message: "Máximo de 26 carácteres",
+                    message: "Máximo de 26 caracteres",
                   },
                   pattern: {
                     value:
@@ -136,16 +162,39 @@ export const Registro = () => {
                   },
                 })}
               />
-              {errors.password && (
+              {errors.clave && (
                 <span className="helper__text helper__text--warning">
-                  {errors.password.message}
+                  {errors.clave.message}
                 </span>
               )}
+
+              <label htmlFor="confirmarClave" className="label">
+                Confirmar Password
+              </label>
+              <input
+                type="password"
+                id="confirmarClave"
+                placeholder="*******"
+                className="input input-password"
+                {...register("confirmarClave", {
+                  validate: (value) =>
+                    value === getValues("clave") ||
+                    "Las contraseñas no coinciden.",
+                })}
+              />
+              {errors.confirmarClave && (
+                <span className="helper__text helper__text--warning">
+                  {errors.confirmarClave.message}
+                </span>
+              )}
+
+              {errorMessage && <p className="error-message">{errorMessage}</p>}
 
               <input
                 type="submit"
                 value="Confirm"
                 className="primary-button login-button"
+                disabled={!isDirty} // Deshabilita el botón si el formulario no ha sido modificado
               />
             </form>
           </div>
