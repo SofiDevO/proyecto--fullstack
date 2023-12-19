@@ -14,7 +14,7 @@ export const Bienvenida = () => {
           </h3>
           <div className="container__rutas">
             <aside className="side__steps">
-              <CustomizedSteppers step={1} />
+              <CustomizedSteppers />
             </aside>
             <div className="caja__preferencias">
               <p>

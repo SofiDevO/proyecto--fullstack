@@ -53,7 +53,7 @@ export const Registro = () => {
       <Header navlink={<NavLinkEquipo />} />
       <main>
         <div className="login">
-          <CustomizedSteppers step={0} />
+          <CustomizedSteppers />
           <div className="form-container-register">
             <h1 className="title">REGISTER</h1>
 
