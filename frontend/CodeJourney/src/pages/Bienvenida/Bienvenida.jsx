@@ -1,4 +1,3 @@
-Copy code
 import React from "react";
 import { Header } from "../../components/Header/Header";
 import { NavLinkEquipo } from "../../components/Navs/NavLinkEquipo";
@@ -6,6 +5,7 @@ import CustomizedSteppers from "../../components/Stepper/Stepper";
 import "./Bienvenida.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Cookies from "js-cookie"; // Importa la biblioteca js-cookie
 
 // Importa la URL de la API desde apiConfig.js
 import apiUrl from "../../components/services/apiConfig";
@@ -19,13 +19,15 @@ export const Bienvenida = () => {
 
   const onSubmit = async (data) => {
     try {
-      // Obtiene el token almacenado en localStorage
-      const token = localStorage.getItem("token");
+      // Obtiene el token almacenado en la cookie
+      const token = Cookies.get("token");
 
       // Configura el encabezado de autorización
       const headers = {
         Authorization: `Bearer ${token}`,
       };
+
+      console.log("Datos del formulario:", data);
 
       // Realiza la solicitud POST a la API con el encabezado de autorización
       const response = await axios.post(
@@ -51,7 +53,10 @@ export const Bienvenida = () => {
               <CustomizedSteppers />
             </aside>
             <div className="caja__preferencias">
-              <p>Antes de empezar, marque el contenido que le gustaría que le mostraran</p>
+              <p>
+                Antes de empezar, marque el contenido que le gustaría que le
+                mostraran
+              </p>
               <span>Contenido disponible:</span>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <label>
