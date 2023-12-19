@@ -5,11 +5,11 @@ import "./Registro.css";
 import { useForm } from "react-hook-form";
 import { NavLink as Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie"; // Importa la biblioteca js-cookie
 
 // Importa la URL de la API desde apiConfig.js
 import apiUrl from "../../components/services/apiConfig";
 import CustomizedSteppers from "../../components/Stepper/Stepper";
-import { Stepper } from "@mui/material";
 
 export const Registro = () => {
   const {
@@ -38,6 +38,9 @@ export const Registro = () => {
       );
       console.log("Respuesta del servidor:", response.data);
       if (response.status === 201) {
+        // Guarda el token en una cookie
+        Cookies.set("token", response.data.token);
+
         navigate("/welcome");
       } else {
         setErrorMessage("Error en el registro. Por favor, inténtalo de nuevo.");

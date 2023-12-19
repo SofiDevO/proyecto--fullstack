@@ -20,14 +20,15 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
     left: "calc(-50% + 16px)",
     right: "calc(50% + 16px)",
   },
+
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      borderColor: "#784af4",
+      borderColor: "#ffffff",
     },
   },
   [`&.${stepConnectorClasses.completed}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      borderColor: "#784af4",
+      borderColor: "#ffffff",
     },
   },
   [`& .${stepConnectorClasses.line}`]: {
@@ -105,10 +106,11 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
 }));
 
 const ColorlibStepIconRoot = styled("div")(({ theme, ownerState }) => ({
+  fontSize: "20px",
   backgroundColor:
-    theme.palette.mode === "dark" ? theme.palette.grey[700] : "#ccc",
+    theme.palette.mode === "dark" ? theme.palette.white[700] : "#ccc",
   zIndex: 1,
-  color: "black",
+  color: "#0b00d2",
   width: 50,
   height: 50,
   display: "flex",
@@ -122,7 +124,7 @@ const ColorlibStepIconRoot = styled("div")(({ theme, ownerState }) => ({
   }),
   ...(ownerState.completed && {
     backgroundImage:
-      "linear-gradient(121deg, rgba(68,17,252,1) 30%, rgba(252,84,84,1) 84%)",
+      "linear-gradient(121deg, rgba(68,17,252,1) 30%, #d554fc 84%)",
   }),
 }));
 
