@@ -12,6 +12,7 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
+import { useLocation } from "react-router-dom";
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -73,16 +74,8 @@ function QontoStepIcon(props) {
 }
 
 QontoStepIcon.propTypes = {
-  /**
-   * Whether this step is active.
-   * @default false
-   */
   active: PropTypes.bool,
   className: PropTypes.string,
-  /**
-   * Mark the step as completed. Is passed to child components.
-   * @default false
-   */
   completed: PropTypes.bool,
 };
 
@@ -153,32 +146,31 @@ function ColorlibStepIcon(props) {
 }
 
 ColorlibStepIcon.propTypes = {
-  /**
-   * Whether this step is active.
-   * @default false
-   */
   active: PropTypes.bool,
   className: PropTypes.string,
-  /**
-   * Mark the step as completed. Is passed to child components.
-   * @default false
-   */
   completed: PropTypes.bool,
-  /**
-   * The label displayed in the step icon.
-   */
   icon: PropTypes.node,
 };
 
 const steps = ["Registro", "Selecciona tus rutas", "Comenzar"];
 
-export default function CustomizedSteppers(props) {
-  const { step } = props;
+export default function CustomizedSteppers() {
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  let activeStep = 0;
+
+  if (pathname === "/registro") {
+    activeStep = 0;
+  } else if (pathname === "/welcome") {
+    activeStep = 1;
+  }
+
   return (
     <Stack sx={{ width: "100%" }} spacing={4}>
       <Stepper
         alternativeLabel
-        activeStep={step}
+        activeStep={activeStep}
         connector={<ColorlibConnector />}
       >
         {steps.map((label) => (
