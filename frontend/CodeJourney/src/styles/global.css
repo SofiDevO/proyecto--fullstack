@@ -9,7 +9,7 @@
   --background-header: #0b15197e;
   --primary-color: #04bd7d;
   --primary-color-hover: #0cffab;
-  --text-color: #fff;
+  --text-color: rgb(255, 255, 255);
   --link-color: #11c4b5;
   --sm: 14px;
   --md: 16px;
@@ -83,6 +83,15 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
   background-color: #0cffab;
+}
+
+/* seccion stepper */
+span.css-1hv8oq8-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+  color: white;
+  font-size: 1.7rem;
+}
+svg.css-i4bv87-MuiSvgIcon-root {
+  font-size: 2.5rem;
 }
 
 @media screen and (max-width: 768px) {
