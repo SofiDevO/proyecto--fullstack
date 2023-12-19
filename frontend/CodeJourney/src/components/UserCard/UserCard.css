@@ -36,8 +36,12 @@ justify-content: center;
 
 
 .User-up {
+  padding: 20px;
+  background-color: #00352c;
+  border-radius: 25px;
+  align-items: center;
   display: flex;
-    justify-content: right;
+  justify-content: space-between;
 }
 
 
@@ -83,7 +87,7 @@ padding: 15px 0 45px 0;
       border-width: 4px;
       border-radius: 50px 15px 15px 50px;
       backdrop-filter: blur(14px);
-      background-color: rgba(0, 0, 0, 0.44);
+      background-color: rgba(0, 0, 0, 0.24);
     cursor: pointer;
     box-shadow: 1px 3px 11px -5px rgba(102, 231, 200, 0.69);
     color: #fff;
@@ -100,7 +104,7 @@ padding: 15px 0 45px 0;
       border-width: 4px;
       border-radius: 15px 50px 50px 15px;
       backdrop-filter: blur(14px);
-      background-color: rgba(0, 0, 0, 0.44);
+      background-color: rgba(0, 0, 0, 0.24);
     cursor: pointer;
     box-shadow: 1px 3px 11px -5px rgba(102, 231, 200, 0.69);
     color: #fff;
@@ -124,10 +128,10 @@ padding: 15px 0 45px 0;
   }
 
 .text__content {
-padding: 20px 20px 20px 200px;
+
 font-family: var(--text-font);
+justify-content: right;
 display: flex;
-justify-content: center;
 }
 
 
@@ -144,7 +148,6 @@ font-weight: 600;
 
   display: flex;
     align-items: center;
-padding-left: 5px;
 
 }
 
@@ -155,19 +158,34 @@ padding-left: 5px;
 
 @media screen and (max-width: 768px) {
 
-  .User-card {
-    padding: 10px;
-  background-color: #00352c;
-  border-radius: 25px;
-  flex-direction: column;
-  align-items: center;
-
+  .User-card-border{
+    padding: 20px;
+    display: flex;
+justify-content: center;
 }
 
 
+  .User-card {
+    width: 400px;
+    padding: 10px;
+
+  border-radius: 25px;
+
+
+}
+
+.User-card-container .User-botton {
+  width: 180px;
+  padding: 12px 0px;
+  font-weight: 700;
+  font-size: 14px;
+  border-width: 3px;
+}
+
   .text__content {
     font-size: 17px;
-    padding: 10px;
+    justify-content: center;
+    display: flex;
     }
 
 }
