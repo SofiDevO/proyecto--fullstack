@@ -24,14 +24,14 @@
   padding: 29px;
   margin: 25px;
   text-align: justify;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.068);
   max-width: 386px;
   cursor: pointer;
 
 }
 
 .caracteristica-item:hover{
-
+  transition: ease-in 0.2s;
   box-shadow: 0 0 10px 0 rgba(95, 93, 93, 0.5);
 }
 .caracteristicas-subtitle {
