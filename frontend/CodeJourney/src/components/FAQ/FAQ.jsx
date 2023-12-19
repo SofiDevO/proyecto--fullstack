@@ -8,7 +8,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export const FAQ = () => {
   return (
-    <>
+    <div>
       <h2 className="title-faq">FAQ</h2>
       <div className="faq-container">
         <Accordion
@@ -63,7 +63,9 @@ export const FAQ = () => {
             id="panel1a-header"
           >
             <Typography>
-              <div className="ask-faq">¿Ofrecen cursos gratuitos?</div>
+              <div className="ask-faq">
+                ¿los cursos que ofrecen en la pagina son gratuitos?
+              </div>
             </Typography>
           </AccordionSummary>
           <AccordionDetails style={{ padding: "0 12px" }}>
@@ -146,6 +148,6 @@ export const FAQ = () => {
           </AccordionDetails>
         </Accordion>
       </div>
-    </>
+    </div>
   );
 };
