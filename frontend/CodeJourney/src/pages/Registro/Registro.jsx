@@ -8,6 +8,8 @@ import axios from "axios";
 
 // Importa la URL de la API desde apiConfig.js
 import apiUrl from "../../components/services/apiConfig";
+import CustomizedSteppers from "../../components/Stepper/Stepper";
+import { Stepper } from "@mui/material";
 
 export const Registro = () => {
   const {
@@ -36,7 +38,7 @@ export const Registro = () => {
       );
       console.log("Respuesta del servidor:", response.data);
       if (response.status === 201) {
-        navigate("/ruta");
+        navigate("/welcome");
       } else {
         setErrorMessage("Error en el registro. Por favor, inténtalo de nuevo.");
       }
@@ -51,6 +53,7 @@ export const Registro = () => {
       <Header navlink={<NavLinkEquipo />} />
       <main>
         <div className="login">
+          <CustomizedSteppers step={0} />
           <div className="form-container-register">
             <h1 className="title">REGISTER</h1>
 

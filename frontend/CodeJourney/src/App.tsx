@@ -7,6 +7,7 @@ import { TeamMembers } from "./pages/TeamMembers/TeamMembers";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { DashboardCardClicked } from "./pages/DashboardCardClicked/DashboardCardClicked";
 import { Ruta } from "./pages/Rutas/Ruta";
+import { Bienvenida } from "./pages/Bienvenida/Bienvenida";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Registro />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/welcome" element={<Bienvenida />} />
           <Route path="/detalle" element={<DashboardCardClicked />} />
           <Route path="/ruta" element={<Ruta />} />
           <Route path="/*" element={<SectionPageError />} />
