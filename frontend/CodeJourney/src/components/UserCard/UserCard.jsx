@@ -9,14 +9,13 @@ export const UserCard = () => {
       <div className="User-card-border">
         <div className="User-card">
           <div className="User-up">
-            <p className="text__content">correo</p>
+            <p className="text__content">correo777@gmail.com</p>
 
             <a href="../../../pages/dashboard.jsx">
               <IoClose
                 style={{
                   color: "#fff",
-                  fontSize: "50px",
-                  padding: "0 0 20px 20px",
+                  fontSize: "35px",
                 }}
               />
             </a>
@@ -24,7 +23,9 @@ export const UserCard = () => {
           <div className="User-card-container">
             <img src={dashboardcardimg} alt="" />
 
-            <h2 className="User-card-saludo">hola</h2>
+            <h2 className="User-card-saludo">
+              ¡Hola, <span>Arturo</span>!
+            </h2>
 
             <div className="Buttons-secction">
               <div className="User-card-botton-menu">
@@ -35,10 +36,11 @@ export const UserCard = () => {
                         fontSize: "20px",
                       }}
                     />{" "}
-                    IR AL MENU DE INICIO
+                    MENU DE INICIO
                   </button>
                 </a>
               </div>
+
               <div className="User-card-botton-close">
                 <a href="#">
                   <button className="User-botton">
