@@ -107,4 +107,11 @@ svg.css-i4bv87-MuiSvgIcon-root {
   body::-webkit-scrollbar-thumb:hover {
     display: none;
   }
+
+  /* Seccion Stepper */
+  span.css-1hv8oq8-MuiStepLabel-label.MuiStepLabel-alternativeLabel {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
 }

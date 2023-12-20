@@ -1,6 +1,6 @@
-import * as React from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { styled } from "@mui/material/styles";
+import { styled } from "@mui/system";
 import Stack from "@mui/material/Stack";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -9,35 +9,11 @@ import Check from "@mui/icons-material/Check";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import DataObjectIcon from "@mui/icons-material/DataObject";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import KeyIcon from "@mui/icons-material/Key";
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
 import { useLocation } from "react-router-dom";
-
-const QontoConnector = styled(StepConnector)(({ theme }) => ({
-  [`&.${stepConnectorClasses.alternativeLabel}`]: {
-    top: 10,
-    left: "calc(-50% + 16px)",
-    right: "calc(50% + 16px)",
-  },
-
-  [`&.${stepConnectorClasses.active}`]: {
-    [`& .${stepConnectorClasses.line}`]: {
-      borderColor: "#ffffff",
-    },
-  },
-  [`&.${stepConnectorClasses.completed}`]: {
-    [`& .${stepConnectorClasses.line}`]: {
-      borderColor: "#ffffff",
-    },
-  },
-  [`& .${stepConnectorClasses.line}`]: {
-    borderColor:
-      theme.palette.mode === "dark" ? theme.palette.grey[800] : "#eaeaf0",
-    borderTopWidth: 3,
-    borderRadius: 1,
-  },
-}));
 
 const QontoStepIconRoot = styled("div")(({ theme, ownerState }) => ({
   color: theme.palette.mode === "dark" ? theme.palette.grey[700] : "#eaeaf0",
@@ -45,10 +21,10 @@ const QontoStepIconRoot = styled("div")(({ theme, ownerState }) => ({
   height: 22,
   alignItems: "center",
   ...(ownerState.active && {
-    color: "#FFF",
+    color: "#ffffff",
   }),
   "& .QontoStepIcon-completedIcon": {
-    color: "#FFF",
+    color: "#fd0404",
     zIndex: 1,
     fontSize: 38,
   },
@@ -108,7 +84,7 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
 const ColorlibStepIconRoot = styled("div")(({ theme, ownerState }) => ({
   fontSize: "20px",
   backgroundColor:
-    theme.palette.mode === "dark" ? theme.palette.white[700] : "#ccc",
+    theme.palette.mode === "dark" ? theme.palette.gray[700] : "#ccc",
   zIndex: 1,
   color: "#0b00d2",
   width: 50,
@@ -133,8 +109,9 @@ function ColorlibStepIcon(props) {
 
   const icons = {
     1: <AccountCircleIcon />,
-    2: <DataObjectIcon />,
-    3: <RocketLaunchIcon />,
+    2: <KeyIcon />,
+    3: <DataObjectIcon />,
+    4: <RocketLaunchIcon />,
   };
 
   return (
@@ -154,18 +131,20 @@ ColorlibStepIcon.propTypes = {
   icon: PropTypes.node,
 };
 
-const steps = ["Registro", "Selecciona tus rutas", "Comenzar"];
+const steps = ["Registro", "Login", "Elige tus rutas", "Comenzar"];
 
-export default function CustomizedSteppers() {
+export default function CustomizedSteppers({ showLogin }) {
   const location = useLocation();
   const pathname = location.pathname;
 
-  let activeStep = 0;
+  let activeStep;
 
-  if (pathname === "/registro") {
+  if (pathname === "/registro" && !showLogin) {
     activeStep = 0;
-  } else if (pathname === "/welcome") {
+  } else if (pathname === "/registro" && showLogin) {
     activeStep = 1;
+  } else if (pathname === "/welcome") {
+    activeStep = 3;
   }
 
   return (

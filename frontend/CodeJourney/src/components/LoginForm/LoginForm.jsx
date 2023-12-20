@@ -59,83 +59,81 @@ export const LoginForm = () => {
 
   return (
     <>
-      <div className="login">
-        <div className="form-container-login">
-          <h1 className="title">login</h1>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="form-login"
-            action="/api/save"
-          >
-            <label htmlFor="email" className="label">
-              E-MAIL
-            </label>
-            <input
-              id="email"
-              type="email"
-              placeholder="@"
-              className="input input-user"
-              {...register("email", {
-                required: {
-                  value: true,
-                  message: "El correo es requerido",
-                },
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: "Correo inválido",
-                },
-              })}
-            />
-            {errors.email && (
-              <span className="helper__text helper__text--warning">
-                {errors.email.message}
-              </span>
-            )}
-            <label htmlFor="password" className="label">
-              PASSWORD
-            </label>
-            <input
-              type="password"
-              {...register("password", {
-                required: {
-                  value: true,
-                  message: "El password es requerido",
-                },
-                maxLength: {
-                  value: 26,
-                  message: "Máximo de 26 carácteres",
-                },
-                minLength: {
-                  value: 8,
-                  message: "Mínimo de 8 carácteres",
-                },
-              })}
-              id="password"
-              placeholder="***********"
-              className="input input-password"
-            />
-            {errors.password && (
-              <span className="helper__text helper__text--warning">
-                {errors.password.message}
-              </span>
-            )}
+      <div className="form-container-login">
+        <h1 className="title">login</h1>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="form-login"
+          action="/api/save"
+        >
+          <label htmlFor="email" className="label">
+            E-MAIL
+          </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="@"
+            className="input input-user"
+            {...register("email", {
+              required: {
+                value: true,
+                message: "El correo es requerido",
+              },
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Correo inválido",
+              },
+            })}
+          />
+          {errors.email && (
+            <span className="helper__text helper__text--warning">
+              {errors.email.message}
+            </span>
+          )}
+          <label htmlFor="password" className="label">
+            PASSWORD
+          </label>
+          <input
+            type="password"
+            {...register("password", {
+              required: {
+                value: true,
+                message: "El password es requerido",
+              },
+              maxLength: {
+                value: 26,
+                message: "Máximo de 26 carácteres",
+              },
+              minLength: {
+                value: 8,
+                message: "Mínimo de 8 carácteres",
+              },
+            })}
+            id="password"
+            placeholder="***********"
+            className="input input-password"
+          />
+          {errors.password && (
+            <span className="helper__text helper__text--warning">
+              {errors.password.message}
+            </span>
+          )}
 
-            {errorMessage && (
-              <span className="helper__text helper__text--warning">
-                {errorMessage}
-              </span>
-            )}
+          {errorMessage && (
+            <span className="helper__text helper__text--warning">
+              {errorMessage}
+            </span>
+          )}
 
-            <input
-              type="submit"
-              value="Login"
-              className="primary-button login-button"
-            />
-          </form>
-          <Link className="secondary-button signup-button" to="/registro">
-            Sign up
-          </Link>
-        </div>
+          <input
+            type="submit"
+            value="Login"
+            className="primary-button login-button"
+          />
+        </form>
+        <Link className="secondary-button signup-button" to="/registro">
+          Sign up
+        </Link>
       </div>
     </>
   );

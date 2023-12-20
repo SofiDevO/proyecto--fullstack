@@ -3,6 +3,7 @@ import { Header } from "../../components/Header/Header";
 import { NavLinkEquipo } from "../../components/Navs/NavLinkEquipo";
 import { RegistroForm } from "../../components/RegistroForm/RegistroForm";
 import { LoginForm } from "../../components/LoginForm/LoginForm";
+import CustomizedSteppers from "../../components/Stepper/Stepper";
 
 export const Registro = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -18,6 +19,7 @@ export const Registro = () => {
       <Header navlink={<NavLinkEquipo />} />
       <main>
         <div className="login">
+          <CustomizedSteppers showLogin={showLogin} />
           <div className="form-container-register">
             {!showLogin ? (
               <RegistroForm
