@@ -127,7 +127,6 @@ link del figma
 
 Durante la etapa de planificacion se pudo establecer la conexcion y relacion que tendran las tablas
 
-<img src="" align="center">
 
 <img src="https://github.com/SofiDevO/proyecto--fullstack/assets/149741364/86d3dce0-3526-4df1-b7fa-cc3e9fa1f680" align="center">
 
