@@ -1,4 +1,4 @@
-<img src="![1-banner](https://github.com/SofiDevO/proyecto--fullstack/assets/149741364/7e5980ba-a1d5-4f4e-b72c-0f335c4d092f)" align="center">
+<img src="https://github.com/SofiDevO/proyecto--fullstack/assets/149741364/7e5980ba-a1d5-4f4e-b72c-0f335c4d092f" align="center">
 
 ## Descripción del Proyecto
 
