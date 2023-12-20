@@ -1,35 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Header } from "../../components/Header/Header";
 import { NavLinkEquipo } from "../../components/Navs/NavLinkEquipo";
 import CustomizedSteppers from "../../components/Stepper/Stepper";
 import "./Bienvenida.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import Cookies from "js-cookie"; // Importa la biblioteca js-cookie
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
 
-// Importa la URL de la API desde apiConfig.js
 import apiUrl from "../../components/services/apiConfig";
 
 export const Bienvenida = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  useEffect(() => {
+    //Verificar si la cookie contiene el JWT
+    const token = Cookies.get("token");
+    if (!token) {
+      // Si no esta el token, entonces redirige a Login
+      navigate("/login");
+    }
+  }, [navigate]);
+
   const onSubmit = async (data) => {
     try {
-      // Obtiene el token almacenado en la cookie
       const token = Cookies.get("token");
-
-      // Configura el encabezado de autorización
       const headers = {
         Authorization: `Bearer ${token}`,
       };
 
       console.log("Datos del formulario:", data);
 
-      // Transforma el formato de los datos para la solicitud POST
       const formattedData = {
         idRutas: Object.entries(data)
           .filter(([key, value]) => value)
@@ -38,7 +45,6 @@ export const Bienvenida = () => {
 
       console.log("Datos formateados:", formattedData);
 
-      // Realiza la solicitud POST a la API con el encabezado de autorización
       const response = await axios.post(
         `${apiUrl}/api/v1/usuario_ruta/registrar`,
         formattedData,
@@ -47,9 +53,8 @@ export const Bienvenida = () => {
 
       console.log("Respuesta del servidor:", response.data);
 
-      // Borra el token existente y guarda el nuevo token en la cookie
       Cookies.remove("token");
-      Cookies.set("token", response.data.token, { expires: 7 }); // Guarda el nuevo token por 7 días
+      Cookies.set("token", response.data.token, { expires: 7 });
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
     }
