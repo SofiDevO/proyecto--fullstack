@@ -29,14 +29,27 @@ export const Bienvenida = () => {
 
       console.log("Datos del formulario:", data);
 
+      // Transforma el formato de los datos para la solicitud POST
+      const formattedData = {
+        idRutas: Object.entries(data)
+          .filter(([key, value]) => value)
+          .map(([key]) => parseInt(key)),
+      };
+
+      console.log("Datos formateados:", formattedData);
+
       // Realiza la solicitud POST a la API con el encabezado de autorización
       const response = await axios.post(
         `${apiUrl}/api/v1/usuario_ruta/registrar`,
-        data,
+        formattedData,
         { headers }
       );
 
       console.log("Respuesta del servidor:", response.data);
+
+      // Borra el token existente y guarda el nuevo token en la cookie
+      Cookies.remove("token");
+      Cookies.set("token", response.data.token, { expires: 7 }); // Guarda el nuevo token por 7 días
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
     }
