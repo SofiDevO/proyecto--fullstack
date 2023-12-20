@@ -120,7 +120,7 @@ link del figma
 </div>
 
 
-<img src="![2-figma](https://github.com/SofiDevO/proyecto--fullstack/assets/149741364/86ea4c2a-eb47-4f6e-ba09-9ad93f26c1be)" align="center">
+<img src="https://github.com/SofiDevO/proyecto--fullstack/assets/149741364/86ea4c2a-eb47-4f6e-ba09-9ad93f26c1be" align="center">
 
 
 ## Modelo entidad relacion
@@ -129,7 +129,7 @@ Durante la etapa de planificacion se pudo establecer la conexcion y relacion que
 
 <img src="" align="center">
 
-<img src="![3-Diagrama_de_flujo_backend](https://github.com/SofiDevO/proyecto--fullstack/assets/149741364/86d3dce0-3526-4df1-b7fa-cc3e9fa1f680)" align="center">
+<img src="https://github.com/SofiDevO/proyecto--fullstack/assets/149741364/86d3dce0-3526-4df1-b7fa-cc3e9fa1f680" align="center">
 
 ## Divicion y gestion de las tareas
 
@@ -137,10 +137,10 @@ Las tareas se repartieron por medio de la herramienta trello, en donde se sub-di
 
 ### Backend:
 
-<img src="![4-backend-trello](https://github.com/SofiDevO/proyecto--fullstack/assets/149741364/047ed5ba-9ac4-40bb-892b-332f4596ec73)" align="center">
+<img src="https://github.com/SofiDevO/proyecto--fullstack/assets/149741364/047ed5ba-9ac4-40bb-892b-332f4596ec73" align="center">
 
 ### Frontend:
 
-<img src="![5-frontend-trello](https://github.com/SofiDevO/proyecto--fullstack/assets/149741364/8e8764df-b97b-4554-a0df-ddf43c460573)" align="center">
+<img src="https://github.com/SofiDevO/proyecto--fullstack/assets/149741364/8e8764df-b97b-4554-a0df-ddf43c460573" align="center">
 
 
