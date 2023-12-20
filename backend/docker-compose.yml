@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  plazoleta:
+    image: backend
+    container_name: backend-container
+    ports:
+      - 8085:8085
+    environment:
+      - URL_DB=${URL_DB}
+      - USERNAME_DB=${USERNAME_DB}
+      - PASSWORD_DB=${PASSWORD_DB}
+      - DDL_AUTO=${DDL_AUTO}
+      - ACCESS_TOKEN_SECRET=${ACCESS_TOKEN_SECRET}
+
