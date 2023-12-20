@@ -5,6 +5,7 @@
 Este repositorio es parte del proyecto Code Journey, un proyecto privado. Se trata de una aplicación frontend y backend desarrollada con tecnologías modernas como React, TypeScript, Vite, y otras. Proporciona una interfaz de usuario atractiva y funcional para diversas funcionalidades.
 
 ## Contenido
+❤️
 
 - [Instalación](#instalación)
 - [Scripts Disponibles](#scripts-disponibles)
