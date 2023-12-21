@@ -87,72 +87,74 @@ export const Bienvenida = () => {
         <section className="welcome">
           <CustomizedSteppers />
           <h3 className="welcome__title">
-            Te damos la Bienvenida {nombreRegistrado}
+            Te damos la Bienvenida <span> {nombreRegistrado} </span>
           </h3>
           <div className="container__rutas">
-            <aside className="side__steps"></aside>
             <div className="caja__preferencias">
               <p>
                 Antes de empezar, marca el contenido que te gustaría que te
                 mostraran
               </p>
               <span>Contenido disponible:</span>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <label className="check__btn">
-                  <input
-                    className="checkbox"
-                    type="checkbox"
-                    {...register("1", { validate: validateCheckbox })}
-                    onChange={(e) => {
-                      handleCheckboxChange(e.target.checked, "Backend");
-                    }}
-                  />
-                  Backend
-                </label>
-                <label className="check__btn">
-                  <input
-                    className="checkbox"
-                    type="checkbox"
-                    {...register("2", { validate: validateCheckbox })}
-                    onChange={(e) => {
-                      handleCheckboxChange(e.target.checked, "Frontend");
-                    }}
-                  />
-                  Frontend
-                </label>
-                <label className="check__btn">
-                  <input
-                    className="checkbox"
-                    type="checkbox"
-                    {...register("3", { validate: validateCheckbox })}
-                    onChange={(e) => {
-                      handleCheckboxChange(e.target.checked, "DataBase");
-                    }}
-                  />
-                  DataBase
-                </label>
-                <label className="check__btn">
-                  <input
-                    className="checkbox"
-                    type="checkbox"
-                    {...register("4", { validate: validateCheckbox })}
-                    onChange={(e) => {
-                      handleCheckboxChange(e.target.checked, "DevOps");
-                    }}
-                  />
-                  DevOps
-                </label>
-
-                <input type="submit" />
+              <form className="form__paths" onSubmit={handleSubmit(onSubmit)}>
+                <div className="container__paths">
+                  <label className="check__btn">
+                    <input
+                      className="checkbox"
+                      type="checkbox"
+                      {...register("1", { validate: validateCheckbox })}
+                      onChange={(e) => {
+                        handleCheckboxChange(e.target.checked, "Backend");
+                      }}
+                    />
+                    Backend
+                  </label>
+                  <label className="check__btn">
+                    <input
+                      className="checkbox"
+                      type="checkbox"
+                      {...register("2", { validate: validateCheckbox })}
+                      onChange={(e) => {
+                        handleCheckboxChange(e.target.checked, "Frontend");
+                      }}
+                    />
+                    Frontend
+                  </label>
+                  <label className="check__btn">
+                    <input
+                      className="checkbox"
+                      type="checkbox"
+                      {...register("3", { validate: validateCheckbox })}
+                      onChange={(e) => {
+                        handleCheckboxChange(e.target.checked, "DataBase");
+                      }}
+                    />
+                    DataBase
+                  </label>
+                  <label className="check__btn">
+                    <input
+                      className="checkbox"
+                      type="checkbox"
+                      {...register("4", { validate: validateCheckbox })}
+                      onChange={(e) => {
+                        handleCheckboxChange(e.target.checked, "DevOps");
+                      }}
+                    />
+                    DevOps
+                  </label>
+                </div>
+                {errors && errors["1"] && (
+                  <p className="helper__text helper__text--warning">
+                    {errors["1"].message}
+                  </p>
+                )}
+                <input className="enviar" type="submit" />
               </form>
-              {errors && errors["1"] && (
-                <p className="helper__text helper__text--warning">
-                  {errors["1"].message}
-                </p>
-              )}
+            </div>
+            <div className="containner__selection">
+              <h4>Rutas seleccionadas:</h4>
               {selectedElements.length > 0 && (
                 <div>
-                  <p>Rutas seleccionadas:</p>
                   <ul>
                     {selectedElements.map((element, index) => (
                       <li key={index}>{element}</li>
