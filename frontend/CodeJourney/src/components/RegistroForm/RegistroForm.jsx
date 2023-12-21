@@ -120,8 +120,9 @@ export const RegistroForm = ({ onSuccessfulRegistration, setErrorMessage }) => {
               message: "El correo es requerido",
             },
             pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "Correo inválido",
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.(com|net|mx)$/i,
+              message:
+                "Correo inválido. Asegúrate de que el correo contenga ' el formato correcto'",
             },
           })}
         />
