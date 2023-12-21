@@ -7,10 +7,12 @@ import CustomizedSteppers from "../../components/Stepper/Stepper";
 
 export const Registro = () => {
   const [showLogin, setShowLogin] = useState(false);
+  const [nombreRegistrado, setNombreRegistrado] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSuccessfulRegistration = () => {
-    // Muestra el formulario de login
+  const handleSuccessfulRegistration = (nombre) => {
+    setNombreRegistrado(nombre);
+
     setShowLogin(true);
   };
 
@@ -27,7 +29,7 @@ export const Registro = () => {
                 setErrorMessage={setErrorMessage}
               />
             ) : (
-              <LoginForm />
+              <LoginForm nombreRegistrado={nombreRegistrado} />
             )}
           </div>
         </div>

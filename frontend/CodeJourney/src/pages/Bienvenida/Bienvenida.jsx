@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-
 import apiUrl from "../../components/services/apiConfig";
 
 export const Bienvenida = () => {
@@ -30,6 +29,9 @@ export const Bienvenida = () => {
       navigate("/login");
     }
   }, [navigate]);
+
+  // Obtén el nombre almacenado en localStorage
+  const nombreRegistrado = localStorage.getItem("nombre");
 
   // Validación personalizada para al menos un checkbox seleccionado
   const validateCheckbox = () =>
@@ -83,11 +85,12 @@ export const Bienvenida = () => {
       <Header navlink={<NavLinkEquipo />} />
       <main>
         <section className="welcome">
-          <h3 className="welcome__title">Te damos la Bienvenida</h3>
+          <CustomizedSteppers />
+          <h3 className="welcome__title">
+            Te damos la Bienvenida {nombreRegistrado}
+          </h3>
           <div className="container__rutas">
-            <aside className="side__steps">
-              <CustomizedSteppers />
-            </aside>
+            <aside className="side__steps"></aside>
             <div className="caja__preferencias">
               <p>
                 Antes de empezar, marca el contenido que te gustaría que te
