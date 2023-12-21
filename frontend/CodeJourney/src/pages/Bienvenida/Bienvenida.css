@@ -27,3 +27,24 @@
   flex-direction: column;
   gap: 3rem;
 }
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.check__btn {
+  background: var(--text-gradient);
+  padding: 1rem;
+  border-radius: 13px;
+}
+
+.checkbox:checked + .check__btn {
+  background-color: green;
+}
+
+.check__btn:active {
+  background: black;
+}
