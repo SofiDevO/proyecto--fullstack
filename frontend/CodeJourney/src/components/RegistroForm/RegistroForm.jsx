@@ -1,11 +1,8 @@
-// RegistroForm.jsx
 import React, { useState } from "react";
 import "./Registro.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import Cookies from "js-cookie"; // Import the js-cookie library
-
-// Import the URL of the API from apiConfig.js
+import Cookies from "js-cookie";
 import apiUrl from "../../components/services/apiConfig";
 
 export const RegistroForm = ({ onSuccessfulRegistration, setErrorMessage }) => {
@@ -16,18 +13,15 @@ export const RegistroForm = ({ onSuccessfulRegistration, setErrorMessage }) => {
     getValues,
   } = useForm();
 
-  const [errorMessage, setLocalErrorMessage] = useState(""); // Updated state for the local error message
+  const [errorMessage, setLocalErrorMessage] = useState("");
 
   const onSubmit = async (data) => {
     try {
-      // Verify if the passwords match
       if (data.clave !== data.confirmarClave) {
         setLocalErrorMessage("Las contraseñas no coinciden.");
         return;
       }
 
-      // Use the API URL along with the specific route
-      console.log("Datos del formulario:", data);
       const response = await axios.post(
         `${apiUrl}/api/v1/usuario/registrar`,
         data
@@ -35,9 +29,11 @@ export const RegistroForm = ({ onSuccessfulRegistration, setErrorMessage }) => {
 
       console.log("Respuesta del servidor:", response.data);
       if (response.status === 201) {
-        // Save the token in a cookie
+        // Almacena el nombre en localStorage
+        localStorage.setItem("nombre", response.data.nombre);
+
         Cookies.set("token", response.data.token);
-        onSuccessfulRegistration(); // Call the parent component callback
+        onSuccessfulRegistration(response.data.nombre);
       } else {
         setLocalErrorMessage(
           "Error en el registro. Por favor, inténtalo de nuevo."
@@ -74,7 +70,7 @@ export const RegistroForm = ({ onSuccessfulRegistration, setErrorMessage }) => {
               message: "El nombre es requerido",
             },
             pattern: {
-              value: /^[A-Za-z]+$/i,
+              value: /^[A-Za-záéíóúüÜñÑ\s]+$/i,
               message: "Nombre inválido",
             },
           })}
@@ -99,7 +95,7 @@ export const RegistroForm = ({ onSuccessfulRegistration, setErrorMessage }) => {
               message: "El apellido es requerido",
             },
             pattern: {
-              value: /^[A-Za-z]+$/i,
+              value: /^[A-Za-záéíóúüÜñÑ\s]+$/i,
               message: "Apellido inválido",
             },
           })}
