@@ -54,6 +54,7 @@ body {
   font-family: var(--text-font);
   line-height: normal;
   color: var(--text-color);
+  overflow-x: hidden;
 }
 main {
   padding-top: 70px;
