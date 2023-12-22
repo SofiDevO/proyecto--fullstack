@@ -28,11 +28,7 @@ export const RegistroForm = ({ onSuccessfulRegistration, setErrorMessage }) => {
 
       console.log("Respuesta del servidor:", response.data);
       if (response.status === 201) {
-        // Almacena el nombre en localStorage
-        localStorage.setItem("nombre", response.data.nombre);
-
-        Cookies.set("token", response.data.token);
-        onSuccessfulRegistration(response.data.nombre);
+        onSuccessfulRegistration(response.data);
       } else {
         setLocalErrorMessage(
           "Error en el registro. Por favor, inténtalo de nuevo."
@@ -180,7 +176,7 @@ export const RegistroForm = ({ onSuccessfulRegistration, setErrorMessage }) => {
           })}
         />
         {errors.confirmarClave && (
-          <span className="helper__text helper__text--warning">
+          <span className="helper__text helper__text--alert">
             {errors.confirmarClave.message}
           </span>
         )}

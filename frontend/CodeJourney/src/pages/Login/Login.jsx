@@ -17,18 +17,17 @@ export const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const [errorMessage, setErrorMessage] = useState(""); // Nuevo estado para el mensaje de error
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
-      // Utiliza la URL de la API junto con la ruta específica
       const response = await axios.post(`${apiUrl}/login`, data);
-
       const token = response.data.token;
       console.log("Token JWT:", token);
 
       setTokenInCookie(token);
+      setCorreoInLocalStorage(data.email); // Nueva línea
 
       navigate("/dashboard");
     } catch (error) {
@@ -49,11 +48,13 @@ export const Login = () => {
 
   const setTokenInCookie = (token) => {
     const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + 7); // Caduca en 7 días
-
+    expirationDate.setDate(expirationDate.getDate() + 7);
     const cookieValue = `token=${token}; expires=${expirationDate.toUTCString()}; path=/`;
-
     document.cookie = cookieValue;
+  };
+
+  const setCorreoInLocalStorage = (email) => {
+    localStorage.setItem("correo", email);
   };
 
   return (

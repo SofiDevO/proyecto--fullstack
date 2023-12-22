@@ -60,6 +60,7 @@
 }
 .helper__text--warning {
   color: rgb(255, 10, 10);
+  margin-top: 0.2rem;
 }
 .helper__text--alert {
   color: yellow;
