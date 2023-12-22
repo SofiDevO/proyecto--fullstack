@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import apiUrl from "../../components/services/apiConfig";
+import { apiUrl } from "../../components/services/apiConfig";
 
 export const Bienvenida = () => {
   const navigate = useNavigate();
