@@ -1,0 +1,26 @@
+main {
+  padding-top: 70px;
+  height: 100dvh;
+  overflow: auto;
+  width: 100%;
+}
+main::-webkit-scrollbar {
+  width: 9px;
+}
+main::-webkit-scrollbar-thumb {
+  background-color: #04bd7d;
+  border-radius: 20px;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+  background-color: #0cffab;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding-top: 70px;
+    height: auto;
+    overflow: auto;
+    width: 100%;
+  }
+}
