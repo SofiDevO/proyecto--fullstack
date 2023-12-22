@@ -8,7 +8,7 @@ import { NavLink as Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // Importa la URL de la API desde apiConfig.js
-import apiUrl from "../../components/services/apiConfig";
+import { apiUrl } from "../../components/services/apiConfig";
 
 export const Login = () => {
   const {
