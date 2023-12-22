@@ -22,6 +22,7 @@ export const UserCard = () => {
       PopUpClose.classList.toggle("hidden");
     }
   };
+
   const obtenerTodosLosUsuarios = async () => {
     try {
       const token = Cookies.get("token");
