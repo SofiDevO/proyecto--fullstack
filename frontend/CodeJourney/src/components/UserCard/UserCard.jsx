@@ -124,7 +124,7 @@ export const UserCard = () => {
       <div className="User-card-border">
         <div className="User-card">
           <div className="User-up">
-            <p className="text__content">{correo}</p>
+            <p className="text__content email">{correo}</p>
             <div onClick={ClosePopUp}>
               <IoClose
                 style={{
