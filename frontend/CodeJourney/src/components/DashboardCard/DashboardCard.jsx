@@ -6,9 +6,10 @@ import { NavLink as Link, useNavigate } from "react-router-dom";
 import "./DashboardCard.css";
 
 export const DashboardCard = () => {
-  const [etapas, setEtapas] = useState([]);
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const [etapas, setEtapas] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,13 +17,10 @@ export const DashboardCard = () => {
         const token = Cookies.get("token");
 
         if (!token) {
-          // Redirige al login si no hay token
-          // Puedes ajustar esto según tus necesidades
           navigate("/login");
           return;
         }
 
-        // Endpoint para obtener rutas asociadas al usuario
         const rutasResponse = await axios.get(
           `${apiUrl}/api/v1/usuario_ruta/obtenerRutasAsociadas`,
           {
@@ -32,7 +30,6 @@ export const DashboardCard = () => {
           }
         );
 
-        // Verifica si rutasResponse.data es un array
         if (!Array.isArray(rutasResponse.data)) {
           console.error(
             "La respuesta de la API no es un array:",
@@ -42,10 +39,8 @@ export const DashboardCard = () => {
           return;
         }
 
-        // Obtener las rutas IDs
         const rutasIds = rutasResponse.data.map((ruta) => ruta.id);
 
-        // Endpoint para obtener etapas filtradas por rutas
         const etapasResponse = await axios.get(
           `${apiUrl}/api/v1/usuario_etapa/filtrar?${rutasIds
             .map((rutaId) => `rutaId=${rutaId}`)
@@ -61,11 +56,24 @@ export const DashboardCard = () => {
       } catch (error) {
         console.error("Error al obtener las etapas:", error.message);
         setError("Error al obtener las etapas");
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
-  }, [navigate]); // Se ejecuta al montar el componente
+  }, [navigate]);
+
+  const handleCardClick = (etapaId) => {
+    // Save the selected etapa ID in local storage
+    localStorage.setItem("selectedEtapaId", etapaId);
+    // Navigate to the /detalle route
+    navigate("/detalle");
+  };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -74,16 +82,18 @@ export const DashboardCard = () => {
   return (
     <div>
       {etapas.map((etapa) => (
-        <Link to={`/detalle/${etapa.id}`} key={etapa.id}>
-          <div className="dashboard-card-border">
-            <div className="dashboard-card">
-              <div className="dashboard-card-container">
-                <h2 className="dashboard-card-title">{etapa.nombre}</h2>
-                <p className="text__content">{etapa.descripcion}</p>
-              </div>
+        <div
+          onClick={() => handleCardClick(etapa.id)}
+          className="dashboard-card-border"
+          key={etapa.id}
+        >
+          <div className="dashboard-card">
+            <div className="dashboard-card-container">
+              <h2 className="dashboard-card-title">{etapa.nombre}</h2>
+              <p className="text__content">{etapa.descripcion}</p>
             </div>
           </div>
-        </Link>
+        </div>
       ))}
     </div>
   );
