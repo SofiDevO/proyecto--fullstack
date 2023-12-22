@@ -1,11 +1,12 @@
 .main__dashboard {
   padding-top: 70px;
-  height: 100dvh;
+  height: 125dvh;
   overflow: auto;
   width: 100%;
 }
 .main__dashboard::-webkit-scrollbar {
   width: 9px;
+  display: none;
 }
 .main__dashboard::-webkit-scrollbar-thumb {
   background-color: #04bd7d;
