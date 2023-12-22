@@ -11,7 +11,6 @@ import { apiUrl } from "../../components/services/apiConfig";
 
 export const Bienvenida = () => {
   const navigate = useNavigate();
-
   const {
     register,
     handleSubmit,

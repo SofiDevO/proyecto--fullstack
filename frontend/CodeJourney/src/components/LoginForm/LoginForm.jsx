@@ -5,9 +5,8 @@ import { useForm } from "react-hook-form";
 import { NavLink as Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
-
-// Importa la URL de la API desde apiConfig.js
 import { apiUrl } from "../services/apiConfig";
+
 export const LoginForm = () => {
   const {
     register,
@@ -15,23 +14,23 @@ export const LoginForm = () => {
     formState: { errors },
   } = useForm();
 
-  const [errorMessage, setErrorMessage] = useState(""); // Nuevo estado para el mensaje de error
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
-      // Utiliza la URL de la API junto con la ruta específica
       const response = await axios.post(`${apiUrl}/login`, data);
-
       const token = response.data.token;
-      console.log("Token JWT:", token);
 
+      // Establece la cookie con el token
       setTokenInCookie(token);
+      localStorage.setItem("correo", data.email);
 
-      navigate("/welcome");
+      // Redirige al dashboard después del login exitoso
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
-      // Verifica si el error es debido a una contraseña incorrecta
+
       if (
         (error.response && error.response.status === 403) ||
         error.response.status === 401
@@ -46,16 +45,12 @@ export const LoginForm = () => {
   };
 
   const setTokenInCookie = (token) => {
-    // Elimina la cookie existente, si hay alguna
-    Cookies.remove("token");
+    // Establece la cookie con el token
+    Cookies.set("token", token, { expires: 7 }); // Caduca en 7 días
 
-    const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + 7); // Caduca en 7 días
-
-    // Establece la cookie con el token y su fecha de expiración
-    Cookies.set("token", token, { expires: expirationDate });
+    // Agrega un mensaje de log para verificar
+    console.log("Cookie establecida correctamente:", token);
   };
-
   return (
     <>
       <div className="form-container-login">
