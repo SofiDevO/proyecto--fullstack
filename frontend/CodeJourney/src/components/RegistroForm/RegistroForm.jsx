@@ -3,8 +3,7 @@ import "./Registro.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Cookies from "js-cookie";
-import apiUrl from "../../components/services/apiConfig";
-
+import { apiUrl } from "../services/apiConfig";
 export const RegistroForm = ({ onSuccessfulRegistration, setErrorMessage }) => {
   const {
     register,

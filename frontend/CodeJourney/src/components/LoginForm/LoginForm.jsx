@@ -7,8 +7,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 // Importa la URL de la API desde apiConfig.js
-import apiUrl from "../../components/services/apiConfig";
-
+import { apiUrl } from "../services/apiConfig";
 export const LoginForm = () => {
   const {
     register,
