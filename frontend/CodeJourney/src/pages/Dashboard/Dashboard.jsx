@@ -6,7 +6,7 @@ export const Dashboard = () => {
   return (
     <div className="page__container">
       <SideNav />
-      <main>
+      <main className="main__dashboard">
         <DashboardCard />
         <UserCard />
       </main>
