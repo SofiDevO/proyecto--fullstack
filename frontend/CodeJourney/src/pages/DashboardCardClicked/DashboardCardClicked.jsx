@@ -1,38 +1,49 @@
-// DashboardCardClicked.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 import { apiUrl } from "../../components/services/apiConfig";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { NavLink as Link, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import "./DashboardCardClicked.css";
+import { NavLink as Link } from "react-router-dom";
 
 export const DashboardCardClicked = () => {
-  const [contenido, setContenido] = useState({});
+  const { state } = useLocation();
+  const [etapa, setEtapa] = useState({});
   const [error, setError] = useState(null);
-  const { id } = useParams(); // Para obtener el parámetro de la URL
 
   useEffect(() => {
+    if (!state || !state.id) {
+      console.error("ID no proporcionado en el estado.");
+      // Puedes redirigir o manejar el error de alguna manera.
+      return;
+    }
+
     const fetchData = async () => {
       try {
         const token = Cookies.get("token");
 
         if (!token) {
-          // Redirige al login si no hay token
-          // Puedes ajustar esto según tus necesidades
-          // Aquí puedes redirigir o manejar la falta de token según tu lógica
           console.error("No hay token disponible");
           return;
         }
 
+        console.log("Fetching data for ID:", state.id);
+
         const response = await axios.get(
-          `${apiUrl}/api/v1/contenido/obtener/${id}`,
+          `${apiUrl}/api/v1/contenido/obtener/`,
           {
+            params: {
+              id: state.id,
+            },
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         );
 
-        setContenido(response.data);
+        console.log("API Response:", response.data);
+
+        setEtapa(response.data);
       } catch (error) {
         console.error("Error al obtener el contenido:", error.message);
         setError("Error al obtener el contenido");
@@ -40,37 +51,28 @@ export const DashboardCardClicked = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [state]);
 
   if (error) {
     return <div>Error: {error}</div>;
   }
 
   return (
-    <div className="card-opasity">
+    <div className="card-opacity">
       <div className="dashboard-card-clicked-border">
         <div className="dashboard-card-clicked">
           <div className="dashboard-card-clicked-img">
-            <Link className="header__menu-link" to="/dashboard">
-              <IoMdArrowRoundBack
-                style={{
-                  color: "#fff",
-                  fontSize: "50px",
-                  paddingBottom: "20px",
-                }}
-              />
-            </Link>
-            {/* Resto del código... */}
+            {/* ... (otro código) */}
             <div className="dashboard-card-clicked-container">
-              <h2 className="dashboard-card-clicked-title">
-                {contenido.titulo}
-              </h2>
-              <p className="text__content">{contenido.descripcion}</p>
+              <h2 className="dashboard-card-clicked-title">{etapa.titulo}</h2>
+              <p className="text__content">{etapa.descripcion}</p>
               <p className="text__content requerid">
-                <span>{contenido.etapa && contenido.etapa.descripcion}</span>
+                <span>{etapa.etapa?.descripcion}</span>
               </p>
               <div className="dashboard-card-clicked-botton">
-                <Link to={`/ruta/${contenido.etapa.ruta.id}`}>
+                {/* Puedes ajustar la URL según tus necesidades */}
+                {/* Aquí estoy asumiendo que `/ruta/${etapa.etapa?.ruta?.id}` es válida */}
+                <Link to={`/ruta/${etapa.etapa?.ruta?.id}`}>
                   <button className="card-botton">
                     Empezar ruta de aprendizaje
                   </button>
