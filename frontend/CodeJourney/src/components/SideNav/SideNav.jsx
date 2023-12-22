@@ -3,11 +3,15 @@ import "./SideNav.css";
 import { Logo } from "../Logo/Logo";
 
 import UserHeader from "../UserHeader/UserHeader";
+import { AccordionTechs } from "../AcordionTechs/AcordionTechs";
 
 export const SideNav = () => {
   useEffect(() => {
     const handleContainerClick = (e) => {
-      if (e.target.matches(".panel-btn") || e.target.matches(".panel-btn *")) {
+      if (
+        e.target.matches(".panel-boton") ||
+        e.target.matches(".panel-boton *")
+      ) {
         toggleContainer();
       }
 
@@ -28,7 +32,7 @@ export const SideNav = () => {
 
   const toggleContainer = () => {
     const containerInner = document.querySelector(".container__inner");
-    const panelBtn = document.querySelector(".panel-btn");
+    const panelBtn = document.querySelector(".panel-boton");
 
     containerInner.classList.toggle("is-active");
     panelBtn.classList.toggle("is-active");
@@ -36,7 +40,7 @@ export const SideNav = () => {
 
   const closeContainer = () => {
     const containerInner = document.querySelector(".container__inner");
-    const panelBtn = document.querySelector(".panel-btn");
+    const panelBtn = document.querySelector(".panel-boton");
 
     containerInner.classList.remove("is-active");
     panelBtn.classList.remove("is-active");
@@ -45,7 +49,10 @@ export const SideNav = () => {
   return (
     <>
       <header className="header__side">
-        <button className="hamburger hamburger--arrow panel-btn" type="button">
+        <button
+          className="hamburger hamburger--arrow panel-boton"
+          type="button"
+        >
           <span className="hamburger-box">
             <span className="hamburger-inner"></span>
           </span>
@@ -53,36 +60,7 @@ export const SideNav = () => {
         <Logo />
         <UserHeader />
         <div className="container__inner ">
-          <label className="box__toggle ">
-            <input class="checkbox" type="checkbox" name="frontend" />
-            <div className="line__container">
-              <span>Frontend</span>
-              <div className="container__cruz">
-                <span className="line "></span>
-                <span className="line "></span>
-              </div>
-            </div>
-            <ul class="techs">
-              <li className="tech__item">
-                <a className="tech__item--link" href="#">
-                  HTML
-                </a>
-              </li>
-              <li className="tech__item">
-                <a href="#">CSS</a>
-              </li>
-              <li className="tech__item">
-                <a className="tech__item--link" href="#">
-                  Javascript
-                </a>
-              </li>
-              <li className="tech__item">
-                <a className="tech__item--link" href="#">
-                  React
-                </a>
-              </li>
-            </ul>
-          </label>
+          <AccordionTechs />
         </div>
       </header>
     </>
