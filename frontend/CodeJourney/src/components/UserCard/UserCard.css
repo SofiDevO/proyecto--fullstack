@@ -133,12 +133,12 @@
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
   .User-card-border {
     padding: 20px;
     display: flex;
     justify-content: center;
-    margin-top: 139px;
+    margin-top: 57px;
   }
 
   .User-card {
@@ -160,5 +160,6 @@
     font-size: 17px;
     justify-content: center;
     display: flex;
+    padding: 0;
   }
 }
