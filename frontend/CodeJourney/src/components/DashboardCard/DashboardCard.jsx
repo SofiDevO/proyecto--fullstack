@@ -78,7 +78,7 @@ export const DashboardCard = () => {
           <div className="dashboard-card-border">
             <div className="dashboard-card">
               <div className="dashboard-card-container">
-                <h1 className="dashboard-card-title">{etapa.nombre}</h1>
+                <h2 className="dashboard-card-title">{etapa.nombre}</h2>
                 <p className="text__content">{etapa.descripcion}</p>
               </div>
             </div>

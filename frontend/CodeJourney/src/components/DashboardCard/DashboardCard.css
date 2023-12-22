@@ -18,15 +18,15 @@
 .dashboard-card:hover {
   background: var(--text-gradient);
 }
-.dashboard-card:hover > .dashboard-card-title + .text__content {
+.dashboard-card:hover > .dashboard-card-container > .text__content {
+  color: black;
+}
+.dashboard-card:hover > .dashboard-card-container > .dashboard-card-title {
   color: black;
 }
 
 .dashboard-card-title {
   text-align: center;
-}
-
-.dashboard-card h1 {
   color: #fff;
   font-size: 55px;
   font-weight: bolder;
