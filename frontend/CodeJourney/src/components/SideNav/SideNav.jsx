@@ -1,67 +1,85 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import "./SideNav.css";
 import { Logo } from "../Logo/Logo";
-import { apiAvatar, getRandomAvatarId } from "../services/apiConfig";
+
+import UserHeader from "../UserHeader/UserHeader";
 
 export const SideNav = () => {
-  const nombreRegistrado = localStorage.getItem("nombre");
-  const [userImage, setUserImage] = useState("");
-
   useEffect(() => {
-    const fetchUserImage = async () => {
-      const avatarId = getRandomAvatarId();
-      const imageUrl = await getUserImage(avatarId);
-      if (imageUrl) {
-        setUserImage(imageUrl);
+    const handleContainerClick = (e) => {
+      if (e.target.matches(".panel-btn") || e.target.matches(".panel-btn *")) {
+        toggleContainer();
+      }
+
+      if (
+        e.target.matches(".tech__item ") ||
+        e.target.matches(".tech__item--link")
+      ) {
+        closeContainer();
       }
     };
 
-    fetchUserImage();
+    document.addEventListener("click", handleContainerClick);
+
+    return () => {
+      document.removeEventListener("click", handleContainerClick);
+    };
   }, []);
 
-  const getUserImage = async (avatarId) => {
-    try {
-      const avatarUrl = `${apiAvatar}${encodeURIComponent(
-        avatarId
-      )}.png?apikey=JZES5VswFcOWj1`;
-      const response = await axios.get(avatarUrl, {
-        responseType: "arraybuffer",
-      });
-      const blob = new Blob([response.data], { type: "image/png" });
-      return URL.createObjectURL(blob);
-    } catch (error) {
-      console.error("Error al obtener la imagen del usuario:", error.message);
-      return null;
-    }
+  const toggleContainer = () => {
+    const containerInner = document.querySelector(".container__inner");
+    const panelBtn = document.querySelector(".panel-btn");
+
+    containerInner.classList.toggle("is-active");
+    panelBtn.classList.toggle("is-active");
+  };
+
+  const closeContainer = () => {
+    const containerInner = document.querySelector(".container__inner");
+    const panelBtn = document.querySelector(".panel-btn");
+
+    containerInner.classList.remove("is-active");
+    panelBtn.classList.remove("is-active");
   };
 
   return (
     <>
       <header className="header__side">
+        <button className="hamburger hamburger--arrow panel-btn" type="button">
+          <span className="hamburger-box">
+            <span className="hamburger-inner"></span>
+          </span>
+        </button>
         <Logo />
-        <a href="#" className="container__user">
-          <div className="header__user">
-            <img className="user__img" src={userImage} alt="User Icon" />
-            <span>{nombreRegistrado}</span>
-          </div>
-        </a>
-        <div className="container__inner">
-          <label className="box__toggle">
-            <span>Frontend</span>
-            <input class="checkbox" type="checkbox" name="frontend" id="" />
+        <UserHeader />
+        <div className="container__inner ">
+          <label className="box__toggle ">
+            <input class="checkbox" type="checkbox" name="frontend" />
+            <div className="line__container">
+              <span>Frontend</span>
+              <div className="container__cruz">
+                <span className="line "></span>
+                <span className="line "></span>
+              </div>
+            </div>
             <ul class="techs">
-              <li>
-                <a href="#">HTML</a>
+              <li className="tech__item">
+                <a className="tech__item--link" href="#">
+                  HTML
+                </a>
               </li>
-              <li>
+              <li className="tech__item">
                 <a href="#">CSS</a>
               </li>
-              <li>
-                <a href="#">Javascript</a>
+              <li className="tech__item">
+                <a className="tech__item--link" href="#">
+                  Javascript
+                </a>
               </li>
-              <li>
-                <a href="#">React</a>
+              <li className="tech__item">
+                <a className="tech__item--link" href="#">
+                  React
+                </a>
               </li>
             </ul>
           </label>
