@@ -27,7 +27,7 @@ export const LoginForm = () => {
       localStorage.setItem("correo", data.email);
 
       // Redirige al dashboard después del login exitoso
-      navigate("/dashboard");
+      navigate("/welcome");
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
 
