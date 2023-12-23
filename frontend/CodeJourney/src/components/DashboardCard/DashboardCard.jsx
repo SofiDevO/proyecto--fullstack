@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { apiUrl } from "../services/apiConfig";
-import { NavLink as Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./DashboardCard.css";
 
 export const DashboardCard = () => {
@@ -64,11 +65,8 @@ export const DashboardCard = () => {
     fetchData();
   }, [navigate]);
 
-  const handleCardClick = (etapaId) => {
-    // Save the selected etapa ID in local storage
-    localStorage.setItem("selectedEtapaId", etapaId);
-    // Navigate to the /detalle route
-    navigate("/detalle");
+  const handleCardClick = (etapa) => {
+    navigate(`/detalle/${etapa.id}`, { state: { etapa } });
   };
 
   if (isLoading) {
@@ -83,7 +81,7 @@ export const DashboardCard = () => {
     <div>
       {etapas.map((etapa) => (
         <div
-          onClick={() => handleCardClick(etapa.id)}
+          onClick={() => handleCardClick(etapa)}
           className="dashboard-card-border"
           key={etapa.id}
         >
