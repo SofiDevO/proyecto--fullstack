@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { apiUrl } from "../services/apiConfig";
+import { apiUrl } from "../../components/services/apiConfig";
 import { useLocation } from "react-router-dom";
 import "./DashboardCardClicked.css";
 import { NavLink as Link } from "react-router-dom";
