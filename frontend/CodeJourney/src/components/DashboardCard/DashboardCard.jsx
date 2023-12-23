@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { apiUrl } from "../services/apiConfig";
-import { NavLink as Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./DashboardCard.css";
 
 export const DashboardCard = () => {
