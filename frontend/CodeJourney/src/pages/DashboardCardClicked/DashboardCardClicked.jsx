@@ -1,111 +1,92 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { NavLink as Link } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { apiUrl } from "../services/apiConfig";
-import { useLocation } from "react-router-dom";
 import "./DashboardCardClicked.css";
-import { NavLink as Link } from "react-router-dom";
+import { apiUrl } from "../../components/services/apiConfig";
 
 export const DashboardCardClicked = () => {
-  const { state } = useLocation();
-  const [etapa, setEtapa] = useState({});
-  const [error, setError] = useState(null);
+  const location = useLocation();
+  const etapa = location.state.etapa;
+  const [dataCompleta, setDataCompleta] = useState({});
+  const [contenido, setContenido] = useState({});
+  const [token, setToken] = useState("");
 
   useEffect(() => {
+    // Obtener el token de la cookie
+    const savedToken = Cookies.get("miToken");
+
+    if (savedToken) {
+      setToken(savedToken);
+    }
+
     const fetchData = async () => {
       try {
-        // Retrieve the selected etapa ID from local storage
-        const selectedEtapaId = localStorage.getItem("selectedEtapaId");
+        const apiUrlWithEndpoint = `${apiUrl}/api/v1/contenido/obtener`;
+        console.log("URL de la API:", apiUrlWithEndpoint);
 
-        if (!selectedEtapaId) {
-          console.error("ID no proporcionado en el estado.");
-          // Puedes redirigir o manejar el error de alguna manera.
-          return;
-        }
+        const rutasResponse = await axios.get(apiUrlWithEndpoint, {
+          headers: {
+            Authorization: `Bearer ${savedToken}`,
+          },
+        });
 
-        const token = Cookies.get("token");
+        if (rutasResponse.status === 200) {
+          const data = rutasResponse.data;
+          setDataCompleta(data);
 
-        if (!token) {
-          console.error("No hay token disponible");
-          return;
-        }
-
-        // Obtener todas las rutas asociadas
-        const rutasResponse = await axios.get(
-          `${apiUrl}/api/v1/usuario_ruta/obtenerRutasAsociadas`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        if (!Array.isArray(rutasResponse.data)) {
-          console.error(
-            "La respuesta de la API no es un array:",
-            rutasResponse.data
+          const contenidoEtapa = data.find(
+            (item) => item.etapa.id === etapa.id
           );
-          setError("Error al obtener las rutas");
-          return;
-        }
 
-        // Mapear los IDs de las rutas asociadas
-        const rutasIds = rutasResponse.data.map((ruta) => ruta.id);
-
-        // Buscar la etapa correspondiente al ID seleccionado
-        const etapasResponse = await axios.get(
-          `${apiUrl}/api/v1/usuario_etapa/filtrar?${rutasIds
-            .map((rutaId) => `rutaId=${rutaId}`)
-            .join("&")}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+          if (contenidoEtapa) {
+            setContenido(contenidoEtapa);
+          } else {
+            console.error("No se encontró información para la etapa actual");
           }
-        );
-
-        const selectedEtapa = etapasResponse.data.find(
-          (etapa) => etapa.id === parseInt(selectedEtapaId)
-        );
-
-        if (!selectedEtapa) {
-          console.error("Etapa no encontrada para el ID seleccionado.");
-          // Puedes redirigir o manejar el error de alguna manera.
-          return;
+        } else if (rutasResponse.status === 403) {
+          console.error(
+            "Permiso denegado. Verifica los permisos en el servidor."
+          );
+        } else {
+          console.error(
+            "Error en la respuesta del servidor:",
+            rutasResponse.status,
+            rutasResponse.statusText
+          );
         }
-
-        // Ahora, puedes utilizar la información de la etapa encontrada
-        console.log("Información de la etapa seleccionada:", selectedEtapa);
-
-        setEtapa(selectedEtapa);
       } catch (error) {
-        console.error("Error al obtener la información:", error.message);
-        setError("Error al obtener la información");
+        console.error("Error al obtener la data del servidor", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [etapa.id]);
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  const setCookie = () => {
+    const tokenValue = "yourTokenValueHere";
+    Cookies.set("miToken", tokenValue, { expires: 7 });
+    setToken(tokenValue);
+  };
 
   return (
     <div className="card-opacity">
       <div className="dashboard-card-clicked-border">
         <div className="dashboard-card-clicked">
           <div className="dashboard-card-clicked-img">
-            {/* ... (otro código) */}
             <div className="dashboard-card-clicked-container">
-              <h2 className="dashboard-card-clicked-title">{etapa.titulo}</h2>
-              <p className="text__content">{etapa.descripcion}</p>
+              <h2 className="dashboard-card-clicked-title">{etapa.nombre}</h2>
+
+              {/* Renderizar la descripción del contenido */}
+              <p className="text__content">{contenido.descripcion}</p>
+
               <p className="text__content requerid">
-                <span>{etapa.etapa?.descripcion}</span>
+                <span>{etapa.descripcion}</span>
               </p>
               <div className="dashboard-card-clicked-botton">
                 <Link to={`/ruta/`}>
-                  <button className="card-botton">
+                  <button onClick={setCookie} className="card-botton">
                     Empezar ruta de aprendizaje
                   </button>
                 </Link>
