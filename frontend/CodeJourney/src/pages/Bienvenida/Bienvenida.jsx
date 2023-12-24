@@ -73,7 +73,7 @@ export const Bienvenida = () => {
       console.log("Respuesta del servidor:", response.data);
 
       Cookies.remove("token");
-      Cookies.set("token", response.data.token, { expires: 7 });
+      Cookies.set("token", response.data.token, { expires: 1 });
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
     }

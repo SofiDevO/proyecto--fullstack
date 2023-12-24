@@ -66,7 +66,7 @@ export const DashboardCardClicked = () => {
 
   const setCookie = () => {
     const tokenValue = "yourTokenValueHere";
-    Cookies.set("miToken", tokenValue, { expires: 7 });
+    Cookies.set("miToken", tokenValue, { expires: 1 });
     setToken(tokenValue);
   };
 

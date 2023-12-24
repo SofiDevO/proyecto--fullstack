@@ -100,7 +100,6 @@ const UserHeader = () => {
   const handleUserClick = () => {
     const popUp = document.querySelector(".card-opasity");
     popUp.classList.remove("hidden");
-    console.log("Holi Moli");
   };
 
   return (

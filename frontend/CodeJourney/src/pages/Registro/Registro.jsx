@@ -25,7 +25,7 @@ export const Registro = () => {
   // Función para guardar la cookie con el token
   const saveTokenInCookie = (token) => {
     const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + 7); // Caduca en 7 días
+    expirationDate.setDate(expirationDate.getDate() + 1);
 
     // Establece la cookie con el token y su fecha de expiración
     Cookies.set("token", token, { expires: expirationDate });

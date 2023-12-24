@@ -1,35 +1,12 @@
-import { useEffect } from "react";
+// SideNav.js
+
+import React from "react";
 import "./SideNav.css";
 import { Logo } from "../Logo/Logo";
-
 import UserHeader from "../UserHeader/UserHeader";
 import { AccordionTechs } from "../AcordionTechs/AcordionTechs";
 
-export const SideNav = () => {
-  useEffect(() => {
-    const handleContainerClick = (e) => {
-      if (
-        e.target.matches(".panel-boton") ||
-        e.target.matches(".panel-boton *")
-      ) {
-        toggleContainer();
-      }
-
-      if (
-        e.target.matches(".tech__item ") ||
-        e.target.matches(".tech__item--link")
-      ) {
-        closeContainer();
-      }
-    };
-
-    document.addEventListener("click", handleContainerClick);
-
-    return () => {
-      document.removeEventListener("click", handleContainerClick);
-    };
-  }, []);
-
+export const SideNav = ({ handleFilteredTechs }) => {
   const toggleContainer = () => {
     const containerInner = document.querySelector(".container__inner");
     const panelBtn = document.querySelector(".panel-boton");
@@ -60,7 +37,7 @@ export const SideNav = () => {
         <Logo />
         <UserHeader />
         <div className="container__inner ">
-          <AccordionTechs />
+          <AccordionTechs onTechsFiltered={handleFilteredTechs} />
         </div>
       </header>
     </>
