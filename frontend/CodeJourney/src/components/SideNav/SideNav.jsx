@@ -1,6 +1,4 @@
-// SideNav.js
-
-import React from "react";
+import React, { useEffect } from "react";
 import "./SideNav.css";
 import { Logo } from "../Logo/Logo";
 import UserHeader from "../UserHeader/UserHeader";
@@ -23,6 +21,15 @@ export const SideNav = ({ handleFilteredTechs }) => {
     panelBtn.classList.remove("is-active");
   };
 
+  useEffect(() => {
+    const panelBtn = document.querySelector(".panel-boton");
+    panelBtn.addEventListener("click", toggleContainer);
+
+    return () => {
+      panelBtn.removeEventListener("click", toggleContainer);
+    };
+  }, []); // Agregar [] como dependencia para que se ejecute solo una vez al montar el componente
+
   return (
     <>
       <header className="header__side">
@@ -36,8 +43,11 @@ export const SideNav = ({ handleFilteredTechs }) => {
         </button>
         <Logo />
         <UserHeader />
-        <div className="container__inner ">
-          <AccordionTechs onTechsFiltered={handleFilteredTechs} />
+        <div className="container__inner">
+          <AccordionTechs
+            onTechsFiltered={handleFilteredTechs}
+            closeContainer={closeContainer} // Pasa la función a AccordionTechs
+          />
         </div>
       </header>
     </>

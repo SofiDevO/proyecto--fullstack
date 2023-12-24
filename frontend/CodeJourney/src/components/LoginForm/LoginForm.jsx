@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import "../../styles/global.css";
-import "../../pages/Login/Login.css";
 import { useForm } from "react-hook-form";
-import { NavLink as Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { apiUrl } from "../services/apiConfig";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
   const {
@@ -21,12 +19,12 @@ export const LoginForm = () => {
     try {
       const response = await axios.post(`${apiUrl}/login`, data);
       const token = response.data.token;
-
+      console.log("Token JWT:", token);
       // Establece la cookie con el token
       setTokenInCookie(token);
-      localStorage.setItem("correo", data.email);
 
-      // Redirige al dashboard después del login exitoso
+      localStorage.setItem("correo", data.email);
+      // Redirige al dashboard después del inicio de sesión exitoso
       navigate("/welcome");
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
@@ -45,12 +43,12 @@ export const LoginForm = () => {
   };
 
   const setTokenInCookie = (token) => {
-    // Establece la cookie con el token
-    Cookies.set("token", token, { expires: 7 }); // Caduca en 7 días
-
-    // Agrega un mensaje de log para verificar
-    console.log("Cookie establecida correctamente:", token);
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + 7);
+    const cookieValue = `token=${token}; expires=${expirationDate.toUTCString()}; path=/`;
+    document.cookie = cookieValue;
   };
+
   return (
     <>
       <div className="form-container-login">
@@ -125,9 +123,6 @@ export const LoginForm = () => {
             className="primary-button login-button"
           />
         </form>
-        <Link className="secondary-button signup-button" to="/registro">
-          Sign up
-        </Link>
       </div>
     </>
   );

@@ -6,12 +6,19 @@ import Cookies from "js-cookie";
 import { apiUrl } from "../services/apiConfig";
 import { useNavigate } from "react-router-dom";
 
-export const AccordionTechs = ({ onTechsFiltered }) => {
-  const navigate = useNavigate();
+export const AccordionTechs = ({ onTechsFiltered, closeContainer }) => {
+  /* const navigate = useNavigate(); */
   const [routes, setRoutes] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const token = Cookies.get("token");
+    console.log("Token en AccordionTechs:", token);
+
+    if (!token) {
+      console.warn("Token no encontrado en las cookies.");
+      return;
+    }
     const fetchData = async () => {
       try {
         const token = Cookies.get("token");
@@ -57,17 +64,35 @@ export const AccordionTechs = ({ onTechsFiltered }) => {
         return;
       }
 
-      const techsResponse = await axios.get(
-        `${apiUrl}/api/v1/usuario_etapa/filtrar?rutaId=${etapaId}&etapaId=${etapaId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      let techsResponse;
 
-      // En lugar de manejar el estado aquí, pasa los datos filtrados a la función onTechsFiltered
+      if (techName === "span") {
+        // Si se hizo clic en el span, filtra solo por ruta
+        techsResponse = await axios.get(
+          `${apiUrl}/api/v1/usuario_etapa/filtrar?rutaId=${etapaId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+      } else {
+        // Si se hizo clic en el li, filtra por ruta y etapa
+        techsResponse = await axios.get(
+          `${apiUrl}/api/v1/usuario_etapa/filtrar?rutaId=${etapaId}&etapaId=${etapaId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+      }
+
+      // Pasa los datos filtrados a la función onTechsFiltered
       onTechsFiltered(techsResponse.data);
+
+      // Cierra el contenedor al hacer clic en "ruta__span" o "tech__item"
+      closeContainer();
     } catch (error) {
       console.error("Error al obtener tecnologías:", error.message);
     }
@@ -91,7 +116,10 @@ export const AccordionTechs = ({ onTechsFiltered }) => {
             name={`${route.nombre}${route.id}`}
           />
           <div className="line__container">
-            <span onClick={() => handleListItemClick(route.nombre, route.id)}>
+            <span
+              className="ruta__span"
+              onClick={() => handleListItemClick(route.nombre, route.id)}
+            >
               {route.nombre.split(" ").pop()}
             </span>
             <div className="container__cruz">

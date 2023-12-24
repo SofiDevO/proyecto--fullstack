@@ -115,6 +115,7 @@ export const UserCard = () => {
   };
 
   const handleLogout = () => {
+    console.log("Cerrando sesión...");
     Cookies.remove("token", { path: "/" });
     localStorage.removeItem("correo");
     navigate("/");
