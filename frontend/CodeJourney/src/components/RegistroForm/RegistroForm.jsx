@@ -182,7 +182,6 @@ export const RegistroForm = ({ onSuccessfulRegistration, setErrorMessage }) => {
         )}
 
         {errorMessage && <p className="error-message">{errorMessage}</p>}
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
         <input
           type="submit"

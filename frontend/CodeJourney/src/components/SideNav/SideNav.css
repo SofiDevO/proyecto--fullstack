@@ -10,7 +10,7 @@
   width: 32%;
   align-items: center;
   justify-content: space-around;
-  height: 100dvh;
+  height: auto;
 }
 
 .container__user {
