@@ -3,10 +3,9 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { apiUrl } from "../services/apiConfig";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import "./DashboardCard.css";
 
-export const DashboardCard = () => {
+export const DashboardCard = ({ filteredTechs }) => {
   const navigate = useNavigate();
   const [etapas, setEtapas] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,38 +21,44 @@ export const DashboardCard = () => {
           return;
         }
 
-        const rutasResponse = await axios.get(
-          `${apiUrl}/api/v1/usuario_ruta/obtenerRutasAsociadas`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        if (!Array.isArray(rutasResponse.data)) {
-          console.error(
-            "La respuesta de la API no es un array:",
-            rutasResponse.data
+        if (filteredTechs) {
+          // Si hay tecnologías filtradas, muestra solo las tarjetas asociadas
+          setEtapas(filteredTechs);
+        } else {
+          // Si no hay tecnologías filtradas, carga todas las tarjetas
+          const rutasResponse = await axios.get(
+            `${apiUrl}/api/v1/usuario_ruta/obtenerRutasAsociadas`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
           );
-          setError("Error al obtener las rutas");
-          return;
-        }
 
-        const rutasIds = rutasResponse.data.map((ruta) => ruta.id);
-
-        const etapasResponse = await axios.get(
-          `${apiUrl}/api/v1/usuario_etapa/filtrar?${rutasIds
-            .map((rutaId) => `rutaId=${rutaId}`)
-            .join("&")}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+          if (!Array.isArray(rutasResponse.data)) {
+            console.error(
+              "La respuesta de la API no es un array:",
+              rutasResponse.data
+            );
+            setError("Error al obtener las rutas");
+            return;
           }
-        );
 
-        setEtapas(etapasResponse.data);
+          const rutasIds = rutasResponse.data.map((ruta) => ruta.id);
+
+          const etapasResponse = await axios.get(
+            `${apiUrl}/api/v1/usuario_etapa/filtrar?${rutasIds
+              .map((rutaId) => `rutaId=${rutaId}`)
+              .join("&")}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          setEtapas(etapasResponse.data);
+        }
       } catch (error) {
         console.error("Error al obtener las etapas:", error.message);
         setError("Error al obtener las etapas");
@@ -63,7 +68,7 @@ export const DashboardCard = () => {
     };
 
     fetchData();
-  }, [navigate]);
+  }, [filteredTechs, navigate]);
 
   const handleCardClick = (etapa) => {
     navigate(`/detalle/${etapa.id}`, { state: { etapa } });

@@ -14,11 +14,6 @@ const UserHeader = () => {
     try {
       const token = Cookies.get("token");
 
-      if (!token) {
-        navigate("/login");
-        return null;
-      }
-
       const response = await axios.get(`${apiUrl}/api/v1/usuario/obtener/`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -100,7 +95,6 @@ const UserHeader = () => {
   const handleUserClick = () => {
     const popUp = document.querySelector(".card-opasity");
     popUp.classList.remove("hidden");
-    console.log("Holi Moli");
   };
 
   return (

@@ -1,24 +1,32 @@
+// AccordionTechs.js
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { apiUrl } from "../services/apiConfig";
+import { useNavigate } from "react-router-dom";
 
-export const AccordionTechs = () => {
-  const [routes, setRoutes] = useState(null); // Cambiado a null para indicar estado de carga
+export const AccordionTechs = ({ onTechsFiltered, closeContainer }) => {
+  /* const navigate = useNavigate(); */
+  const [routes, setRoutes] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const token = Cookies.get("token");
+    console.log("Token en AccordionTechs:", token);
+
+    if (!token) {
+      console.warn("Token no encontrado en las cookies.");
+      return;
+    }
     const fetchData = async () => {
       try {
         const token = Cookies.get("token");
 
         if (!token) {
-          // Redirige al login si no hay token
-          // Puedes ajustar esto según tus necesidades
           return;
         }
 
-        // Endpoint para obtener las rutas asociadas al aprendiz
         const routesResponse = await axios.get(
           `${apiUrl}/api/v1/usuario_ruta/obtenerRutasAsociadas`,
           {
@@ -28,7 +36,6 @@ export const AccordionTechs = () => {
           }
         );
 
-        // Verifica si routesResponse.data es un array
         if (!Array.isArray(routesResponse.data)) {
           console.error(
             "La respuesta de la API no es un array:",
@@ -38,34 +45,8 @@ export const AccordionTechs = () => {
           return;
         }
 
-        // Filtrar tecnologías asociadas a las rutas
-        const techsResponse = await Promise.all(
-          routesResponse.data.map(async (route) => {
-            try {
-              const techs = await axios.get(
-                `${apiUrl}/api/v1/usuario_etapa/filtrar?rutaId=${route.id}`,
-                {
-                  headers: {
-                    Authorization: `Bearer ${token}`,
-                  },
-                }
-              );
-
-              return techs.data; // Devuelve solo los datos de techs
-            } catch (error) {
-              console.error("Error al obtener tecnologías:", error.message);
-              return [];
-            }
-          })
-        );
-
-        // Asignar las tecnologías a cada ruta
-        setRoutes(
-          techsResponse.map((techs, index) => ({
-            ...routesResponse.data[index],
-            tecnologias: techs.map((item) => item.nombre),
-          }))
-        );
+        // Actualiza el estado de routes con la respuesta de la API
+        setRoutes(routesResponse.data);
       } catch (error) {
         console.error("Error al obtener las rutas:", error.message);
         setError("Error al obtener las rutas");
@@ -73,12 +54,49 @@ export const AccordionTechs = () => {
     };
 
     fetchData();
+  }, []);
 
-    // Retorno de llamada para cancelar solicitudes pendientes cuando el componente se desmonta
-    return () => {
-      // Cancela solicitudes pendientes si es necesario
-    };
-  }, []); // Se ejecuta al montar el componente
+  const handleListItemClick = async (techName, etapaId) => {
+    try {
+      const token = Cookies.get("token");
+
+      if (!token) {
+        return;
+      }
+
+      let techsResponse;
+
+      if (techName === "span") {
+        // Si se hizo clic en el span, filtra solo por ruta
+        techsResponse = await axios.get(
+          `${apiUrl}/api/v1/usuario_etapa/filtrar?rutaId=${etapaId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+      } else {
+        // Si se hizo clic en el li, filtra por ruta y etapa
+        techsResponse = await axios.get(
+          `${apiUrl}/api/v1/usuario_etapa/filtrar?rutaId=${etapaId}&etapaId=${etapaId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+      }
+
+      // Pasa los datos filtrados a la función onTechsFiltered
+      onTechsFiltered(techsResponse.data);
+
+      // Cierra el contenedor al hacer clic en "ruta__span" o "tech__item"
+      closeContainer();
+    } catch (error) {
+      console.error("Error al obtener tecnologías:", error.message);
+    }
+  };
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -90,31 +108,36 @@ export const AccordionTechs = () => {
 
   return (
     <div className="tecnologias">
-      {/* Mapea sobre el estado "routes" para renderizar las etiquetas */}
       {routes.map((route) => (
         <label className="box__toggle" key={route.id}>
-          {/* Agregamos el id a la propiedad name */}
           <input
             className="checkbox"
             type="checkbox"
             name={`${route.nombre}${route.id}`}
           />
           <div className="line__container">
-            <span>{route.nombre.split(" ").pop()}</span>
+            <span
+              className="ruta__span"
+              onClick={() => handleListItemClick(route.nombre, route.id)}
+            >
+              {route.nombre.split(" ").pop()}
+            </span>
             <div className="container__cruz">
               <span className="line"></span>
               <span className="line"></span>
             </div>
           </div>
-          {/* Renderiza las tecnologías aquí */}
           <ul className="techs">
-            {route.tecnologias.map((tech, index) => (
-              <li key={index} className="tech__item">
-                <a className="tech__item--link" href="#">
+            {route.tecnologias &&
+              route.tecnologias.map((tech, index) => (
+                <li
+                  key={index}
+                  className="tech__item tech__item--link"
+                  onClick={() => handleListItemClick(tech, route.id)}
+                >
                   {tech}
-                </a>
-              </li>
-            ))}
+                </li>
+              ))}
           </ul>
         </label>
       ))}
