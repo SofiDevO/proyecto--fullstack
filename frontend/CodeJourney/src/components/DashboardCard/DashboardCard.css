@@ -1,19 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,127.2,1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
 
-.dashboard-card-border {
-  padding: 20px 40px;
-}
-
 .dashboard-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 15px 22px;
   background: #000000;
   border: 2px solid var(--primary-color-hover);
   border-radius: 25px;
+  align-items: center;
+  max-width: 332px;
+  height: 24dvh;
 }
 .dashboard-card:hover {
   background: var(--text-gradient);
@@ -24,11 +22,20 @@
 .dashboard-card:hover > .dashboard-card-container > .dashboard-card-title {
   color: black;
 }
-
+.container__parent {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-self: center;
+  gap: 5rem;
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+}
 .dashboard-card-title {
   text-align: center;
   color: #fff;
-  font-size: 55px;
+  font-size: 3.2rem;
   font-weight: bolder;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -40,19 +47,14 @@
 }
 
 .dashboard-card p {
-  padding: 1em;
   color: #fff;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-family: var(--text-font);
 }
 
 /* } delete  */
 
 @media screen and (max-width: 939px) {
-  .dashboard-card-border {
-    padding: 10px 20px;
-  }
-
   .dashboard-card {
     border-radius: 25px;
     flex-direction: column;

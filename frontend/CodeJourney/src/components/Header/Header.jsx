@@ -7,14 +7,7 @@ import { Logo } from "../Logo/Logo";
 export const Header = (props) => {
   const token = Cookies.get("token");
 
-  const handleRegisterClick = () => {
-    // Agrega aquí la lógica para eliminar las cookies al hacer clic en "Registrarse"
-    Cookies.remove("token", { path: "/" });
-    // Puedes agregar más cookies si es necesario, por ejemplo, Cookies.remove("otraCookie", { path: "/" });
-
-    // También puedes redirigir a la página de registro después de eliminar las cookies
-    // window.location.href = "/registro";
-  };
+  const handleRegisterClick = () => {};
 
   useEffect(() => {
     const handleClick = (e) => {
@@ -47,6 +40,13 @@ export const Header = (props) => {
           <ul className="header__list">
             {props.navlink}
             <div className="btn__container">
+              {token && (
+                <Boton
+                  className="header__btn--register"
+                  text="Dashboard"
+                  link="/dashboard"
+                />
+              )}
               {!token && (
                 <>
                   <Boton
@@ -58,16 +58,9 @@ export const Header = (props) => {
                     text="Registrarse"
                     className="header__btn--login"
                     link="/registro"
-                    onClick={handleRegisterClick} // Agrega el manejador de clics
+                    onClick={handleRegisterClick}
                   />
                 </>
-              )}
-              {token && (
-                <Boton
-                  className="header__btn--register"
-                  text="Dashboard"
-                  link="/dashboard"
-                />
               )}
             </div>
           </ul>

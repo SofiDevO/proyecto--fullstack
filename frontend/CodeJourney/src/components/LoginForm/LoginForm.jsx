@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-import Cookies from "js-cookie";
 import { apiUrl } from "../services/apiConfig";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const LoginForm = () => {
   const {
@@ -20,15 +19,14 @@ export const LoginForm = () => {
       const response = await axios.post(`${apiUrl}/login`, data);
       const token = response.data.token;
       console.log("Token JWT:", token);
-      // Establece la cookie con el token
-      setTokenInCookie(token);
 
-      localStorage.setItem("correo", data.email);
-      // Redirige al dashboard después del inicio de sesión exitoso
+      setTokenInCookie(token);
+      setCorreoInLocalStorage(data.email);
+
       navigate("/welcome");
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
-
+      // Verifica si el error es debido a una contraseña incorrecta
       if (
         (error.response && error.response.status === 403) ||
         error.response.status === 401
@@ -44,11 +42,13 @@ export const LoginForm = () => {
 
   const setTokenInCookie = (token) => {
     const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + 7);
+    expirationDate.setDate(expirationDate.getDate() + 1);
     const cookieValue = `token=${token}; expires=${expirationDate.toUTCString()}; path=/`;
     document.cookie = cookieValue;
   };
-
+  const setCorreoInLocalStorage = (email) => {
+    localStorage.setItem("correo", email);
+  };
   return (
     <>
       <div className="form-container-login">

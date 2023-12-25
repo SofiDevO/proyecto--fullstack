@@ -11,13 +11,17 @@ export const DashboardCard = ({ filteredTechs }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  /*  const redirectToLogin = () => {
+    navigate("/login");
+  }; */
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const token = Cookies.get("token");
 
         if (!token) {
-          navigate("/login");
+          /* redirectToLogin(); */
           return;
         }
 
@@ -68,7 +72,7 @@ export const DashboardCard = ({ filteredTechs }) => {
     };
 
     fetchData();
-  }, [filteredTechs, navigate]);
+  }, [filteredTechs]);
 
   const handleCardClick = (etapa) => {
     navigate(`/detalle/${etapa.id}`, { state: { etapa } });
@@ -83,21 +87,23 @@ export const DashboardCard = ({ filteredTechs }) => {
   }
 
   return (
-    <div>
-      {etapas.map((etapa) => (
-        <div
-          onClick={() => handleCardClick(etapa)}
-          className="dashboard-card-border"
-          key={etapa.id}
-        >
-          <div className="dashboard-card">
-            <div className="dashboard-card-container">
-              <h2 className="dashboard-card-title">{etapa.nombre}</h2>
-              <p className="text__content">{etapa.descripcion}</p>
+    <>
+      <div className="container__parent">
+        {etapas.map((etapa) => (
+          <div
+            onClick={() => handleCardClick(etapa)}
+            className="dashboard-card-border"
+            key={etapa.id}
+          >
+            <div className="dashboard-card">
+              <div className="dashboard-card-container">
+                <h2 className="dashboard-card-title">{etapa.nombre}</h2>
+                <p className="text__content">{etapa.descripcion}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 };

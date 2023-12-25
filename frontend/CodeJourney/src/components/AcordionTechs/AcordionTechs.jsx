@@ -1,29 +1,19 @@
-// AccordionTechs.js
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { apiUrl } from "../services/apiConfig";
-import { useNavigate } from "react-router-dom";
 
 export const AccordionTechs = ({ onTechsFiltered, closeContainer }) => {
-  /* const navigate = useNavigate(); */
   const [routes, setRoutes] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const token = Cookies.get("token");
-    console.log("Token en AccordionTechs:", token);
-
-    if (!token) {
-      console.warn("Token no encontrado en las cookies.");
-      return;
-    }
     const fetchData = async () => {
       try {
         const token = Cookies.get("token");
 
         if (!token) {
+          console.warn("Token no encontrado en las cookies.");
           return;
         }
 

@@ -27,7 +27,7 @@ export const Login = () => {
       console.log("Token JWT:", token);
 
       setTokenInCookie(token);
-      setCorreoInLocalStorage(data.email); // Nueva línea
+      setCorreoInLocalStorage(data.email);
 
       navigate("/dashboard");
     } catch (error) {
@@ -48,15 +48,13 @@ export const Login = () => {
 
   const setTokenInCookie = (token) => {
     const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + 7);
+    expirationDate.setDate(expirationDate.getDate() + 1);
     const cookieValue = `token=${token}; expires=${expirationDate.toUTCString()}; path=/`;
     document.cookie = cookieValue;
   };
-
   const setCorreoInLocalStorage = (email) => {
     localStorage.setItem("correo", email);
   };
-
   return (
     <>
       <Header navlink={<NavLinkEquipo />} />{" "}

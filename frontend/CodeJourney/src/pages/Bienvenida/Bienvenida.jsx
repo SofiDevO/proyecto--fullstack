@@ -51,6 +51,7 @@ export const Bienvenida = () => {
   const onSubmit = async (data) => {
     try {
       const token = Cookies.get("token");
+      console.log("Token antes de la solicitud POST:", token);
       const headers = {
         Authorization: `Bearer ${token}`,
       };
