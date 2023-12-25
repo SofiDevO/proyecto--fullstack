@@ -87,13 +87,10 @@ export const Ruta = () => {
                           </ul>
                         </div>
                       </div>
-                      <div className="check-ruta">
-                        <span>
-                          Conocimiento del <br /> nivel aprendido:{" "}
-                          {contenido.titulo}
-                        </span>
+                      <label className="check-ruta">
+                        <span>Marcar como completado</span>
                         <input type="checkbox" />
-                      </div>
+                      </label>
                     </div>
                   </Typography>
                 </AccordionDetails>

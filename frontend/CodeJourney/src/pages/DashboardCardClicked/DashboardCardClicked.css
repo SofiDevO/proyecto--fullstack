@@ -2,10 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
 
 .card-opasity {
-  z-index: 11;
   content: "";
   position: absolute;
-  background: #16161669;
+  background: #16161675;
+  backdrop-filter: blur(13px);
   width: 100%;
   height: 100%;
   top: 0;
@@ -21,7 +21,9 @@
 
 .dashboard-card-clicked {
   padding: 20px;
-  background-color: #00352c;
+  background-color: #00381e50;
+  backdrop-filter: blur(13px);
+  border: 1px solid #0cffab;
   border-radius: 25px;
   flex-direction: column;
   align-items: center;
@@ -33,6 +35,8 @@
 
 .dashboard-card-clicked-img {
   padding: 8px;
+  width: 100%;
+  display: flex;
 }
 
 .dashboard-card-clicked img {
@@ -68,7 +72,7 @@
   border-width: 4px;
   border-radius: 20px;
   backdrop-filter: blur(14px);
-  background-color: rgba(0, 0, 0, 0.44);
+  background-color: rgb(0 0 0);
   cursor: pointer;
   box-shadow: 1px 3px 11px -5px rgba(102, 231, 200, 0.69);
   font-size: 1.3rem;
@@ -76,9 +80,10 @@
 }
 
 .dashboard-card-clicked-botton .card-botton:hover {
-  background-color: #ffffff00;
+  background: var(--text-gradient);
   border-color: #0cffab;
   box-shadow: 3px 6px 16px -5px #0cffab;
+  color: black;
   transition: ease-in 0.2s;
 }
 
