@@ -1,7 +1,6 @@
 // Dashboard.js
 
 import React, { useState } from "react";
-import { AccordionTechs } from "../../components/AcordionTechs/AcordionTechs";
 import { DashboardCard } from "../../components/DashboardCard/DashboardCard";
 import { SideNav } from "../../components/SideNav/SideNav";
 import { UserCard } from "../../components/UserCard/UserCard";
