@@ -21,7 +21,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/welcome" element={<Bienvenida />} />
           <Route path="/detalle/:id" element={<DashboardCardClicked />} />
-          <Route path="/ruta" element={<Ruta />} />
+          <Route path="/ruta/:id" element={<Ruta />} />
           <Route path="/*" element={<SectionPageError />} />
         </Routes>
       </Router>
