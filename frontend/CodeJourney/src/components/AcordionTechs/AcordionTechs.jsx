@@ -6,6 +6,7 @@ import { apiUrl } from "../services/apiConfig";
 export const AccordionTechs = ({ onTechsFiltered, closeContainer }) => {
   const [routes, setRoutes] = useState(null);
   const [error, setError] = useState(null);
+  const [isAllTechsVisible, setIsAllTechsVisible] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,8 +36,8 @@ export const AccordionTechs = ({ onTechsFiltered, closeContainer }) => {
           return;
         }
 
-        // Actualiza el estado de routes con la respuesta de la API
         setRoutes(routesResponse.data);
+        setIsAllTechsVisible(true); // Set all techs to be visible initially
       } catch (error) {
         console.error("Error al obtener las rutas:", error.message);
         setError("Error al obtener las rutas");
@@ -57,7 +58,6 @@ export const AccordionTechs = ({ onTechsFiltered, closeContainer }) => {
       let techsResponse;
 
       if (techName === "span") {
-        // Si se hizo clic en el span, filtra solo por ruta
         techsResponse = await axios.get(
           `${apiUrl}/api/v1/usuario_etapa/filtrar?rutaId=${etapaId}`,
           {
@@ -67,7 +67,6 @@ export const AccordionTechs = ({ onTechsFiltered, closeContainer }) => {
           }
         );
       } else {
-        // Si se hizo clic en el li, filtra por ruta y etapa
         techsResponse = await axios.get(
           `${apiUrl}/api/v1/usuario_etapa/filtrar?rutaId=${etapaId}&etapaId=${etapaId}`,
           {
@@ -78,13 +77,36 @@ export const AccordionTechs = ({ onTechsFiltered, closeContainer }) => {
         );
       }
 
-      // Pasa los datos filtrados a la función onTechsFiltered
       onTechsFiltered(techsResponse.data);
-
-      // Cierra el contenedor al hacer clic en "ruta__span" o "tech__item"
       closeContainer();
     } catch (error) {
       console.error("Error al obtener tecnologías:", error.message);
+    }
+  };
+
+  const handleCheckboxChange = async (route) => {
+    try {
+      if (!isAllTechsVisible) {
+        onTechsFiltered(null); // Pass null or an empty array depending on your logic
+      } else {
+        // Filter technologies for the clicked route
+        const token = Cookies.get("token");
+        const techsResponse = await axios.get(
+          `${apiUrl}/api/v1/usuario_etapa/filtrar?rutaId=${route.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        onTechsFiltered(techsResponse.data);
+        closeContainer();
+      }
+
+      setIsAllTechsVisible(!isAllTechsVisible); // Toggle the state
+    } catch (error) {
+      console.error("Error al filtrar tecnologías:", error.message);
     }
   };
 
@@ -99,11 +121,13 @@ export const AccordionTechs = ({ onTechsFiltered, closeContainer }) => {
   return (
     <div className="tecnologias">
       {routes.map((route) => (
-        <label className="box__toggle" key={route.id}>
+        <label key={route.id} className="box__toggle">
           <input
             className="checkbox"
             type="checkbox"
             name={`${route.nombre}${route.id}`}
+            checked={isAllTechsVisible}
+            onChange={() => handleCheckboxChange(route)}
           />
           <div className="line__container">
             <span
@@ -117,18 +141,19 @@ export const AccordionTechs = ({ onTechsFiltered, closeContainer }) => {
               <span className="line"></span>
             </div>
           </div>
-          <ul className="techs">
-            {route.tecnologias &&
-              route.tecnologias.map((tech, index) => (
+          {route.tecnologias && (
+            <ul className="techs">
+              {route.tecnologias.map((tech, index) => (
                 <li
                   key={index}
                   className="tech__item tech__item--link"
                   onClick={() => handleListItemClick(tech, route.id)}
                 >
-                  {tech}
+                  {tech.nombre}
                 </li>
               ))}
-          </ul>
+            </ul>
+          )}
         </label>
       ))}
     </div>
