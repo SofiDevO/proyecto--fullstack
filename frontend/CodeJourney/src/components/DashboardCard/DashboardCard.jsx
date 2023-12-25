@@ -11,10 +11,6 @@ export const DashboardCard = ({ filteredTechs }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  /*  const redirectToLogin = () => {
-    navigate("/login");
-  }; */
-
   useEffect(() => {
     const fetchData = async () => {
       try {

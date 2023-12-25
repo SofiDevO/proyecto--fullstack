@@ -174,13 +174,13 @@
   background-color: #04bd7d;
   border-radius: 20px;
 }
-label:has(> .checkbox:checked) > .techs {
+/* label:has(> .checkbox:checked) > .techs {
   overflow-y: scroll;
   display: block;
-}
-.box__toggle:has(> .checkbox:checked) {
+} */
+/* .box__toggle:has(> .checkbox:checked) {
   height: 25vh;
-}
+} */
 
 .line__container span {
   margin-bottom: 4px;
