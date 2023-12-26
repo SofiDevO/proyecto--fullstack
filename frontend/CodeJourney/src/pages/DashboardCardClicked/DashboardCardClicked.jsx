@@ -15,7 +15,7 @@ export const DashboardCardClicked = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const savedToken = Cookies.get("miToken");
+        const savedToken = Cookies.get("token");
 
         if (!savedToken) {
           navigate("/login");
