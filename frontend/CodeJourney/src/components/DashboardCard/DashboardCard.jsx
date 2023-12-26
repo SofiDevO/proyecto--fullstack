@@ -34,7 +34,6 @@ export const DashboardCard = ({ filteredTechs }) => {
               },
             }
           );
-
           if (!Array.isArray(rutasResponse.data)) {
             console.error(
               "La respuesta de la API no es un array:",

@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import "../../styles/global.css";
+import "../../pages/Login/Login.css";
 import { useForm } from "react-hook-form";
-import { apiUrl } from "../services/apiConfig";
-import { useNavigate } from "react-router-dom";
+import { NavLink as Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
+import { apiUrl } from "../services/apiConfig";
 
 export const LoginForm = () => {
   const {
@@ -18,15 +21,16 @@ export const LoginForm = () => {
     try {
       const response = await axios.post(`${apiUrl}/login`, data);
       const token = response.data.token;
-      console.log("Token JWT:", token);
 
+      // Establece la cookie con el token
       setTokenInCookie(token);
-      setCorreoInLocalStorage(data.email);
+      localStorage.setItem("correo", data.email);
 
+      // Redirige al dashboard después del login exitoso
       navigate("/welcome");
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
-      // Verifica si el error es debido a una contraseña incorrecta
+
       if (
         (error.response && error.response.status === 403) ||
         error.response.status === 401
@@ -41,13 +45,11 @@ export const LoginForm = () => {
   };
 
   const setTokenInCookie = (token) => {
-    const expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + 1);
-    const cookieValue = `token=${token}; expires=${expirationDate.toUTCString()}; path=/`;
-    document.cookie = cookieValue;
-  };
-  const setCorreoInLocalStorage = (email) => {
-    localStorage.setItem("correo", email);
+    // Establece la cookie con el token
+    Cookies.set("token", token, { expires: 7 }); // Caduca en 7 días
+
+    // Agrega un mensaje de log para verificar
+    console.log("Cookie establecida correctamente:", token);
   };
   return (
     <>
@@ -123,6 +125,9 @@ export const LoginForm = () => {
             className="primary-button login-button"
           />
         </form>
+        <Link className="secondary-button signup-button" to="/registro">
+          Sign up
+        </Link>
       </div>
     </>
   );
