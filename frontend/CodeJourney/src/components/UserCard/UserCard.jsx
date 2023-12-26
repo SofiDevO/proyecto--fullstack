@@ -22,7 +22,6 @@ export const UserCard = () => {
       PopUpClose.classList.toggle("hidden");
     }
   };
-
   const obtenerTodosLosUsuarios = async () => {
     try {
       const token = Cookies.get("token");
@@ -37,7 +36,6 @@ export const UserCard = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
       return response.data;
     } catch (error) {
       console.error("Error al obtener la lista de usuarios:", error.message);
@@ -45,17 +43,13 @@ export const UserCard = () => {
       if (error.response && error.response.status === 403) {
         navigate("/login");
       }
-
       setError(true);
     }
   };
-
   const obtenerInformacionUsuario = async (correoUsuario) => {
     try {
       const todosLosUsuarios = await obtenerTodosLosUsuarios();
-
       const usuario = todosLosUsuarios.find((u) => u.correo === correoUsuario);
-
       if (usuario) {
         setNombre(usuario.nombre);
         setCorreo(usuario.correo);
@@ -90,9 +84,7 @@ export const UserCard = () => {
 
   useEffect(() => {
     fetchUserImage();
-
     const token = Cookies.get("token");
-
     if (!token) {
       navigate("/login");
     } else {

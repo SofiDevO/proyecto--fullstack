@@ -72,8 +72,6 @@ export const Bienvenida = () => {
       );
 
       console.log("Respuesta del servidor:", response.data);
-
-      Cookies.set("token", response.data.token, { expires: 1 });
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
     }

@@ -6,6 +6,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { apiUrl } from "../../components/services/apiConfig";
+import { useNavigate } from "react-router-dom";
 import "./Ruta.css";
 import "../../styles/global.css";
 import { Footer } from "../../components/footer/Footer";
@@ -15,10 +16,16 @@ export const Ruta = () => {
   const [contenidoData, setContenidoData] = useState([]);
   const location = useLocation();
   const id = location.pathname.split("/ruta/")[1];
+  const navigate = useNavigate();
 
   const obtenerContenidos = async () => {
     try {
       const token = Cookies.get("token");
+
+      if (!token) {
+        navigate("/login");
+        return;
+      }
       const response = await fetch(
         `${apiUrl}/api/v1/usuario-contenidos/obtener/etapa/${id}`,
         {
@@ -27,7 +34,6 @@ export const Ruta = () => {
           },
         }
       );
-
       if (response.ok) {
         const data = await response.json();
         setContenidoData(data);
